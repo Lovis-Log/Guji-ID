@@ -100,4 +100,13 @@
       if (!input.value.trim()) { event.preventDefault(); input.focus(); }
     });
   });
+  const paperSearch = document.querySelector('#name-query');
+  document.querySelectorAll('.search-examples [data-query]').forEach(button => {
+    button.addEventListener('click', () => {
+      if (!paperSearch) return;
+      paperSearch.value = button.dataset.query || '';
+      paperSearch.focus();
+      paperSearch.setSelectionRange(paperSearch.value.length, paperSearch.value.length);
+    });
+  });
 })();

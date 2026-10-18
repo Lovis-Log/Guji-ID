@@ -18,7 +18,7 @@
         <div class="search-controls"><input id="name-query" name="q" type="search" value="{{ q }}" placeholder="姓名、字、号、谥号" maxlength="100" enterkeyhint="search" autocomplete="off" aria-describedby="search-help" required><button type="submit">检索称呼</button></div>
         <p id="search-help">本名、字、号与别称均可查询。精确匹配优先，支持简繁转换及部分名称检索；转换只用于检索，不合并人物。</p>
       </form>
-      {% if examples %}<nav class="search-examples" aria-label="已收录检索示例"><span>试着查：</span>{% for term in examples %}<a href="{{ url_for('search').include_query_params(q=term) }}#results">{{ term }}</a>{% endfor %}</nav>{% endif %}
+      {% if examples %}<div class="search-examples" role="group" aria-label="已收录检索示例"><span>试着查：</span>{% for term in examples %}<button type="button" data-query="{{ term }}" aria-label="将{{ term }}填入搜索框">{{ term }}</button>{% endfor %}</div>{% endif %}
       <p class="phase-note">{% if pipeline %}当前可公开检索 {{ public_counts.people }} 位已核准人物、{{ public_counts.aliases }} 条可追溯称呼。核准方法包含结构化来源与原文证据，请按各条记录的标记查阅。{% else %}当前可公开检索 {{ public_counts.people }} 位已核对人物、{{ public_counts.aliases }} 条有直接支持证据的称呼。{% endif %}</p>
       <div class="service"><span id="health-status" role="status" aria-live="polite">服务状态待检查</span><button type="button" id="check-health">检查服务状态</button><noscript><a href="/health">查看健康检查</a></noscript></div>
     </div>

@@ -174,6 +174,9 @@ body.immersive-home{color:#29231d;overflow-x:clip}
 .immersive-home .ink-focus span{background:rgba(58,29,17,.25)}
 .immersive-home .archive-stage{margin-top:-1px;scroll-margin-top:120px}
 .immersive-home .results-section,.immersive-home #data,.immersive-home #name-query{scroll-margin-top:120px}
+@keyframes results-reveal{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.immersive-home .results-section{animation:results-reveal .55s cubic-bezier(.22,1,.36,1) both}
+@media(prefers-reduced-motion:reduce){.immersive-home .results-section{animation:none}}
 .immersive-home .immersive-paper{background:#eee5d3 url('assets/rice-paper.webp') center top/cover;padding:0 max(32px,calc((100vw - 1160px)/2)) 55px}
 .immersive-home .immersive-paper>.intro{padding-top:42px;border-top:1px solid #bba98b}
 .immersive-home .immersive-paper .principles{border-color:#b7a78f}

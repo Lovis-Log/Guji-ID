@@ -10,6 +10,7 @@ import pytest
 from fastapi.testclient import TestClient
 
 from app import archive_display
+from app.catalog import curated_examples
 from app.db import connect_db, init_db
 from app.main import create_app
 
@@ -86,6 +87,22 @@ def test_person_page_uses_same_dynamic_slip_and_links_to_its_own_profile(immersi
     assert 'href="#profile-title">查看下方完整人物档案' in page
     assert 'href="/people/TEST-P-ONE">查看完整人物档案' not in page
     assert "李白" not in page
+
+
+def test_curated_examples_keep_requested_order_and_hide_unverified(tmp_path):
+    path = tmp_path / "TEST_ONLY_examples.db"
+    init_db(path)
+    with connect_db(path) as connection:
+        connection.executemany(
+            "INSERT INTO people(person_id,canonical_name,verification_status) VALUES(?,?,?)",
+            [
+                ("TEST-LB", "李白", "verified"),
+                ("TEST-BJY", "白居易", "verified"),
+                ("TEST-XQJ", "辛棄疾", "verified"),
+                ("TEST-DF", "杜甫", "pending"),
+            ],
+        )
+    assert curated_examples(path) == ["李白", "白居易", "辛弃疾"]
 
 
 def test_long_names_use_a_balanced_slip_class(immersive_client):

@@ -136,6 +136,16 @@ def run_full(browser, base, out, label, width, height, failures, report):
     intro_width = intro_input["width"] if intro_input else 0
     minimum_width = 400 if width > 760 else 180
     check(intro_width >= minimum_width, f"{label}: bottom search input is too narrow ({intro_width}px)", failures)
+    example_terms = page.locator(".search-examples button").all_inner_texts()
+    check(example_terms == ["李白", "杜甫", "白居易", "辛弃疾"],
+          f"{label}: curated examples changed: {example_terms}", failures)
+    example_fill_only = False
+    if example_terms:
+        page.locator(".search-examples button").first.click()
+        page.wait_for_timeout(200)
+        example_fill_only = (page.url.rstrip("/") == base and
+                             page.locator("#name-query").input_value() == example_terms[0])
+        check(example_fill_only, f"{label}: example click navigated instead of filling the input", failures)
     page.locator("#name-query").fill("王珪")
     with page.expect_navigation():
         page.locator(".intro .search-controls button").click()
@@ -146,8 +156,13 @@ def run_full(browser, base, out, label, width, height, failures, report):
     check(story_display == "none", f"{label}: search page still renders the three-act story", failures)
     check(page.url.endswith("#results"), f"{label}: bottom search did not target #results", failures)
     check(page.locator(".candidate-card").count() == 2, f"{label}: bottom search lost 王珪 homonyms", failures)
+    results_animation = page.locator("#results").evaluate("(node) => getComputedStyle(node).animationName")
+    check("results-reveal" in results_animation, f"{label}: results fade animation is missing", failures)
     data["intro_search"] = {"input_width": round(intro_width, 1), "story_display": story_display,
-                            "results_top": round(intro_results_top, 1), "api": "bottom intro form"}
+                            "results_top": round(intro_results_top, 1), "api": "bottom intro form",
+                            "examples": example_terms, "example_fill_only": example_fill_only,
+                            "results_animation": results_animation}
+    page.wait_for_timeout(650)
     screenshot(page, out, f"intro-search-direct-{label}")
 
     # Search via keyboard from the paper section, then verify the fixed header does not cover results.
@@ -170,6 +185,7 @@ def run_full(browser, base, out, label, width, height, failures, report):
     check(page.locator("[data-archive-display]").get_attribute("data-person-id") == "",
           f"{label}: homonym search incorrectly selected one identity", failures)
     data["wang_gui"] = {"result_ids": ids, "archive_person_id": "", "result_top": round(heading_box["y"], 1)}
+    page.wait_for_timeout(650)
     screenshot(page, out, f"search-wang-gui-{label}")
     page.locator("[data-archive-display]").screenshot(path=str(out / f"archive-neutral-{label}.png"))
 
@@ -235,6 +251,7 @@ def run_full(browser, base, out, label, width, height, failures, report):
           f"{label}: 文徵明 empty-state wording changed", failures)
     data["wen_zhengming"] = {"result_count": 0,
                              "empty_state": page.locator(".empty-state").inner_text().splitlines()[0]}
+    page.wait_for_timeout(650)
     screenshot(page, out, f"search-wen-zhengming-{label}")
 
     # Keyboard reachability of the paper search controls.

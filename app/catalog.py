@@ -180,6 +180,18 @@ def search_people(db_path, query):
     return people
 
 
+HOME_EXAMPLE_TERMS = ("李白", "杜甫", "白居易", "辛弃疾")
+
+
+def curated_examples(db_path, terms=HOME_EXAMPLE_TERMS):
+    """Return curated example terms only when they resolve to verified people."""
+    from app.automatic_ingestion import search_key
+    with connect_db(db_path) as connection:
+        rows = connection.execute("SELECT canonical_name FROM people WHERE verification_status='verified'").fetchall()
+    present = {search_key(row["canonical_name"]) for row in rows}
+    return [term for term in terms if search_key(term) in present]
+
+
 def get_person(db_path, person_id):
     with connect_db(db_path) as connection:
         prepare(connection)

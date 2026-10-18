@@ -16,7 +16,7 @@
 
 /* Stage 5: preserve the established palette and improve comparison/reading. */
 .search-examples{display:flex;align-items:center;flex-wrap:wrap;gap:4px 14px;font-size:13px;margin:12px 0}
-.search-examples span{color:var(--muted)}.search-examples a{color:var(--accent);display:inline-flex;align-items:center;min-height:44px;text-decoration:underline;text-underline-offset:4px}
+.search-examples span{color:var(--muted)}.search-examples a,.search-examples button{color:var(--accent);display:inline-flex;align-items:center;min-height:44px;text-decoration:underline;text-underline-offset:4px}.search-examples button{border:0;background:none;padding:0;font:inherit;cursor:pointer}
 .identity-evidences{border-top:1px solid var(--line);margin-top:18px;padding-top:14px;min-width:0}
 .identity-evidences h4{font-size:13px;font-weight:600;margin:0 0 12px;color:var(--ink)}
 .identity-evidence+.identity-evidence{margin-top:18px}.identity-quote{font-family:"Songti SC","SimSun",serif;font-size:17px;line-height:1.9;white-space:pre-wrap;margin:0;overflow-wrap:anywhere}

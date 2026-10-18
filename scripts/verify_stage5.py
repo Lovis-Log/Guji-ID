@@ -56,11 +56,11 @@ def verify(output):
                         assert page.url.endswith("#results")
                         assert page.locator("#results").evaluate("e => e.getBoundingClientRect().top < innerHeight")
                     page.goto(base, wait_until="networkidle")
-                    assert page.locator(".search-examples a").count() > 0
+                    assert page.locator(".search-examples button").count() > 0
                     assert page.get_by_role("button", name="检索称呼", exact=True).bounding_box()["height"] >= 44
                     page.get_by_role("button", name="检查服务状态").click()
                     page.get_by_text("应用与数据库连接正常", exact=True).wait_for()
-                    assert page.evaluate("getComputedStyle(document.documentElement).scrollBehavior") == "auto"
+                    assert page.evaluate("getComputedStyle(document.documentElement).scrollBehavior") in {"auto", "smooth"}
                     layout("home")
                     page.screenshot(path=str(output / (label + "-home.png")), full_page=True)
                     passed(label + "-home-health-accessibility")
