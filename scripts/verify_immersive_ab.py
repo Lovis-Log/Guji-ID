@@ -100,14 +100,12 @@ def run_full(browser, base, out, label, width, height, failures, report):
     wire_errors(page, errors)
 
     page.goto(base + "/", wait_until="networkidle")
-    check(page.locator("#hero-search").is_visible(), f"{label}: hero search is not visible", failures)
+    check(page.locator("#hero-search").count() == 0, f"{label}: cover still has a search input", failures)
+    check(page.locator("#hero-search-form").count() == 0, f"{label}: cover still has a search form", failures)
+    check(page.locator("#name-query").count() == 1, f"{label}: paper search form is missing", failures)
     check(not overflow(page), f"{label}: home has horizontal overflow", failures)
     check(page.locator("h1").first.inner_text().startswith("千载人名"), f"{label}: hero heading changed", failures)
-    quick_terms = page.locator(".quick-search").all_inner_texts()
-    check(bool(quick_terms), f"{label}: no resolved quick-search terms", failures)
-    check(all(a.get_attribute("href") for a in page.locator(".quick-search").all()),
-          f"{label}: quick-search link without href", failures)
-    data["home"] = {"search_visible": True, "overflow": overflow(page), "quick_terms": quick_terms}
+    data["home"] = {"hero_search_absent": True, "bottom_search_present": True, "overflow": overflow(page)}
     screenshot(page, out, f"home-hero-{label}")
 
     story_height = page.locator(".story").evaluate("(node) => node.offsetHeight")
@@ -152,9 +150,10 @@ def run_full(browser, base, out, label, width, height, failures, report):
                             "results_top": round(intro_results_top, 1), "api": "bottom intro form"}
     screenshot(page, out, f"intro-search-direct-{label}")
 
-    # Search via keyboard from the hero, then verify the fixed header does not cover results.
+    # Search via keyboard from the paper section, then verify the fixed header does not cover results.
     page.goto(base + "/", wait_until="networkidle")
-    page.locator("#hero-search").focus()
+    page.locator("#name-query").scroll_into_view_if_needed()
+    page.locator("#name-query").focus()
     page.keyboard.type("王珪")
     with page.expect_navigation():
         page.keyboard.press("Enter")
@@ -238,12 +237,13 @@ def run_full(browser, base, out, label, width, height, failures, report):
                              "empty_state": page.locator(".empty-state").inner_text().splitlines()[0]}
     screenshot(page, out, f"search-wen-zhengming-{label}")
 
-    # Keyboard reachability of the two visible search controls.
+    # Keyboard reachability of the paper search controls.
     page.goto(base + "/", wait_until="networkidle")
-    page.locator("#hero-search").focus()
+    page.locator("#name-query").scroll_into_view_if_needed()
+    page.locator("#name-query").focus()
     page.keyboard.press("Tab")
-    check(page.evaluate("document.activeElement.className").find("search-submit") >= 0,
-          f"{label}: keyboard cannot reach search submit", failures)
+    check(page.evaluate("document.activeElement.tagName") == "BUTTON",
+          f"{label}: keyboard cannot reach the paper search submit", failures)
 
     if width <= 760:
         page.locator("#menu-toggle").click()
@@ -255,12 +255,14 @@ def run_full(browser, base, out, label, width, height, failures, report):
     check(not errors["console"], f"{label}: console errors: {errors['console']}", failures)
     data["errors"] = errors
 
-    # Reduced motion must retain a visible, operable search.
+    # Reduced motion must retain a visible, operable paper search.
     reduced = browser.new_page(viewport={"width": width, "height": height}, reduced_motion="reduce")
     reduced.goto(base + "/", wait_until="networkidle")
-    check(reduced.locator("#hero-search").is_visible(), f"{label}: reduced-motion search is hidden", failures)
+    check(reduced.locator("#hero-search").count() == 0, f"{label}: reduced-motion cover still has a search input", failures)
+    reduced.locator("#name-query").scroll_into_view_if_needed()
+    check(reduced.locator("#name-query").is_visible(), f"{label}: reduced-motion paper search is hidden", failures)
     check(not overflow(reduced), f"{label}: reduced-motion page overflows", failures)
-    data["reduced_motion"] = {"search_visible": True, "overflow": overflow(reduced)}
+    data["reduced_motion"] = {"hero_search_absent": True, "paper_search_visible": True, "overflow": overflow(reduced)}
     reduced.screenshot(path=str(out / f"reduced-motion-{label}.png"))
     reduced.close()
     page.close()
@@ -275,9 +277,10 @@ def run_layout_only(browser, base, out, label, width, height, failures, report):
     page = browser.new_page(viewport={"width": width, "height": height}, device_scale_factor=1)
     wire_errors(page, errors)
     page.goto(base + "/", wait_until="networkidle")
-    check(page.locator("#hero-search").is_visible(), f"{label}: search not visible without scrolling", failures)
+    check(page.locator("#hero-search").count() == 0, f"{label}: cover still has a search input", failures)
+    check(page.locator("#name-query").count() == 1, f"{label}: paper search form is missing", failures)
     check(not overflow(page), f"{label}: home has horizontal overflow", failures)
-    data["home"] = {"search_visible": True, "overflow": overflow(page)}
+    data["home"] = {"hero_search_absent": True, "bottom_search_present": True, "overflow": overflow(page)}
     screenshot(page, out, f"home-hero-{label}")
 
     page.goto(base + "/search?q=%E7%8E%8B%E7%8F%AA#results", wait_until="networkidle")

@@ -12,7 +12,7 @@ from fastapi.templating import Jinja2Templates
 from starlette.exceptions import HTTPException
 
 from app.db import PROJECT_ROOT, TABLES, connect_db, default_db_path, init_db
-from app.catalog import featured_queries, get_alias, get_person, public_counts, search_examples, search_people
+from app.catalog import get_alias, get_person, public_counts, search_examples, search_people
 from app.normalization import normalize_name
 from app.auto_catalog import pipeline_counts
 from app.field_quality import has_quality
@@ -93,7 +93,6 @@ def create_app(db_path: str | Path | None = None) -> FastAPI:
             "q": query, "searched": q is not None,
             "results": results, "archive_scan": archive_scan,
             "examples": search_examples(application.state.db_path),
-            "featured": featured_queries(application.state.db_path),
             "pipeline": pipeline_counts(application.state.db_path),
             "held_count":held_count,
         })

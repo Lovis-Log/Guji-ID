@@ -1,6 +1,6 @@
 <header class="topbar{% if searched %} light-nav{% endif %}" id="topbar">
   <a class="brand" href="{% if searched %}{{ url_for('home') }}{% else %}#top{% endif %}" aria-label="GuJi ID 回到卷首"><span class="brand-seal" aria-hidden="true">籍</span><span class="brand-stack"><span class="brand-title">GuJi <i>ID</i></span><span class="brand-subtitle">古籍人物规范档案</span></span></a>
-  <nav class="site-nav" id="main-nav" aria-label="主导航"><a class="nav-link" href="{% if searched %}{{ url_for('home') }}{% else %}#top{% endif %}">卷首</a><a class="nav-link" href="{% if searched %}#results{% else %}#top{% endif %}">人物检索</a><a class="nav-link" href="#research">文献考据</a><a class="nav-link" href="#data">数据概况</a></nav>
+  <nav class="site-nav" id="main-nav" aria-label="主导航"><a class="nav-link" href="{% if searched %}{{ url_for('home') }}{% else %}#top{% endif %}">卷首</a><a class="nav-link" href="{% if searched %}#results{% else %}#name-query{% endif %}">人物检索</a><a class="nav-link" href="#research">文献考据</a><a class="nav-link" href="#data">数据概况</a></nav>
   <button class="menu-toggle" id="menu-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="打开导航菜单"><span></span><span></span></button>
   <div class="header-side" aria-hidden="true"><span class="header-rule"></span><span>卷 · 壹</span></div>
 </header>
@@ -11,13 +11,7 @@
       <p class="eyebrow"><span class="eyebrow-rule"></span>数字人文 · 古籍人物名号考</p>
       <h1>千载人名<span class="comma">，</span><br><span>一卷可寻</span><span class="period">。</span></h1>
       <p class="hero-description">以名索人，以文为证。<br>从散落于典籍的称呼，寻回人物的身份与出处。</p>
-      <form id="hero-search-form" class="search-form" action="{{ url_for('search') }}#results" method="get" role="search">
-        <label class="sr-only" for="hero-search">检索人物姓名或别称</label>
-        <div class="search-field"><span class="magnifier" aria-hidden="true"></span><input id="hero-search" type="search" name="q" value="{{ q }}" placeholder="输入姓名、字、号或别称" maxlength="100" enterkeyhint="search" required></div>
-        <button class="search-submit" type="submit">检索人物 <span aria-hidden="true">↗</span></button>
-      </form>
-      {% if featured %}<div class="try-search"><span>试寻</span><span class="try-divider"></span>{% for term in featured %}<a class="quick-search" href="{{ url_for('search').include_query_params(q=term) }}#results">{{ term }}</a>{% endfor %}</div>{% endif %}
-      <p class="hero-image-note">古籍场景为视觉示意；人物与文献事实请以档案中的来源为准。</p>
+      <p class="hero-image-note">古籍场景为视觉示意；人物与文献事实请以档案中的来源为准。向下展卷，在纸白考据区开始检索。</p>
     </div>
     <div class="cinema-side-note" aria-hidden="true"><span>以古籍为证</span><span>辨一名之异同</span><span class="note-seal">考</span></div>
     <div class="macro-caption" id="macro-caption"><p class="eyebrow light"><span class="eyebrow-rule"></span>第贰幕 · 寻名</p><h2>字里行间，<br>皆有人名。</h2><p>镜头入卷，字迹渐明。<br>每一处称呼，都是通往人物的一条线索。</p></div>

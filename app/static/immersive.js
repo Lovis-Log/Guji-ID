@@ -94,7 +94,7 @@
   document.addEventListener('click', event => {
     if (menu.classList.contains('open') && !menu.contains(event.target) && !menuButton.contains(event.target)) closeMenu();
   });
-  document.querySelectorAll('#hero-search-form, .intro .search-form').forEach(form => {
+  document.querySelectorAll('.intro .search-form').forEach(form => {
     form.addEventListener('submit', event => {
       const input = form.querySelector('input[name="q"]');
       if (!input.value.trim()) { event.preventDefault(); input.focus(); }

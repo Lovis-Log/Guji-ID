@@ -13,7 +13,7 @@ Study this project's `DESIGN_SPEC.md`, `index.html`, `styles.css`, and `README.m
 
 ## Design guards
 
-- First screen: one dominant antique book photographic scene, asymmetrical cinema composition, Chinese serif display title, search visible without scrolling.
+- First screen: one dominant antique book photographic scene, asymmetrical cinema composition, Chinese serif display title. Search deliberately lives in the paper-white research section, not on the dark cover; do not re-add a cover search form.
 - Scroll: depth, scaling, focus and a dark-to-parchment shift driven by user input. No mandatory intro, autoplay long video, particle field, heavy WebGL, faux 3D book, or arbitrary card fly-ins.
 - Archive stage: thin archival rules, annotations, clear document provenance, no invented citations. Use real database values only after integrating backend.
 - Search results MUST preserve separate identities for homonyms. Never simplify contradictory identities or suppress unresolved status just to make the UI clean.
