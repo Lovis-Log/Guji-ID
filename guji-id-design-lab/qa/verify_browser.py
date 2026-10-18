@@ -7,6 +7,7 @@ from threading import Thread
 from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
 from functools import partial
 from playwright.sync_api import sync_playwright
+import os
 import time
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -17,7 +18,11 @@ Thread(target=server.serve_forever, daemon=True).start()
 URL = f'http://127.0.0.1:{server.server_port}/'
 try:
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
+        launch_options = {'headless': True}
+        chrome = r'C:\Program Files\Google\Chrome\Application\chrome.exe'
+        if os.path.isfile(chrome):
+            launch_options['executable_path'] = chrome
+        browser = p.chromium.launch(**launch_options)
         for width,height,name in [(1440,900,'desktop'),(390,844,'mobile')]:
             page = browser.new_page(viewport={'width':width,'height':height})
             errors = []

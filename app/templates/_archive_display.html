@@ -9,7 +9,8 @@
     <div class="archive-board-v2">
       <div class="archive-identity">
         <span class="archive-number">{% if archive_person %}数字题签 · {{ archive_person.person_id }}{% else %}数字题签 · 待选人物{% endif %}</span>
-        <strong class="archive-person-name">{{ archive_person.canonical_name if archive_person else '循名' }}</strong>
+        {% set display_name = archive_person.canonical_name if archive_person else '循名' %}
+        <strong class="archive-person-name{% if display_name|length > 3 %} is-long{% endif %}">{{ display_name }}</strong>
         {% if archive_person %}
           <span class="archive-identity-status">{{ archive_person.verification_label or '身份已收录' }}</span>
           {% for alias in archive_person.presentation.primary_aliases[:3] %}<span class="archive-alias">{{ alias.label }} {{ alias.value }}</span>{% endfor %}
@@ -18,10 +19,10 @@
       <div class="archive-content">
         <div class="archive-topline"><span>数字题签 / 真实资料分层展示</span><span>{{ archive_person.person_id if archive_person else '未指定人物' }}</span></div>
         <div class="archive-mode-tabs" role="group" aria-label="古籍展示模式">
-          <button type="button" class="archive-mode-button is-active" data-archive-mode="a" aria-pressed="true">A · 数字题签</button>
-          <button type="button" class="archive-mode-button" data-archive-mode="b" aria-pressed="false" {% if not archive_scan %}disabled aria-describedby="archive-scan-status"{% endif %}>B · 真实书影</button>
+          <button type="button" class="archive-mode-button is-active" id="archive-mode-a" data-archive-mode="a" aria-pressed="true" aria-controls="archive-panel-a">A · 数字题签</button>
+          <button type="button" class="archive-mode-button" id="archive-mode-b" data-archive-mode="b" aria-pressed="false" aria-controls="archive-panel-b" {% if not archive_scan %}disabled aria-describedby="archive-scan-status"{% endif %}>B · 真实书影</button>
         </div>
-        <div class="archive-mode-panel" data-archive-panel="a">
+        <div class="archive-mode-panel" id="archive-panel-a" data-archive-panel="a">
           <div class="archive-digital-leaf" role="img" aria-label="中性古籍纸张氛围与独立数字题签；不是古籍扫描件">
             <span class="archive-leaf-label">交互展示 · 非古籍原文扫描</span>
             <strong>{{ archive_person.canonical_name if archive_person else '循名溯源' }}</strong>
@@ -40,7 +41,7 @@
           {% else %}<p class="archive-citation">人物姓名与证据须从检索结果中的规范 ID 读取。</p>{% endif %}
         </div>
         {% if archive_scan %}
-        <div class="archive-mode-panel" data-archive-panel="b" hidden>
+        <div class="archive-mode-panel" id="archive-panel-b" data-archive-panel="b" hidden>
           <div class="archive-scan-frame">
             <img src="{{ archive_scan.image_url }}" alt="{{ archive_scan.provider }}提供的《{{ archive_scan.book_title }}》真实书影" loading="lazy" data-archive-scan>
             {% if archive_scan.highlight %}<span class="archive-scan-highlight" style="left:{{ archive_scan.highlight.x }}%;top:{{ archive_scan.highlight.y }}%;width:{{ archive_scan.highlight.width }}%;height:{{ archive_scan.highlight.height }}%" aria-label="已人工核实的页内位置"></span>{% endif %}
@@ -50,7 +51,7 @@
         </div>
         {% endif %}
         <p class="archive-scan-status" id="archive-scan-status" role="status" aria-live="polite">{% if archive_scan %}已有核实的书影关联；可切换查看原图与来源。{% else %}暂无可展示的真实书影，当前使用 A 模式数字题签。{% endif %}</p>
-        <div class="archive-footer-v2"><span>装饰图像不是历史证据</span>{% if archive_person %}<a href="{{ url_for('person_detail', person_id=archive_person.person_id|url_id) }}">查看完整人物档案 →</a>{% else %}<a href="#results">从姓名检索开始 →</a>{% endif %}</div>
+        <div class="archive-footer-v2"><span>装饰图像不是历史证据</span>{% if archive_person and archive_on_person_page %}<a href="#profile-title">查看下方完整人物档案 →</a>{% elif archive_person %}{% set person_url = url_for('person_detail', person_id=archive_person.person_id|url_id) %}<a href="{{ person_url.include_query_params(q=q) if q else person_url }}">查看完整人物档案 →</a>{% else %}<a href="#top">回到卷首检索 →</a>{% endif %}</div>
       </div>
       <div class="archive-decoration-v2" aria-hidden="true"><span>辨</span><span>人</span><span>考</span><span>据</span></div>
     </div>

@@ -186,7 +186,8 @@ body.immersive-home{color:#29231d;overflow-x:clip}
 .immersive-home .manuscript-photo{background-image:linear-gradient(90deg,#100d09a3,#2b1c0c38 50%,#09080790),url('assets/antique-books.webp');background-position:64% 59%;filter:contrast(1.11) saturate(.82) sepia(.16)}
 .immersive-home .ink-focus{right:24%;top:40%;font-size:clamp(46px,6vw,94px);color:#f3e6cb;text-shadow:0 3px 17px #1b0d08,0 1px 4px #120c07}
 .immersive-home .ink-focus span{background:rgba(58,29,17,.25)}
-.immersive-home .archive-stage{margin-top:-1px}
+.immersive-home .archive-stage{margin-top:-1px;scroll-margin-top:120px}
+.immersive-home .results-section,.immersive-home #data{scroll-margin-top:120px}
 .immersive-home .immersive-paper{background:#eee5d3 url('assets/rice-paper.webp') center top/cover;padding:0 max(32px,calc((100vw - 1160px)/2)) 55px}
 .immersive-home .immersive-paper>.intro{padding-top:42px;border-top:1px solid #bba98b}
 .immersive-home .immersive-paper .principles{border-color:#b7a78f}
@@ -198,6 +199,6 @@ body.immersive-home{color:#29231d;overflow-x:clip}
 .immersive-home .immersive-paper .eyebrow{color:#a14f37;margin-bottom:18px}
 .immersive-home .immersive-paper .intro h1{font-size:clamp(32px,3.5vw,48px);color:#30271f}
 .immersive-home footer:not(.footer){max-width:none;padding:28px max(32px,calc((100vw - 1160px)/2));background:#201d19;color:#c8b69b;border:0}
-@media(max-width:760px){.immersive-home .immersive-paper{padding-inline:22px}.immersive-home .immersive-paper>.intro{padding-top:32px}.immersive-home footer:not(.footer){padding-inline:22px}.immersive-home .topbar .brand{gap:8px}.immersive-home .hero-image-note{margin-top:10px}.immersive-home .ink-focus{right:15%;top:36%;font-size:50px}.immersive-home .manuscript-photo{background-position:68% center}.immersive-home .hero-content .search-field input{min-height:47px}}
+@media(max-width:760px){.immersive-home .immersive-paper{padding-inline:22px}.immersive-home .immersive-paper>.intro{padding-top:32px}.immersive-home footer:not(.footer){padding-inline:22px}.immersive-home .topbar .brand{gap:8px}.immersive-home .hero-image-note{margin-top:10px}.immersive-home .ink-focus{right:15%;top:36%;font-size:50px}.immersive-home .manuscript-photo{background-position:68% center}.immersive-home .hero-content .search-field input{min-height:47px}.immersive-home .archive-stage,.immersive-home .results-section,.immersive-home #data{scroll-margin-top:100px}}
 @media(max-width:380px){.immersive-home .immersive-paper{padding-inline:16px}.immersive-home footer:not(.footer){padding-inline:16px}.immersive-home .hero-content .search-form{gap:5px}.immersive-home .hero-content .search-submit{min-width:81px}.immersive-home .hero-content .search-field{padding:0 8px}.immersive-home .hero-content .search-field input{font-size:11px}}
 

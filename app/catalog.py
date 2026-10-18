@@ -180,6 +180,11 @@ def search_people(db_path, query):
     return people
 
 
+def featured_queries(db_path, terms=("李白", "苏轼", "王珪", "杜甫")):
+    """Return only featured names that currently resolve to public records."""
+    return [term for term in terms if search_people(db_path, term)]
+
+
 def get_person(db_path, person_id):
     with connect_db(db_path) as connection:
         prepare(connection)

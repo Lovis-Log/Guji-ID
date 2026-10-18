@@ -3,6 +3,7 @@
 {% block title %}{{ person.canonical_name }} · 人物规范档案 · GuJi ID{% endblock %}
 {% block content %}
   {% set archive_person = person %}
+  {% set archive_on_person_page = true %}
   {% include '_archive_display.html' %}
   {% set profile_fields = {'朝代':'dynasty','籍贯':'native_place','生年':'birth_year','卒年':'death_year'} %}
   {% set dynasty_fact = person.presentation.facts|selectattr('label','equalto','朝代')|first %}

@@ -7,3 +7,5 @@
 可选的 `highlight` 使用相对原图 0–1 的 `x`、`y`、`width`、`height`，并仅在人工确认页内位置后设置 `reviewed: true`。缺失或未核对时展示整页，不画定位框。
 
 展示层会按 `person_id + evidence_id + source_url` 三重条件，使用现有公开证据规则核对清单；关联错误、状态未核实、资源缺失、元数据不足及图片加载失败都会回退 A 数字题签。A 的纸张和古籍光影是视觉示意，真实原文摘录仅取已公开的直接证据。新增真实书影之前仍需人工确认图像版权、稳定链接、来源页和人物归属。本机制没有修改 SQLite 表、采集、核验或入库规则。
+
+自动测试：[`tests/test_archive_display.py`](../tests/test_archive_display.py) 校验人物、证据、来源三重关联与索引状态；[`tests/test_immersive_home.py`](../tests/test_immersive_home.py) 校验 A 题签随规范 ID 更新、同名候选保持独立、B 仅在完整关联时启用、未核对坐标不画框，以及图片加载失败回退 A。浏览器层面的 B 启用、朱砂框、加载失败回退已用独立合成夹具验证；该夹具不写入本清单，也不代表任何真实馆藏。

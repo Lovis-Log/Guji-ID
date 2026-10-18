@@ -78,10 +78,20 @@
     menuButton.setAttribute('aria-expanded', String(open));
     menu.classList.toggle('open', open);
   });
-  menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+  function closeMenu() {
     menu.classList.remove('open');
     menuButton.setAttribute('aria-expanded', 'false');
-  }));
+  }
+  menu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && menu.classList.contains('open')) {
+      closeMenu();
+      menuButton.focus();
+    }
+  });
+  document.addEventListener('click', event => {
+    if (menu.classList.contains('open') && !menu.contains(event.target) && !menuButton.contains(event.target)) closeMenu();
+  });
   document.querySelectorAll('#hero-search-form, .intro .search-form').forEach(form => {
     form.addEventListener('submit', event => {
       const input = form.querySelector('input[name="q"]');

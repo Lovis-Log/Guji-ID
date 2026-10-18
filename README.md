@@ -10,6 +10,8 @@
 
 最新的[古籍段落扩展报告](docs/classical_paragraph_expansion.md)记录了连续原文和相关句红色标注：当前61条公开古籍证据涉及54个独立人物ID；从已有固定版本缓存为王維、曾鞏、韓琦、陳升之补入4条证据，并为另35位宋代人物补入《宋史》直接姓名/字句。古籍上下文不自动扩展为其他基础字段事实。
 
+2026-10-18 完成沉浸式首页 A+B V0.2：暗室启卷 → 镜头入卷 → 纸白考据三幕保留，首页首屏搜索、真实检索、同名消歧和人物档案全部接入正式库。A 模式使用中性纸张光影与独立 DOM 数字题签，姓名、字号、朝代随规范人物 ID 更新；B 模式只展示经人工核实、可由 `person_id + evidence_id + source_url` 追溯的真实书影。当前正式书影索引为 **0 条**，因此生产页面所有人物均如实回退 A 模式并显示“暂无可展示的真实书影”；B 的启用、坐标框、加载失败回退已用独立合成夹具验证，详见 [书影索引说明](docs/ARCHIVE_SCANS_V0.2.md)。本轮未修改 SQLite 表结构、正式数据、采集、DeepSeek 核验、自动入库或身份消歧规则。浏览器截图与报告位于 `work/guji_v02_qa/`（本地验收产物，不进入源码提交）。
+
 本阶段实际数据、DeepSeek成功及失败记录、浏览器验收和回滚说明见 [Stage 6.5报告](docs/stage65_verification.md)，根因见 [简短诊断](docs/stage65_diagnosis.md)。下方第六阶段数字和原流程保留为历史背景，当前指标以上述报告为准。本阶段止于 Stage 6.5，冲突及待核资料继续隔离。
 
 自动处理 **1,999条真实源候选**，最终规则隔离60条；旧38条候选关系仍保留。配置、许可、映射及回滚见 [自动流水线说明](docs/stage6_pipeline.md)，实际数据和测试见 [第六阶段验收报告](docs/stage6_verification.md)。CBDB合格记录不再要求人工逐条批准，本阶段没有新付费模型调用。
@@ -167,7 +169,7 @@ people (1) ── (N) aliases (1) ── (N) evidences (N) ── (1) sources
 .\.venv\Scripts\python.exe -m pip check
 ```
 
-自动测试在 pytest 临时目录 `.pytest_tmp/` 创建数据库和 CSV，该目录会在下一次测试时清理，不存放正式资料。所有 ID 都用 `TEST-` 前缀，来源明确写为 `TEST_ONLY_SYNTHETIC_SOURCE_NOT_A_BOOK`，网址使用 `example.invalid`，不是历史资料。测试不使用默认正式数据库，测试数量不计入首页统计；缓存和临时数据不进入交付压缩包。
+自动测试在 pytest 临时目录 `work/pytest-temp/` 创建数据库和 CSV，该目录会在下一次测试时清理，不存放正式资料。所有 ID 都用 `TEST-` 前缀，来源明确写为 `TEST_ONLY_SYNTHETIC_SOURCE_NOT_A_BOOK`，网址使用 `example.invalid`，不是历史资料。测试不使用默认正式数据库，测试数量不计入首页统计；缓存和临时数据不进入交付压缩包。
 
 覆盖：四张表与重复建库、外键/删除约束、四种状态、同名多人物、一人多别称、一别称多证据、空值与公元前年份、CSV BOM/多行原文/表头错误/必填字段/枚举/重复 ID、幂等/冲突/整批回滚、证据状态关系、CLI 退出码、首页/静态文件/模板下载/健康检查和异常响应，以及阶段二检索、规范档案、证据展示、公开状态规则、XSS 转义、查询参数绑定、异常来源隐藏和完整页面路径。
 
@@ -201,10 +203,12 @@ guji-id/
 │   ├── importer.py             # CSV 校验与事务导入
 │   ├── normalization.py        # 保守名称规范化
 │   ├── catalog.py              # 公开可见规则、精确检索、人物与证据查询
+│   ├── archive_display.py      # 只读书影索引校验与 A 回退；不写数据库
+│   ├── archive_scans.json      # 真实书影白名单；当前为空数组
 │   ├── collector.py            # 既有独立采集模块，本阶段不新增采集能力
 │   ├── collection_review.py    # 既有人工审核导出与导入
-│   ├── templates/             # 首页、人物档案、称呼证据、不可用页面、共用骨架
-│   └── static/                # styles.css、app.js
+│   ├── templates/             # 三幕首页、人物档案、A/B 展示、证据、共用骨架
+│   └── static/                # styles.css、immersive.css/js、archive-display.css/js、assets
 ├── data/
 │   ├── .gitkeep
 │   └── templates/             # 四份空白 CSV，不含示例记录
@@ -212,6 +216,7 @@ guji-id/
 │   ├── __init__.py
 │   ├── init_db.py
 │   ├── import_data.py
+│   ├── verify_immersive_ab.py  # 三幕首页、真实检索、A/B 回退的 Playwright 验收
 │   └── verify_stage2_browser.py # 可选真实浏览器验收；仅独立测试库含虚构数据
 ├── tests/                     # 临时数据库中的虚构测试夹具与测试
 ├── docs/

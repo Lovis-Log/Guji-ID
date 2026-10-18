@@ -83,6 +83,15 @@
     $$('[data-person-courtesy]').forEach(node => node.textContent = person.courtesy || '待考');
     $$('[data-person-art]').forEach(node => node.textContent = person.art || '待考');
     $('.archive-number').textContent = `数字题签 · ${person.person_id}`;
+    const aliasTags = $('[data-person-aliases]');
+    const aliases = [person.courtesy && `字 ${person.courtesy}`, person.art && `号 ${person.art}`].filter(Boolean);
+    if (aliasTags && aliases.length) {
+      aliasTags.replaceChildren(...aliases.map(text => {
+        const span = document.createElement('span');
+        span.textContent = text;
+        return span;
+      }));
+    }
   }
 
   // Real UI text/search layer -- no search result is fabricated in prototype mode.
