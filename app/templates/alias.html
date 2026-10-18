@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% from '_source_card.html' import readable_facts, provenance_details with context %}
+{% block title %}{{ alias.alias_name }} · {{ alias.person.canonical_name }} · 称呼证据 · GuJi ID{% endblock %}
+{% block content %}
+  <nav class="breadcrumbs" aria-label="当前位置"><a href="{{ url_for('home') }}">称呼检索</a><span aria-hidden="true">/</span><a href="{{ url_for('person_detail', person_id=alias.person_id|url_id) }}">{{ alias.person.canonical_name }}</a><span aria-hidden="true">/</span><span aria-current="page">称呼证据</span></nav>
+  <header class="record-header"><div><p class="eyebrow">称呼与文献证据</p><h1>{{ alias.alias_name }}</h1><p class="record-subtitle">人物：<a class="text-link" href="{{ url_for('person_detail', person_id=alias.person_id|url_id) }}">{{ alias.person.canonical_name }}</a><span class="subtitle-divider"> / </span>称呼类别：{{ alias.type_label }}</p></div><span class="verified-badge">{{ alias.verification_label }}</span></header>
+  <section class="evidence-section" aria-labelledby="evidence-title">
+    <div class="section-heading"><h2 id="evidence-title">称呼的来源依据</h2><p>{{ alias.evidences|length }} 条可追溯记录</p></div>
+    <p class="reading-note">称呼使用关系按来源记载标注，不代表人物本人直接自称。叙述方式未提供时不推断。</p>
+    {% if alias.has_non_support %}<div class="ambiguity-notice"><strong>请结合不同材料查阅</strong><p>本称呼还关联已核对的反对、仅提及或关系未确定材料，具体判断分别标在各条证据下。</p></div>{% endif %}
+    {% for evidence in alias.evidences %}
+    <article class="evidence-record" id="evidence-{{ evidence.evidence_id }}">
+      <header class="evidence-heading"><div><span class="evidence-number">依据 {{ '%02d'|format(loop.index) }} · {{ evidence.presentation.kind_label }}</span><h3>{{ evidence.book_title }}</h3></div><span class="verified-badge">{% if evidence.verification_method == 'A' %}结构化来源核准{% elif evidence.verification_method in ['A+','wikisource_fixed_text_v1','kanripo_fixed_headline_v1'] %}原文证据核实{% elif evidence.verification_method == 'stage65_supplement' %}资料补充{% else %}证据已核对{% endif %}</span></header>
+      {% if evidence.presentation.summary %}<p class="record-summary">{{ evidence.presentation.summary }}</p>{% endif %}
+      {% if evidence.presentation.kind == 'classical_text' and evidence.presentation.original_text %}
+      <div class="quote-heading"><h4>{% if evidence.passage %}古籍原文与相关句{% else %}古籍原文{% endif %}</h4><button type="button" class="copy-quote" data-copy-target="original-{{ evidence.evidence_id }}" hidden>复制原文</button></div>
+      <blockquote class="original-text" id="original-{{ evidence.evidence_id }}">{% if evidence.passage %}{{ evidence.passage.before }}<mark class="source-relevant-line">{{ evidence.passage.highlight }}</mark>{{ evidence.passage.after }}{% else %}{{ evidence.presentation.original_text }}{% endif %}</blockquote>
+      {% if evidence.passage and evidence.passage.layout_normalized %}<p class="source-original-citation">排版行、页标记已合并；原始转录以出处链接为准。</p>{% endif %}
+      <p class="copy-status" role="status" aria-live="polite"></p>
+      {% elif evidence.presentation.facts %}<div class="readable-record" aria-label="来源记录摘要">{{ readable_facts(evidence.presentation.facts) }}</div>{% endif %}
+      <dl class="evidence-facts"><div><dt>称呼使用关系</dt><dd>{{ evidence.usage_label }}</dd></div><div>{% if evidence.presentation.kind == 'structured_database' %}<dt>数据库记录关系</dt><dd>{{ {'直接证据':'直接记录','间接证据':'间接关联'}.get(evidence.nature_label,evidence.nature_label) }}</dd>{% else %}<dt>证据性质</dt><dd>{{ evidence.nature_label }}</dd>{% endif %}</div>{% if evidence.relation_type and evidence.relation_type != '暂无已核实信息' and evidence.relation_type != 'unknown' %}<div><dt>称呼叙述方式</dt><dd>{{ evidence.relation_type }}</dd></div>{% endif %}</dl>
+      {% if evidence.reading_context and not evidence.passage %}<details class="evidence-context"><summary>查看必要上下文</summary><p>{{ evidence.reading_context }}</p></details>{% endif %}
+      {% if evidence.reading_remarks %}<details class="evidence-context"><summary>{{ evidence.remarks_label or '核对说明' }}</summary><p>{{ evidence.reading_remarks }}</p></details>{% endif %}
+      {{ provenance_details(evidence, 'evidence', evidence.evidence_id, person_id=alias.person_id) }}
+      {% if evidence.verification_method == 'A' %}<p class="source-attribution">来源署名：China Biographical Database (CBDB) · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> · 仅供非商业用途</p>{% elif evidence.verification_method == 'stage65_supplement' %}<p class="source-attribution">辅助来源：维基文库作者资料 · <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p>{% elif evidence.verification_method in ['A+','kanripo_fixed_headline_v1'] %}<p class="source-attribution">来源署名：Kanripo（漢籍リポジトリ）· <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p>{% elif evidence.verification_method == 'wikisource_fixed_text_v1' %}<p class="source-attribution">来源署名：维基文库《{{ evidence.book_title }}》{{ evidence.volume }}，固定修订 {{ evidence.source_version }} · 古籍转录文本 · <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p>{% endif %}
+    </article>
+    {% endfor %}
+  </section>
+{% endblock %}

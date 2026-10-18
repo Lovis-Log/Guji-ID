@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block content %}
+  <section class="intro" aria-labelledby="intro-title">
+    <div class="intro-copy">
+      <p class="eyebrow">GUJI ID · 古籍人物规范档</p>
+      <h1 id="intro-title">从一个称呼，<br>查到人物与出处。</h1>
+      <p class="lead">检索已收录的姓名、字、号或谥号，<br class="desktop-break">查阅独立人物档案及支持称呼归属的古籍原文。</p>
+      <form class="search-form" action="{{ url_for('search') }}#results" method="get" role="search">
+        <label for="name-query">输入人物姓名或别称</label>
+        <div class="search-controls"><input id="name-query" name="q" type="search" value="{{ q }}" placeholder="姓名、字、号、谥号" maxlength="100" enterkeyhint="search" autocomplete="off" aria-describedby="search-help" required><button type="submit">检索称呼</button></div>
+        <p id="search-help">本名、字、号与别称均可查询。精确匹配优先，支持简繁转换及部分名称检索；转换只用于检索，不合并人物。</p>
+      </form>
+      {% if examples %}<nav class="search-examples" aria-label="已收录检索示例"><span>试着查：</span>{% for term in examples %}<a href="{{ url_for('search').include_query_params(q=term) }}#results">{{ term }}</a>{% endfor %}</nav>{% endif %}
+      <p class="phase-note">{% if pipeline %}当前可公开检索 {{ public_counts.people }} 位已核准人物、{{ public_counts.aliases }} 条可追溯称呼。核准方法包含结构化来源与原文证据，请按各条记录的标记查阅。{% else %}当前可公开检索 {{ public_counts.people }} 位已核对人物、{{ public_counts.aliases }} 条有直接支持证据的称呼。{% endif %}</p>
+      <div class="service"><span id="health-status" role="status" aria-live="polite">服务状态待检查</span><button type="button" id="check-health">检查服务状态</button><noscript><a href="/health">查看健康检查</a></noscript></div>
+    </div>
+    <aside class="principles" aria-label="数据原则">
+      <h2>查阅约定</h2>
+      <div><span>01</span><p><strong>同名保留独立身份</strong>同一个称呼可能属于多位人物。</p></div>
+      <div><span>02</span><p><strong>确认关系需有依据</strong>原文、古籍与文献定位一并保留。</p></div>
+      <div><span>03</span><p><strong>不确定就保留不确定</strong>证据不足时保持待核对或存疑。</p></div>
+    </aside>
+  </section>
+  {% if searched %}
+  <section id="results" class="results-section" aria-labelledby="results-title">
+    <div class="section-heading"><h2 id="results-title">检索结果</h2><p>仅展示符合公开核对规则的数据库记录</p></div>
+    {% if not q %}
+    <div class="empty-state"><h3>请先输入一个称呼</h3><p>输入姓名、字、号或谥号后再检索。</p></div>
+    {% elif not results %}
+    <div class="empty-state"><h3>未找到已核对的匹配人物</h3><p>“{{ q }}”尚未匹配到可公开展示的记录。</p>{% if held_count %}<p>隔离区有 {{ held_count }} 条相关候选，身份或关系尚未确认，不作为事实展示。</p>{% else %}<p>可尝试姓名的一部分或其他称呼；当前来源尚未覆盖的资料将保持空缺。</p>{% endif %}</div>
+    {% else %}
+    <p class="result-count">“{{ q }}”匹配到 <strong>{{ results|length }}</strong> 位人物。</p>
+    {% if results|length > 1 %}<div class="ambiguity-notice" role="status"><strong>存在多个候选，不能确定</strong><p>同一称呼对应不同人物档案。请比较已核实的身份字段及下方各自的史料摘录与出处；未核实字段保留为空。</p></div>{% endif %}
+    <div class="candidate-grid">
+      {% for person in results %}
+      <article class="candidate-card" data-person-id="{{ person.person_id }}">
+        <div class="candidate-heading"><h3><a href="{{ url_for('person_detail', person_id=person.person_id|url_id).include_query_params(q=q) }}">{{ person.canonical_name }}</a></h3><span class="verified-badge">{{ person.verification_label or '人物已核对' }}</span></div>
+        <dl class="candidate-facts">{% for item in person.presentation.facts if item.label in ['朝代','籍贯'] %}<div><dt>{{ item.label }}</dt><dd>{{ item.value }}</dd></div>{% endfor %}{% if person.birth_year or person.death_year %}<div class="full-width"><dt>生卒年</dt><dd>{{ person.presentation.lifespan }}</dd></div>{% endif %}</dl>
+        {% if person.presentation.description %}<p class="identity-copy">{{ person.presentation.description }}</p>{% endif %}
+        {% if person.structured_aliases %}<p class="match-info">结构化来源中的称呼：{% for a in person.structured_aliases %}{{ {'courtesy':'字','art':'号','posthumous':'谥号','other':'其他称呼'}.get(a.alias_type,'称呼') }}“{{ a.alias_name }}”{% if not loop.last %} · {% endif %}{% endfor %}</p>{% endif %}
+        <p class="match-info">{% if person.match_mode %}{{ person.match_mode }} · {% endif %}{% if person.canonical_match %}匹配规范姓名（本名）{% endif %}{% for matched in person.matched_aliases %}{% if person.canonical_match or not loop.first %} · {% endif %}匹配{{ matched.type_label }}：{{ matched.alias_name }}{% endfor %}</p>
+        {% include '_identity_evidence.html' %}
+        <div class="candidate-footer"><small>档案编号 {{ person.person_id }}</small><a class="text-link" href="{{ url_for('person_detail', person_id=person.person_id|url_id).include_query_params(q=q) }}">查看人物档案 →</a></div>
+      </article>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </section>
+  {% endif %}
+  {% if public_counts.people == 0 %}<div class="public-empty-note"><strong>暂无可公开检索的已核对人物</strong><p>资料需先完成人工核对，再通过现有 CSV 流程导入。当前页面不使用待审核采集结果或虚构人物填充。</p></div>{% endif %}
+  <section id="data" class="data-section" aria-labelledby="data-title">
+    <div class="section-heading"><h2 id="data-title">数据概况</h2><p>数据库实际记录数 · 包含各核对状态</p></div>
+    <div class="stats">
+      <article><p>人物档案 <span>PEOPLE</span></p><strong>{{ counts.people }}</strong><small>以 Person ID 区分身份</small></article>
+      <article><p>别称关系 <span>ALIASES</span></p><strong>{{ counts.aliases }}</strong><small>其中已核对 {{ verified_aliases }} 条</small></article>
+      <article><p>文献来源 <span>SOURCES</span></p><strong>{{ counts.sources }}</strong><small>保留原始网址与版本信息</small></article>
+      <article><p>证据记录 <span>EVIDENCES</span></p><strong>{{ counts.evidences }}</strong><small>逐条关联别称和来源</small></article>
+    </div>
+    {% if counts.people == 0 and counts.aliases == 0 and counts.sources == 0 and counts.evidences == 0 %}<p class="empty-note">尚未导入正式资料。这里不预置历史人物、古籍原文或演示证据。</p>{% endif %}
+    {% if pipeline %}<div class="pipeline-summary"><h3>自动数据流水线</h3><p>已暂存 {{ pipeline.staged }} 条候选；自动隔离 {{ pipeline.quarantined }} 条。结构化来源核准 {{ pipeline.structured }} 条证据，原文证据自动核准 {{ pipeline.text }} 条。</p><p>结构化记录只证明来源数据库记录了该关系，不等于古籍原文已核验。</p>{% if pipeline.latest %}<p>最新批次 {{ pipeline.latest.batch_id }} · {{ pipeline.latest.imported_at }} · 已提交</p><p>该批新增：{{ pipeline.latest.inserted.people or 0 }} 人、{{ pipeline.latest.inserted.aliases or 0 }} 条称呼、{{ pipeline.latest.inserted.sources or 0 }} 条来源、{{ pipeline.latest.inserted.evidences or 0 }} 条证据。</p>{% endif %}</div>{% endif %}
+  </section>
+  <section id="import" class="import-section" aria-labelledby="import-title">
+    <div><h2 id="import-title">准备已核对的资料</h2><p>下载四份空白 CSV 模板，依据真实来源填写。<br>保留未知字段为空，经明确批准后按 README 的正式批次流程导入。</p><p class="import-note">整批校验 · 失败回滚 · 重复导入跳过相同记录</p></div>
+    <div class="template-list">
+      {% for table, label in [('people', '人物档案'), ('aliases', '别称关系'), ('sources', '文献来源'), ('evidences', '原文证据')] %}
+      <a href="{{ url_for('download_template', table=table) }}"><span><small>0{{ loop.index }} / CSV</small>{{ label }}</span><span class="filename">{{ table }}.csv ↓</span></a>
+      {% endfor %}
+    </div>
+  </section>
+  <section class="status-key" aria-label="核对状态说明"><h2>每条判断都有状态</h2><p><span>待核对</span>{% if pipeline %}尚未完成核验{% else %}尚待人工核实{% endif %}</p><p><span>已核对</span>{% if pipeline %}人工或自动准入，见方法标记{% else %}经人工核对后标记{% endif %}</p><p><span>存疑</span>存在歧义或证据冲突</p><p><span>驳回</span>已否定并保留记录</p></section>
+{% endblock %}
+

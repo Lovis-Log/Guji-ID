@@ -1,0 +1,12 @@
+{% if person.identity_evidences %}
+<div class="identity-evidences">
+  <h4>史料中的身份线索</h4>
+  {% for item in person.identity_evidences %}
+  <div class="identity-evidence">
+    <p class="identity-quote">{{ item.original_text }}</p>
+    <p class="identity-source">《{{ item.book_title }}》{{ item.volume }} · {{ item.chapter }} · {{ item.type_label }}：{{ item.alias_name }}</p>
+    <a class="text-link evidence-entry" href="{{ url_for('alias_detail', alias_id=item.alias_id|url_id) }}">查阅这条称呼的证据 →</a>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}

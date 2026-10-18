@@ -1,0 +1,243 @@
+{
+  "status": "passed_in_isolated_database_only",
+  "data_warning": "Real source texts, simulated verified flags. No human approval or formal data import.",
+  "candidate_people": 20,
+  "test_database": "D:\\Projects\\移动信息化小组作业\\Guji ID\\work\\stage4-acceptance-labeled\\REAL_CANDIDATES_TEST_ONLY.db",
+  "initial_test_import": {
+    "people": {
+      "inserted": 20,
+      "skipped": 0
+    },
+    "aliases": {
+      "inserted": 55,
+      "skipped": 0
+    },
+    "sources": {
+      "inserted": 23,
+      "skipped": 0
+    },
+    "evidences": {
+      "inserted": 52,
+      "skipped": 0
+    }
+  },
+  "repeat_test_import": {
+    "people": {
+      "inserted": 0,
+      "skipped": 20
+    },
+    "aliases": {
+      "inserted": 0,
+      "skipped": 55
+    },
+    "sources": {
+      "inserted": 0,
+      "skipped": 23
+    },
+    "evidences": {
+      "inserted": 0,
+      "skipped": 52
+    }
+  },
+  "case_checks": [
+    {
+      "case_type": "full_name_homonym",
+      "query": "王珪",
+      "independent_candidates": 2,
+      "passed": true
+    },
+    {
+      "case_type": "shared_appellation",
+      "query": "文忠",
+      "independent_candidates": 2,
+      "passed": true
+    }
+  ],
+  "layout_checks": [
+    {
+      "page": "full_name_homonym-results-desktop",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "inputVisible": true
+    },
+    {
+      "page": "P-D-46c39186c9a0fa0d8177b557-profile-desktop",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "inputVisible": true
+    },
+    {
+      "page": "P-D-46c39186c9a0fa0d8177b557-evidence-desktop",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "inputVisible": true
+    },
+    {
+      "page": "P-D-470d41f21e8cab39f12341ed-profile-desktop",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "inputVisible": true
+    },
+    {
+      "page": "P-D-470d41f21e8cab39f12341ed-evidence-desktop",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "inputVisible": true
+    },
+    {
+      "page": "shared_appellation-results-desktop",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "inputVisible": true
+    },
+    {
+      "page": "P-0180cd77-04c3-471a-937a-cc8e77709e52-profile-desktop",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "inputVisible": true
+    },
+    {
+      "page": "P-0180cd77-04c3-471a-937a-cc8e77709e52-evidence-desktop",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "inputVisible": true
+    },
+    {
+      "page": "P-b5e5232e-9dc8-42fb-adcd-26220d535678-profile-desktop",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "inputVisible": true
+    },
+    {
+      "page": "P-b5e5232e-9dc8-42fb-adcd-26220d535678-evidence-desktop",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "inputVisible": true
+    },
+    {
+      "page": "full_name_homonym-results-mobile",
+      "width": 390,
+      "scrollWidth": 390,
+      "inputVisible": true
+    },
+    {
+      "page": "P-D-46c39186c9a0fa0d8177b557-profile-mobile",
+      "width": 390,
+      "scrollWidth": 390,
+      "inputVisible": true
+    },
+    {
+      "page": "P-D-46c39186c9a0fa0d8177b557-evidence-mobile",
+      "width": 390,
+      "scrollWidth": 390,
+      "inputVisible": true
+    },
+    {
+      "page": "P-D-470d41f21e8cab39f12341ed-profile-mobile",
+      "width": 390,
+      "scrollWidth": 390,
+      "inputVisible": true
+    },
+    {
+      "page": "P-D-470d41f21e8cab39f12341ed-evidence-mobile",
+      "width": 390,
+      "scrollWidth": 390,
+      "inputVisible": true
+    },
+    {
+      "page": "shared_appellation-results-mobile",
+      "width": 390,
+      "scrollWidth": 390,
+      "inputVisible": true
+    },
+    {
+      "page": "P-0180cd77-04c3-471a-937a-cc8e77709e52-profile-mobile",
+      "width": 390,
+      "scrollWidth": 390,
+      "inputVisible": true
+    },
+    {
+      "page": "P-0180cd77-04c3-471a-937a-cc8e77709e52-evidence-mobile",
+      "width": 390,
+      "scrollWidth": 390,
+      "inputVisible": true
+    },
+    {
+      "page": "P-b5e5232e-9dc8-42fb-adcd-26220d535678-profile-mobile",
+      "width": 390,
+      "scrollWidth": 390,
+      "inputVisible": true
+    },
+    {
+      "page": "P-b5e5232e-9dc8-42fb-adcd-26220d535678-evidence-mobile",
+      "width": 390,
+      "scrollWidth": 390,
+      "inputVisible": true
+    },
+    {
+      "page": "full_name_homonym-results-narrow",
+      "width": 320,
+      "scrollWidth": 320,
+      "inputVisible": true
+    },
+    {
+      "page": "P-D-46c39186c9a0fa0d8177b557-profile-narrow",
+      "width": 320,
+      "scrollWidth": 320,
+      "inputVisible": true
+    },
+    {
+      "page": "P-D-46c39186c9a0fa0d8177b557-evidence-narrow",
+      "width": 320,
+      "scrollWidth": 320,
+      "inputVisible": true
+    },
+    {
+      "page": "P-D-470d41f21e8cab39f12341ed-profile-narrow",
+      "width": 320,
+      "scrollWidth": 320,
+      "inputVisible": true
+    },
+    {
+      "page": "P-D-470d41f21e8cab39f12341ed-evidence-narrow",
+      "width": 320,
+      "scrollWidth": 320,
+      "inputVisible": true
+    },
+    {
+      "page": "shared_appellation-results-narrow",
+      "width": 320,
+      "scrollWidth": 320,
+      "inputVisible": true
+    },
+    {
+      "page": "P-0180cd77-04c3-471a-937a-cc8e77709e52-profile-narrow",
+      "width": 320,
+      "scrollWidth": 320,
+      "inputVisible": true
+    },
+    {
+      "page": "P-0180cd77-04c3-471a-937a-cc8e77709e52-evidence-narrow",
+      "width": 320,
+      "scrollWidth": 320,
+      "inputVisible": true
+    },
+    {
+      "page": "P-b5e5232e-9dc8-42fb-adcd-26220d535678-profile-narrow",
+      "width": 320,
+      "scrollWidth": 320,
+      "inputVisible": true
+    },
+    {
+      "page": "P-b5e5232e-9dc8-42fb-adcd-26220d535678-evidence-narrow",
+      "width": 320,
+      "scrollWidth": 320,
+      "inputVisible": true
+    }
+  ],
+  "page_errors": [],
+  "formal_database_sha256_before": "f4931941751bb5dd3c1c5c9b0244d59257b364e6d23ee2658dda9b10e587fac7",
+  "formal_database_sha256_after": "f4931941751bb5dd3c1c5c9b0244d59257b364e6d23ee2658dda9b10e587fac7",
+  "human_approved": 0,
+  "formal_database_writes": 0
+}

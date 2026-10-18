@@ -1,0 +1,30 @@
+{% macro readable_facts(items, class_name='readable-facts') -%}
+{% if items %}<dl class="{{ class_name }}">{% for item in items if item.value is not none and item.value != '' %}<div><dt>{{ item.label }}</dt><dd>{{ item.value }}</dd></div>{% endfor %}</dl>{% endif %}
+{%- endmacro %}
+
+{% macro provenance_details(record, record_type, record_id, title='学术出处与定位', person_id='') -%}
+<details class="provenance-details">
+  <summary>{{ title }}</summary>
+  <div class="provenance-content">
+    {% if record_type == 'field' and record.presentation.kind == 'classical_text' and record.presentation.original_text %}<h4>古籍摘录</h4><blockquote class="source-quotation">{{ record.presentation.original_text }}</blockquote>{% endif %}
+    {% if record.presentation.bibliography %}<h4>书目与版本</h4>{{ readable_facts(record.presentation.bibliography) }}{% endif %}
+    {% if record.presentation.locator %}<h4>来源定位</h4>{{ readable_facts(record.presentation.locator) }}{% endif %}
+    {% if record.presentation.notice %}<p class="reading-note">{{ record.presentation.notice }}</p>{% endif %}
+    <div class="provenance-links">
+      {% if record.source_id and record_type != 'source' %}<a class="text-link" href="{% if person_id %}{{ url_for('source_detail', source_id=record.source_id|url_id).include_query_params(person_id=person_id) }}{% else %}{{ url_for('source_detail', source_id=record.source_id|url_id) }}{% endif %}">查看来源档案</a>{% endif %}
+      {% if record.original_url %}<a class="text-link" href="{{ record.original_url }}{{ record.source_lines or '' }}" target="_blank" rel="noopener noreferrer">查看原始来源 <span class="new-window">（新窗口）</span></a>{% endif %}
+    </div>
+    <p class="technical-link"><a href="{{ url_for('raw_record', record_type=record_type, record_id=record_id) }}" data-raw-record="{{ url_for('raw_record', record_type=record_type, record_id=record_id) }}" data-raw-title="{{ record.presentation.title or record.book_title or record.label or '来源记录' }}">查看原始记录</a><span>开发者／技术资料 · 供核验字段与复现记录使用</span></p>
+  </div>
+</details>
+{%- endmacro %}
+
+{% macro source_card(source, compact=false, person_id='') -%}
+<article class="source-card{% if compact %} source-card-compact{% endif %}">
+  <p class="source-kind">{{ source.presentation.kind_label }}</p>
+  <h3>{% if compact %}<a href="{% if person_id %}{{ url_for('source_detail', source_id=source.source_id|url_id).include_query_params(person_id=person_id) }}{% else %}{{ url_for('source_detail', source_id=source.source_id|url_id) }}{% endif %}">{{ source.presentation.title or source.book_title }}</a>{% else %}{{ source.presentation.title or source.book_title }}{% endif %}</h3>
+  {% if source.presentation.summary %}<p class="record-summary">{{ source.presentation.summary }}</p>{% endif %}
+  {{ readable_facts(source.presentation.facts) }}
+  {{ provenance_details(source, 'source', source.source_id, person_id=person_id) }}
+</article>
+{%- endmacro %}

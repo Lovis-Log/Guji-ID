@@ -1,0 +1,119 @@
+{
+  "result": "passed",
+  "browser": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+  "layout_checks": [
+    {
+      "page": "formal-empty-desktop",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "inputVisible": true
+    },
+    {
+      "page": "formal-empty-mobile",
+      "width": 390,
+      "scrollWidth": 390,
+      "inputVisible": true
+    },
+    {
+      "page": "formal-empty-narrow",
+      "width": 320,
+      "scrollWidth": 320,
+      "inputVisible": true
+    },
+    {
+      "page": "TEST_ONLY-results-desktop",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "inputVisible": true
+    },
+    {
+      "page": "TEST_ONLY-profile-desktop",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "inputVisible": true
+    },
+    {
+      "page": "TEST_ONLY-evidence-desktop",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "inputVisible": true
+    },
+    {
+      "page": "TEST_ONLY-no-match-desktop",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "inputVisible": true
+    },
+    {
+      "page": "TEST_ONLY-unavailable-desktop",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "inputVisible": true
+    },
+    {
+      "page": "TEST_ONLY-results-mobile",
+      "width": 390,
+      "scrollWidth": 390,
+      "inputVisible": true
+    },
+    {
+      "page": "TEST_ONLY-profile-mobile",
+      "width": 390,
+      "scrollWidth": 390,
+      "inputVisible": true
+    },
+    {
+      "page": "TEST_ONLY-evidence-mobile",
+      "width": 390,
+      "scrollWidth": 390,
+      "inputVisible": true
+    },
+    {
+      "page": "TEST_ONLY-no-match-mobile",
+      "width": 390,
+      "scrollWidth": 390,
+      "inputVisible": true
+    },
+    {
+      "page": "TEST_ONLY-unavailable-mobile",
+      "width": 390,
+      "scrollWidth": 390,
+      "inputVisible": true
+    },
+    {
+      "page": "TEST_ONLY-results-narrow",
+      "width": 320,
+      "scrollWidth": 320,
+      "inputVisible": true
+    },
+    {
+      "page": "TEST_ONLY-profile-narrow",
+      "width": 320,
+      "scrollWidth": 320,
+      "inputVisible": true
+    },
+    {
+      "page": "TEST_ONLY-evidence-narrow",
+      "width": 320,
+      "scrollWidth": 320,
+      "inputVisible": true
+    },
+    {
+      "page": "TEST_ONLY-no-match-narrow",
+      "width": 320,
+      "scrollWidth": 320,
+      "inputVisible": true
+    },
+    {
+      "page": "TEST_ONLY-unavailable-narrow",
+      "width": 320,
+      "scrollWidth": 320,
+      "inputVisible": true
+    }
+  ],
+  "page_errors": [],
+  "formal_database_sha256_before": "f4931941751bb5dd3c1c5c9b0244d59257b364e6d23ee2658dda9b10e587fac7",
+  "formal_database_sha256_after": "f4931941751bb5dd3c1c5c9b0244d59257b364e6d23ee2658dda9b10e587fac7",
+  "fixture_database": "D:\\Projects\\移动信息化小组作业\\Guji ID\\work\\stage2-browser-acceptance\\TEST_ONLY_SYNTHETIC.db",
+  "fixture_warning": "Synthetic data for UI tests only; not historical evidence"
+}

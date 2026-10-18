@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block title %}未找到可公开展示的记录 · GuJi ID{% endblock %}
+{% block content %}
+  <section class="unavailable empty-state"><h1>未找到可公开展示的{{ kind }}</h1><p>记录可能不存在，或尚未满足公开核对规则。请返回检索已收录的称呼。</p><a class="text-link" href="{{ url_for('home') }}">返回称呼检索 →</a></section>
+{% endblock %}

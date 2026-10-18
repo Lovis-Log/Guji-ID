@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% from '_source_card.html' import readable_facts, provenance_details with context %}
+{% block title %}{{ person.canonical_name }} · 人物规范档案 · GuJi ID{% endblock %}
+{% block content %}
+  {% set profile_fields = {'朝代':'dynasty','籍贯':'native_place','生年':'birth_year','卒年':'death_year'} %}
+  {% set dynasty_fact = person.presentation.facts|selectattr('label','equalto','朝代')|first %}
+  <nav class="breadcrumbs" aria-label="当前位置"><a href="{% if q %}{{ url_for('search').include_query_params(q=q) }}#results{% else %}{{ url_for('home') }}{% endif %}">返回称呼检索</a><span aria-hidden="true">/</span><span aria-current="page">人物规范档案</span></nav>
+  <header class="record-header"><div><p class="eyebrow">人物规范档案</p><h1>{{ person.canonical_name }}</h1><p class="record-subtitle">{% if dynasty_fact %}{{ dynasty_fact.value }}{% endif %}{% if person.reading_lifespan %}{% if dynasty_fact %}<span class="subtitle-divider"> / </span>{% endif %}{{ person.reading_lifespan }}{% endif %}</p>{% if person.primary_aliases %}<p class="primary-aliases">{% for item in person.primary_aliases %}<span>{{ item.type_label }} {{ item.alias_name }}</span>{% endfor %}</p>{% endif %}</div><span class="verified-badge">{{ person.verification_label or '姓名身份已收录' }}</span></header>
+  <section class="profile-section" aria-labelledby="profile-title">
+    <h2 id="profile-title">身份信息</h2>
+    <dl class="profile-facts">
+    {% for fact in person.presentation.facts if fact.label in profile_fields %}
+      <div data-field="{{ profile_fields[fact.label] }}"><dt>{{ fact.label }}</dt><dd>{{ fact.value }}</dd></div>
+    {% endfor %}
+    </dl>
+    {% if person.presentation.sources %}<div class="profile-source-summary"><span class="profile-source-label">资料来源</span><ul>{% for source in person.presentation.sources %}<li><a href="{{ url_for('source_detail', source_id=source.source_id|url_id).include_query_params(person_id=person.person_id) }}">{{ source.title }}</a>{% if source.version %}<span> · {{ source.version }}</span>{% endif %}{% if source.kind_label %}<small> · {{ source.kind_label }}</small>{% endif %}</li>{% endfor %}</ul></div>{% endif %}
+    {% if person.presentation.missing_fields %}<details class="missing-fields"><summary>部分资料待补</summary><p>尚无来源可确认：{{ person.presentation.missing_fields|join('、') }}。这些字段暂无已核实信息。</p></details>{% endif %}
+    {% if person.presentation.description %}<div class="identity-description"><h3>人物身份简介</h3><p>{{ person.presentation.description }}</p></div>{% endif %}
+    {% if person.field_sources %}<details class="field-provenance"><summary>查看身份信息的来源</summary>
+      <p class="reading-note">各项资料分别据所列来源整理；约数和范围保留来源限定。</p>
+      {% for field,facts in person.field_sources.items() %}{% for fact in facts if fact.presentation.visible %}
+      <article class="field-source" data-source-field="{{ field }}">
+        <div class="field-source-heading"><h3>{{ fact.presentation.label or fact.label }}：{{ fact.presentation.value }}</h3><span class="source-kind">{{ fact.grade_label }}{% if not fact.selected %} · 补充记录{% endif %}</span></div>
+        <p class="field-source-citation">{{ fact.book_title }}{% if fact.source_version %}<span> · {{ fact.source_version }}</span>{% endif %}</p>
+        {% if fact.presentation.facts %}<div class="readable-record">{{ readable_facts(fact.presentation.facts) }}</div>{% endif %}
+        {% if fact.qualifier %}<p class="reading-note">来源限定：{{ fact.qualifier }}</p>{% endif %}
+        {{ provenance_details(fact, 'field', fact.fact_id, person_id=person.person_id) }}
+      </article>{% endfor %}{% endfor %}
+      <p class="reading-note">原文证据核实、结构化来源和资料补充分别标注。冲突资料不作为确认事实展示。</p>
+    </details>{% endif %}
+    {% if person.field_conflicts %}<p class="reading-note">部分字段存在来源差异，已保留当前有依据的信息；冲突资料未作确认事实展示。</p>{% endif %}
+    {% include '_identity_evidence.html' %}
+    <p class="record-id profile-record-id">档案编号 {{ person.person_id }}{% if person.source_person_id %} · CBDB 人物编号 {{ person.source_person_id }}{% endif %}</p>
+  </section>
+  <section class="aliases-section" aria-labelledby="aliases-title">
+    <div class="section-heading"><h2 id="aliases-title">已核对的别称</h2><p>{{ person.aliases|length }} 条有来源支持的称呼</p></div>
+    {% if person.aliases %}
+    <ul class="alias-list">
+      {% for alias in person.aliases %}<li><a href="{{ url_for('alias_detail', alias_id=alias.alias_id|url_id) }}"><span class="alias-type">{{ alias.type_label }}</span><span class="alias-name">{{ alias.alias_name }}</span><span class="alias-count">{{ alias.evidence_count }} 条已核对证据 <span aria-hidden="true">→</span></span></a></li>{% endfor %}
+    </ul>
+    {% else %}<div class="empty-state"><h3>暂无可公开展示的已核对别称</h3><p>该人物尚无同时满足已核对状态与直接支持证据要求的别称，暂无可展示的古籍证据。</p></div>{% endif %}
+    <p class="reading-note">称呼按独立人物归档。同名人物不会合并；缺少已核对支持证据的别称不列入此表。</p>
+  </section>
+{% endblock %}

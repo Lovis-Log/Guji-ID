@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% from "_source_card.html" import source_card,readable_facts,provenance_details with context %}
+{% block title %}{{ source.book_title }} · 文献来源 · GuJi ID{% endblock %}
+{% block content %}
+<nav class="breadcrumbs" aria-label="当前位置"><a href="{{ url_for('home') }}">返回称呼检索</a><span aria-hidden="true">/</span><span aria-current="page">文献来源</span></nav>
+<header class="record-header"><div><p class="eyebrow">文献来源 · 学术溯源</p><h1>{{ source.book_title }}</h1><p class="record-subtitle">{{ source.presentation.kind_label }}</p></div></header>
+{% if source.classical_quotes or source.related_classical_quotes %}
+<section class="source-originals" aria-labelledby="source-originals-title">
+  <h2 id="source-originals-title">{% if source.classical_quotes %}此来源中的古籍原文{% else %}其他独立来源中的古籍原文{% endif %}</h2>
+  {% if source.related_classical_quotes and not source.classical_quotes %}<p class="reading-note">当前数据库记录提供结构化资料，下面的古籍原文来自另一条独立、已定位的来源。原文仅支持相应称呼关系，不自动证明本数据库的其他字段。</p>{% endif %}
+  {% for excerpt in source.classical_quotes or source.related_classical_quotes %}
+  <article class="source-original-entry">
+    <p class="source-kind">古籍原文转录 · <a href="{{ url_for('person_detail',person_id=excerpt.person_id|url_id) }}">{{ excerpt.person_name }}</a>{% if excerpt.dynasty %} · {{ excerpt.dynasty }}{% endif %}</p>
+    <div class="quote-heading"><span>{% if excerpt.passage %}连续原文与相关句{% else %}可核对的原文摘录{% endif %}</span><button type="button" class="source-copy-quote" data-copy-target="source-quote-{{ loop.index }}" hidden>复制原文</button></div>
+    <blockquote class="original-text source-original-text" cite="{{ excerpt.original_url }}" id="source-quote-{{ loop.index }}">{% if excerpt.passage %}{{ excerpt.passage.before }}<mark class="source-relevant-line">{{ excerpt.passage.highlight }}</mark>{{ excerpt.passage.after }}{% else %}{{ excerpt.text }}{% endif %}</blockquote>
+    {% if excerpt.passage and excerpt.passage.layout_normalized %}<p class="source-original-citation">排版行、页标记已合并以便阅读；原始转录可从下方出处链接核对。</p>{% endif %}
+    <p class="source-copy-status" role="status" aria-live="polite"></p>
+    <p class="source-original-citation">《{{ excerpt.book_title }}》{% if excerpt.volume %}{{ excerpt.volume }}{% endif %}{% if excerpt.chapter and excerpt.chapter != excerpt.volume %} · {{ excerpt.chapter }}{% endif %}{% if excerpt.edition %} · {{ excerpt.edition }}{% endif %}{% if excerpt.source_commit %} · 固定提交 <abbr title="{{ excerpt.source_commit }}">{{ excerpt.source_commit[:12] }}…</abbr>{% endif %}</p>
+    <p class="source-original-links"><a href="{{ excerpt.original_url }}" target="_blank" rel="noopener noreferrer">查看固定原文来源（新窗口）</a>{% if excerpt.source_id != source.source_id %}<a href="{{ url_for('source_detail',source_id=excerpt.source_id|url_id).include_query_params(person_id=excerpt.person_id) }}">查看这条独立来源的档案</a>{% endif %}</p>
+    <ul class="source-original-relations">{% for relation in excerpt.relations %}<li>{{ relation.usage_label }}：<a href="{{ url_for('alias_detail',alias_id=relation.alias_id|url_id) }}#evidence-{{ relation.evidence_id }}">{{ relation.type_label }}“{{ relation.alias_name }}”及对应证据</a></li>{% endfor %}</ul>
+  </article>{% endfor %}
+</section>
+{% elif source.presentation.kind=='structured_database' %}
+<p class="reading-note">此数据库来源目前没有可直接展示的古籍原文摘录。{% if not source.selected_person_id %}可以先选择人物，查看是否有另一条独立的原文证据。{% else %}已保留其结构化记录及官方来源链接；不补造古籍原句。{% endif %}</p>
+{% endif %}
+<section class="source-reading" aria-label="来源书目">
+  {{ source_card(source,person_id=source.selected_person_id) }}
+</section>
+<section class="source-contributions" aria-labelledby="source-contributions-title">
+  <div class="section-heading"><h2 id="source-contributions-title">本来源支持的资料</h2><p>{{ source.relation_count }} 条称呼关系 · {{ source.field_count }} 项已选用字段</p></div>
+  <form action="{{ url_for('source_detail',source_id=source.source_id|url_id) }}" method="get" class="source-filter">
+    <label for="source-person">按人物查看出处</label>
+    <select id="source-person" name="person_id"><option value="">全部人物</option>{% for option in source.people_options %}<option value="{{ option.person_id }}"{% if option.person_id==source.selected_person_id %} selected{% endif %}>{{ option.canonical_name }} · {{ option.presentation.summary }}{% for item in option.presentation.facts if item.label=='籍贯' %} · {{ item.value }}{% endfor %}</option>{% endfor %}</select>
+    <button type="submit">查看资料</button>
+  </form>
+  {% if source.fields %}<h3>人物资料</h3><ul class="source-fact-list">
+  {% for fact in source.fields %}<li><a href="{{ url_for('person_detail',person_id=fact.person_id|url_id) }}">{{ fact.canonical_name }}</a><span>{{ fact.presentation.label }}：{{ fact.presentation.value }}</span><small>{{ fact.grade_label or {'A':'原文证据核实','B':'结构化来源','C':'资料补充'}.get(fact.grade,'') }}</small>{{ provenance_details(fact,'field',fact.fact_id,person_id=fact.person_id) }}</li>{% endfor %}
+  </ul>{% endif %}
+  {% if source.relations %}<h3>称呼与证据</h3><ul class="source-relation-list">
+  {% for relation in source.relations %}<li><a href="{{ url_for('person_detail',person_id=relation.person_id|url_id) }}">{{ relation.canonical_name }}</a><span>{{ relation.type_label }}：{{ relation.alias_name }}</span><small>{{ relation.usage_label }}</small><a class="text-link" href="{{ url_for('alias_detail',alias_id=relation.alias_id|url_id) }}#evidence-{{ relation.evidence_id }}">查看对应证据（{{ relation.evidence_count }} 条） →</a></li>{% endfor %}
+  </ul>{% endif %}
+  {% if not source.fields and not source.relations %}<p class="reading-note">本页没有符合当前筛选条件的公开资料，可切换人物或返回上一页。</p>{% endif %}
+  {% if source.total_pages>1 %}<nav class="source-pagination" aria-label="来源资料分页">{% if source.page>1 %}<a href="{{ url_for('source_detail',source_id=source.source_id|url_id).include_query_params(page=source.page-1,person_id=source.selected_person_id) }}">上一页</a>{% endif %}<span>第 {{ source.page }} / {{ source.total_pages }} 页</span>{% if source.page<source.total_pages %}<a href="{{ url_for('source_detail',source_id=source.source_id|url_id).include_query_params(page=source.page+1,person_id=source.selected_person_id) }}">下一页</a>{% endif %}</nav>{% endif %}
+</section>
+{% endblock %}
