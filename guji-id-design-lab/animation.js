@@ -148,10 +148,12 @@
   menuButton.addEventListener('click',()=>{
     const open=menuButton.getAttribute('aria-expanded')!=='true';
     menuButton.setAttribute('aria-expanded',String(open));
+    menuButton.setAttribute('aria-label',open?'关闭导航菜单':'打开导航菜单');
     menu.classList.toggle('open',open);
   });
   menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
     menu.classList.remove('open');menuButton.setAttribute('aria-expanded','false');
+    menuButton.setAttribute('aria-label','打开导航菜单');
   }));
   // Native anchors + CSS scroll-margin; animation never blocks keyboard navigation.
 })();

@@ -25,6 +25,7 @@ def immersive_db(tmp_path):
                 ("TEST-P-ONE", "测试甲", "测试朝", "verified"),
                 ("TEST-P-TWO", "测试同名", "测试朝一", "verified"),
                 ("TEST-P-THREE", "测试同名", "测试朝二", "verified"),
+                ("TEST-P-LONG", "测试长名人物", "测试朝", "verified"),
             ],
         )
         connection.execute(
@@ -84,6 +85,12 @@ def test_person_page_uses_same_dynamic_slip_and_links_to_its_own_profile(immersi
     assert "李白" not in page
 
 
+def test_long_names_use_a_balanced_slip_class(immersive_client):
+    page = immersive_client.get("/people/TEST-P-LONG").text
+    assert "archive-person-name is-xlong" in page
+    assert "测试长名人物" in page
+
+
 def test_homonyms_keep_independent_results_and_neutral_archive(immersive_client):
     response = immersive_client.get("/search", params={"q": "测试同名"})
     page = response.text
@@ -93,6 +100,7 @@ def test_homonyms_keep_independent_results_and_neutral_archive(immersive_client)
     assert 'data-archive-display data-person-id=""' in page
     assert "数字题签 · 待选人物" in page
     assert "此处为中性视觉示意。检索并选择人物后，题签随规范 ID 更新。" in page
+    assert "2 个同名候选" in page
 
 
 def test_mode_b_appears_only_for_verified_person_evidence_source(
