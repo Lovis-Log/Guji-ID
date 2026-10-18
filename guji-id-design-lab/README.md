@@ -1,4 +1,6 @@
-# GuJi ID — 沉浸式首页 Design Lab v0.1
+# GuJi ID — 沉浸式首页 Design Lab v0.2
+
+V0.2 已把原型中固定的「李白」人物文字替换为独立 DOM 数字题签，并从实际画面移除含固定人名的 `book-detail.webp` 和 `archive-page.webp`。独立原型默认展示中性状态；仅当调用方以规范人物 ID 提供已核验的 `GUJI_CONFIG.person` 时才更新题签。B 真实书影入口在独立原型中如实显示不可用；正式站的证据关联、校验和 A 回退实现位于 `app/archive_display.py`、`app/archive_scans.json` 与正式人物模板。
 
 ## 已实现
 

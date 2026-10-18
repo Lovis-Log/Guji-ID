@@ -17,6 +17,7 @@ from app.normalization import normalize_name
 from app.auto_catalog import pipeline_counts
 from app.field_quality import has_quality
 from app.source_catalog import get_source,get_raw_record
+from app.archive_display import scan_for_person
 
 logger = logging.getLogger(__name__)
 ASSET_ROOT = Path(__file__).resolve().parent
@@ -84,11 +85,13 @@ def create_app(db_path: str | Path | None = None) -> FastAPI:
             if q and has_quality(connection):
                 held_count=connection.execute("SELECT count(*) FROM quality_quarantine WHERE instr(source_json,?)>0",(q,)).fetchone()[0]
         query = normalize_name(q or "")
+        results = search_people(application.state.db_path, query)
+        archive_scan = scan_for_person(application.state.db_path, results[0]["person_id"]) if len(results) == 1 else None
         return templates.TemplateResponse(request=request, name="index.html", context={
             "counts": counts, "verified_aliases": verified_aliases,
             "public_counts": public_counts(application.state.db_path),
             "q": query, "searched": q is not None,
-            "results": search_people(application.state.db_path, query),
+            "results": results, "archive_scan": archive_scan,
             "examples": search_examples(application.state.db_path),
             "pipeline": pipeline_counts(application.state.db_path),
             "held_count":held_count,
@@ -102,7 +105,10 @@ def create_app(db_path: str | Path | None = None) -> FastAPI:
         person = get_person(application.state.db_path, person_id)
         if person is None:
             return unavailable(request, "人物档案")
-        return templates.TemplateResponse(request=request, name="person.html", context={"person": person, "q": normalize_name(q)})
+        return templates.TemplateResponse(request=request, name="person.html", context={
+            "person": person, "q": normalize_name(q),
+            "archive_scan": scan_for_person(application.state.db_path, person_id),
+        })
 
     @application.get("/aliases/{alias_id:path}", response_class=HTMLResponse)
     def alias_detail(request: Request, alias_id: str):

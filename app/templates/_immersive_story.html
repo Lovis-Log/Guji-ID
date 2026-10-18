@@ -1,0 +1,28 @@
+<header class="topbar" id="topbar">
+  <a class="brand" href="#top" aria-label="GuJi ID 回到卷首"><span class="brand-seal" aria-hidden="true">籍</span><span class="brand-stack"><span class="brand-title">GuJi <i>ID</i></span><span class="brand-subtitle">古籍人物规范档案</span></span></a>
+  <nav class="site-nav" id="main-nav" aria-label="主导航"><a class="nav-link" href="#top">卷首</a><a class="nav-link" href="#results">人物检索</a><a class="nav-link" href="#research">文献考据</a><a class="nav-link" href="#data">数据概况</a></nav>
+  <button class="menu-toggle" id="menu-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="打开导航菜单"><span></span><span></span></button>
+  <div class="header-side" aria-hidden="true"><span class="header-rule"></span><span>卷 · 壹</span></div>
+</header>
+<section class="story" id="top" aria-label="古籍展卷滚动叙事">
+  <div class="story-sticky" id="story-sticky">
+    <div class="ambient" aria-hidden="true"></div><div class="photo book-photo" id="book-photo" aria-hidden="true"></div><div class="photo manuscript-photo" id="manuscript-photo" aria-hidden="true"></div><div class="light-beam" id="light-beam" aria-hidden="true"></div><div class="paper-curtain" id="paper-curtain" aria-hidden="true"></div><div class="film-grain" aria-hidden="true"></div><div class="frame-lines" aria-hidden="true"><span class="line-top"></span><span class="line-bottom"></span></div>
+    <div class="hero-content" id="hero-content">
+      <p class="eyebrow"><span class="eyebrow-rule"></span>数字人文 · 古籍人物名号考</p>
+      <h1>千载人名<span class="comma">，</span><br><span>一卷可寻</span><span class="period">。</span></h1>
+      <p class="hero-description">以名索人，以文为证。<br>从散落于典籍的称呼，寻回人物的身份与出处。</p>
+      <form id="hero-search-form" class="search-form" action="{{ url_for('search') }}#results" method="get" role="search">
+        <label class="sr-only" for="hero-search">检索人物姓名或别称</label>
+        <div class="search-field"><span class="magnifier" aria-hidden="true"></span><input id="hero-search" type="search" name="q" value="{{ q }}" placeholder="输入姓名、字、号、谥号或别称……" maxlength="100" enterkeyhint="search" required></div>
+        <button class="search-submit" type="submit">检索人物 <span aria-hidden="true">↗</span></button>
+      </form>
+      <div class="try-search"><span>试寻</span><span class="try-divider"></span>{% for term in ['李白','苏轼','王珪','文徵明'] %}<a class="quick-search" href="{{ url_for('search').include_query_params(q=term) }}#results">{{ term }}</a>{% endfor %}</div>
+      <p class="hero-image-note">古籍场景为视觉示意；人物与文献事实请以档案中的来源为准。</p>
+    </div>
+    <div class="cinema-side-note" aria-hidden="true"><span>以古籍为证</span><span>辨一名之异同</span><span class="note-seal">考</span></div>
+    <div class="macro-caption" id="macro-caption"><p class="eyebrow light"><span class="eyebrow-rule"></span>第贰幕 · 寻名</p><h2>字里行间，<br>皆有人名。</h2><p>镜头入卷，字迹渐明。<br>每一处称呼，都是通往人物的一条线索。</p></div>
+    <div class="ink-focus" id="ink-focus" aria-hidden="true"><span>{{ results[0].canonical_name if results|length == 1 else '辨名' }}</span><i></i></div>
+    <div class="paper-intro" id="paper-intro"><p class="eyebrow"><span class="eyebrow-rule"></span>第叁幕 · 辨人</p><h2>一称一人，<br>须有凭据。</h2><p>辨同名，考字号，溯出处。<br>让古籍中的人物关系有迹可循。</p><a class="paper-enter" href="#research">展开人物考据 <span aria-hidden="true">↘</span></a></div>
+    <div class="scroll-indicator" id="scroll-indicator" aria-hidden="true"><span class="scroll-line"></span><span>向下展卷</span><span>SCROLL TO EXPLORE</span></div><div class="chapter-rail" aria-hidden="true"><span id="rail-current">01</span><span class="rail-progress"><i id="rail-progress"></i></span><span>03</span></div><div class="stage-caption" id="stage-caption" aria-hidden="true"><span id="stage-name">入境 · 启卷</span><span class="caption-divider"></span><span>GUJI ID — DIGITAL HUMANITIES</span></div>
+  </div>
+</section>

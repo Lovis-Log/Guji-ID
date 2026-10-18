@@ -4,4 +4,4 @@
  * The literal placeholder {query} will be URI-encoded and replaced.
  * Blank = keep the demo honest and show a non-connected notice.
  */
-window.GUJI_CONFIG = { searchUrlTemplate: '' };
+window.GUJI_CONFIG = { searchUrlTemplate: '', person: null };

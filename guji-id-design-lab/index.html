@@ -62,7 +62,7 @@
           <h2>字里行间，<br>皆有人名。</h2>
           <p>镜头入卷，字迹渐明。<br>每一处称呼，都是通往人物的一条线索。</p>
         </div>
-        <div class="ink-focus" id="ink-focus" aria-hidden="true"><span>李白</span><i></i></div>
+        <div class="ink-focus" id="ink-focus" aria-hidden="true"><span data-person-name>辨名</span><i></i></div>
         <div class="paper-intro" id="paper-intro">
           <p class="eyebrow"><span class="eyebrow-rule"></span>第叁幕 · 辨人</p>
           <h2>一称一人，<br>须有凭据。</h2>
@@ -84,21 +84,22 @@
         <div class="research-heading"><span class="research-overline">GUJI ID / PERSON RECORD</span><span class="chapter-number">卷之三　·　人物考据</span></div>
         <div class="research-title-line"><p class="section-label"><span class="small-seal" aria-hidden="true">考</span> 人物规范档案</p><h2 id="research-title">一人一档，循名溯源。</h2><p>依姓名、字号与出处，将称呼关系归于具体人物。</p></div>
         <div class="archive-board" id="explore">
-          <div class="archive-aside"><span class="archive-number">人物谱 · 样式示例</span><div class="name-composition"><strong>李<span>白</span></strong><div class="vertical-tags"><span>字 太白</span><span>号 青莲居士</span></div></div><span class="seal-art" aria-hidden="true">人物<br>考</span><p class="aside-note">人物展示仅用于界面演示；<br>不代表已连接正式库。</p></div>
+          <div class="archive-aside"><span class="archive-number">数字题签 · 中性视觉示意</span><div class="name-composition"><strong data-person-name>循名</strong><div class="vertical-tags" data-person-aliases><span>选择人物后显示已核对称呼</span></div></div><span class="seal-art" aria-hidden="true">人物<br>考</span><p class="aside-note">装饰图像不是古籍扫描；人物资料须由规范 ID 载入。</p></div>
           <div class="archive-main">
-            <div class="archive-topline"><span>人物识别 · DEMO RECORD</span><span>唐 · 诗人</span></div>
+            <div class="archive-topline"><span>人物识别 · 数字题签</span><span data-person-dynasty>未指定人物</span></div>
+            <div class="lab-mode-tabs" role="group" aria-label="古籍展示模式"><button type="button" aria-pressed="true">A · 数字题签</button><button type="button" disabled aria-describedby="lab-scan-status">B · 真实书影</button></div>
             <div class="tablist" role="tablist" aria-label="人物信息展示"><button role="tab" id="tab-biography" aria-controls="panel-biography" aria-selected="true" class="tab active" type="button" data-panel="biography">人物信息</button><button role="tab" id="tab-alias" aria-controls="panel-alias" aria-selected="false" class="tab" type="button" data-panel="alias">称呼关系</button><button role="tab" id="tab-sources" aria-controls="panel-sources" aria-selected="false" class="tab" type="button" data-panel="sources">文献证据</button></div>
             <div class="panels">
               <div class="tab-panel" id="panel-biography" role="tabpanel" aria-labelledby="tab-biography">
-                <div class="identity-grid"><div><span class="field-label">姓名</span><span>李白</span></div><div><span class="field-label">时代</span><span>唐</span></div><div><span class="field-label">字</span><span>太白</span></div><div><span class="field-label">号</span><span>青莲居士</span></div></div>
+                <div class="identity-grid"><div><span class="field-label">姓名</span><span data-person-name>未指定</span></div><div><span class="field-label">时代</span><span data-person-dynasty>未收录</span></div><div><span class="field-label">字</span><span data-person-courtesy>待考</span></div><div><span class="field-label">号</span><span data-person-art>待考</span></div></div>
                 <p class="archive-text">在正式版本中，人物生平、身份区分与历史称呼将根据数据库展示，并提供可追溯的证据入口。</p>
               </div>
-              <div class="tab-panel" id="panel-alias" role="tabpanel" aria-labelledby="tab-alias" hidden><div class="alias-line"><span>李白</span><i></i><span>太白</span><i></i><span>青莲居士</span></div><p class="archive-text">称呼之间的关联应由数据库中的已核准关系确定；同名不同人的记录必须保持独立。</p></div>
+              <div class="tab-panel" id="panel-alias" role="tabpanel" aria-labelledby="tab-alias" hidden><div class="alias-line"><span data-person-name>未指定</span><i></i><span data-person-courtesy>待考</span><i></i><span data-person-art>待考</span></div><p class="archive-text">称呼之间的关联应由数据库中的已核准关系确定；同名不同人的记录必须保持独立。</p></div>
               <div class="tab-panel" id="panel-sources" role="tabpanel" aria-labelledby="tab-sources" hidden><div class="empty-evidence"><span class="small-seal" aria-hidden="true">证</span><div><strong>文献证据待接入</strong><p>此处不生成虚构古籍引文。接入正式库后再显示来源、原文、页码与核验状态。</p></div></div></div>
             </div>
-            <div class="archive-footer"><span>文献考据 · 非实时数据</span><button id="try-form" type="button">从姓名开始检索 <span aria-hidden="true">↗</span></button></div>
+            <div class="archive-footer"><span id="lab-scan-status">A 数字题签 · 暂无可展示的真实书影</span><button id="try-form" type="button">从姓名开始检索 <span aria-hidden="true">↗</span></button></div>
           </div>
-          <div class="archive-decoration" aria-hidden="true"><img src="assets/archive-page.webp" alt=""></div>
+          <div class="archive-decoration" aria-hidden="true"><span>辨<br>人<br>考<br>据</span></div>
         </div>
         <div class="feature-strip"><div><span class="feature-index">其一</span><strong>循名</strong><span>姓名与异名检索</span></div><div><span class="feature-index">其二</span><strong>辨人</strong><span>同名人物独立身份</span></div><div><span class="feature-index">其三</span><strong>溯源</strong><span>每条关系有据可查</span></div></div>
       </div>

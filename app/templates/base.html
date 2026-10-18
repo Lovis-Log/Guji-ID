@@ -7,9 +7,12 @@
   <title>{% block title %}GuJi ID · 古籍人物规范档{% endblock %}</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='2' fill='%238b3f32'/%3E%3Ctext x='16' y='23' text-anchor='middle' fill='%23fff5df' font-size='23'%3E籍%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="{{ url_for('static', path='/styles.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', path='/archive-display.css') }}">
+  {% block extra_head %}{% endblock %}
   <script src="{{ url_for('static', path='/app.js') }}" defer></script>
+  <script src="{{ url_for('static', path='/archive-display.js') }}" defer></script>
 </head>
-<body>
+<body class="{% block body_class %}{% endblock %}">
   <a class="skip-link" href="#main">跳转到正文</a>
   <header class="site-header">
     <a class="brand" href="{{ url_for('home') }}"><span class="seal" aria-hidden="true">籍</span><span>GuJi ID<small>古籍人物规范档</small></span></a>

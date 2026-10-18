@@ -1,5 +1,11 @@
 {% extends "base.html" %}
+{% block body_class %}immersive-home{% endblock %}
+{% block extra_head %}<link rel="stylesheet" href="{{ url_for('static', path='/immersive.css') }}"><script src="{{ url_for('static', path='/immersive.js') }}" defer></script>{% endblock %}
 {% block content %}
+  {% include '_immersive_story.html' %}
+  {% set archive_person = results[0] if results|length == 1 else none %}
+  {% include '_archive_display.html' %}
+  <div class="immersive-paper">
   <section class="intro" aria-labelledby="intro-title">
     <div class="intro-copy">
       <p class="eyebrow">GUJI ID · 古籍人物规范档</p>
@@ -68,5 +74,6 @@
     </div>
   </section>
   <section class="status-key" aria-label="核对状态说明"><h2>每条判断都有状态</h2><p><span>待核对</span>{% if pipeline %}尚未完成核验{% else %}尚待人工核实{% endif %}</p><p><span>已核对</span>{% if pipeline %}人工或自动准入，见方法标记{% else %}经人工核对后标记{% endif %}</p><p><span>存疑</span>存在歧义或证据冲突</p><p><span>驳回</span>已否定并保留记录</p></section>
+  </div>
 {% endblock %}
 

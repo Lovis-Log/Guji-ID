@@ -2,6 +2,8 @@
 {% from '_source_card.html' import readable_facts, provenance_details with context %}
 {% block title %}{{ person.canonical_name }} · 人物规范档案 · GuJi ID{% endblock %}
 {% block content %}
+  {% set archive_person = person %}
+  {% include '_archive_display.html' %}
   {% set profile_fields = {'朝代':'dynasty','籍贯':'native_place','生年':'birth_year','卒年':'death_year'} %}
   {% set dynasty_fact = person.presentation.facts|selectattr('label','equalto','朝代')|first %}
   <nav class="breadcrumbs" aria-label="当前位置"><a href="{% if q %}{{ url_for('search').include_query_params(q=q) }}#results{% else %}{{ url_for('home') }}{% endif %}">返回称呼检索</a><span aria-hidden="true">/</span><span aria-current="page">人物规范档案</span></nav>

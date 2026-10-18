@@ -73,6 +73,18 @@
   reduceMotion.addEventListener?.('change',queueScene);
   queueScene();
 
+  // Optional context must be supplied by a verified person-ID lookup. A typed
+  // search term never becomes a person record in this standalone visual lab.
+  const person = window.GUJI_CONFIG?.person;
+  if (person && typeof person.person_id === 'string' && person.person_id &&
+      typeof person.canonical_name === 'string' && person.canonical_name) {
+    $$('[data-person-name]').forEach(node => node.textContent = person.canonical_name);
+    $$('[data-person-dynasty]').forEach(node => node.textContent = person.dynasty || '待考');
+    $$('[data-person-courtesy]').forEach(node => node.textContent = person.courtesy || '待考');
+    $$('[data-person-art]').forEach(node => node.textContent = person.art || '待考');
+    $('.archive-number').textContent = `数字题签 · ${person.person_id}`;
+  }
+
   // Real UI text/search layer -- no search result is fabricated in prototype mode.
   function search(query){
     const q=(query||'').trim();

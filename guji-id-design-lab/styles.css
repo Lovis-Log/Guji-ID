@@ -37,7 +37,7 @@ button{cursor:pointer}
 .photo{position:absolute;pointer-events:none;background-repeat:no-repeat;will-change:transform,opacity}
 .book-photo{z-index:1;width:76%;height:88%;top:14%;right:-8%;background-image:url('assets/antique-books.webp');background-size:cover;background-position:center center;filter:contrast(1.09) saturate(.95) brightness(.88);mask-image:radial-gradient(ellipse 61% 49% at 54% 56%,black 48%,transparent 99%);-webkit-mask-image:radial-gradient(ellipse 61% 49% at 54% 56%,black 48%,transparent 99%)}
 .book-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#131009 0%,transparent 24%)}
-.manuscript-photo{z-index:2;inset:-8% -3% -8% -3%;opacity:0;background-image:url('assets/book-detail.webp');background-position:center;background-size:cover;filter:saturate(.75) contrast(1.1);mask-image:linear-gradient(90deg,transparent,black 16%,black 84%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,black 16%,black 84%,transparent)}
+.manuscript-photo{z-index:2;inset:-8% -3% -8% -3%;opacity:0;background-image:url('assets/antique-books.webp');background-position:center;background-size:cover;filter:saturate(.75) contrast(1.1);mask-image:linear-gradient(90deg,transparent,black 16%,black 84%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,black 16%,black 84%,transparent)}
 .story-sticky:before{content:"";pointer-events:none;position:absolute;inset:0;z-index:5;background:linear-gradient(90deg,rgba(8,7,6,.90) 1%,rgba(11,9,7,.77) 26%,rgba(13,10,8,.20) 60%,rgba(8,7,6,.13) 100%),linear-gradient(0deg,rgba(9,8,7,.62),transparent 28%,transparent 72%,rgba(9,7,4,.24));opacity:1}
 .light-beam{position:absolute;z-index:4;pointer-events:none;inset:-15% -15% 0 15%;background:radial-gradient(ellipse at 65% 28%,rgba(255,194,96,.18),transparent 44%);mix-blend-mode:screen;transform:rotate(-5deg)}
 .paper-curtain{pointer-events:none;z-index:7;position:absolute;inset:0;opacity:0;background:linear-gradient(90deg,rgba(238,229,211,.93) 0%,rgba(238,229,211,.85) 47%,rgba(238,229,211,.62) 100%),url('assets/rice-paper.webp') center/cover}
@@ -169,3 +169,11 @@ h1,h2,p{margin-top:0}
 }
 @media(max-width:380px){.hero-content h1{font-size:39px}.search-submit{min-width:80px}.research-title-line h2{font-size:29px}.footer-left em{display:block;margin-left:0}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important}.story{height:220svh}.photo{will-change:auto}.hero-content,.macro-caption,.paper-intro{will-change:auto}}
+
+/* V0.2: neutral imagery and a separate digital title slip. */
+.manuscript-photo{background-image:linear-gradient(90deg,#100d09a3,#2b1c0c38 50%,#09080790),url('assets/antique-books.webp');background-position:64% 59%;filter:contrast(1.11) saturate(.82) sepia(.16)}
+.ink-focus{color:#f3e6cb;text-shadow:0 3px 17px #1b0d08,0 1px 4px #120c07}
+.ink-focus span{background:rgba(58,29,17,.25)}
+.archive-decoration{display:flex;align-items:center;justify-content:center;background:linear-gradient(90deg,#c6ae8652,#e8d8b176),url('assets/rice-paper.webp') center/cover;color:#806249;font-size:23px;line-height:2;letter-spacing:.1em;text-align:center}
+.lab-mode-tabs{display:flex;gap:22px;border-block:1px solid #8a6a413b;margin-top:16px}.lab-mode-tabs button{border:0;background:none;color:#8e3c29;padding:12px 0;min-height:46px;font-size:12px}.lab-mode-tabs button:first-child{border-bottom:2px solid #a84d37}.lab-mode-tabs button:disabled{opacity:.55;cursor:not-allowed}
+@media(max-width:740px){.archive-aside{display:block}.name-composition{margin:16px 0 9px;display:block}.name-composition strong{display:block;font-size:50px}.vertical-tags{writing-mode:horizontal-tb;display:block;line-height:1.8;margin:8px 0}.aside-note{display:block;margin:10px 0;text-align:left}.archive-decoration{display:none}}

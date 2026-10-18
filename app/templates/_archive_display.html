@@ -1,0 +1,58 @@
+<section class="archive-stage" id="research" aria-labelledby="archive-title" data-archive-display data-person-id="{{ archive_person.person_id if archive_person else '' }}">
+  <div class="archive-stage-inner">
+    <div class="archive-heading"><span>GUJI ID / PERSON RECORD</span><span>卷之三 · 辨人考据</span></div>
+    <div class="archive-title-line">
+      <p><span class="archive-small-seal" aria-hidden="true">考</span> 人物规范档案</p>
+      <h2 id="archive-title">{% if archive_person %}{{ archive_person.canonical_name }}{% else %}一人一档，循名溯源。{% endif %}</h2>
+      <span>{% if archive_person %}规范人物 ID：{{ archive_person.person_id }}{% else %}选择检索结果后，查看以规范人物 ID 关联的真实资料。{% endif %}</span>
+    </div>
+    <div class="archive-board-v2">
+      <div class="archive-identity">
+        <span class="archive-number">{% if archive_person %}数字题签 · {{ archive_person.person_id }}{% else %}数字题签 · 待选人物{% endif %}</span>
+        <strong class="archive-person-name">{{ archive_person.canonical_name if archive_person else '循名' }}</strong>
+        {% if archive_person %}
+          <span class="archive-identity-status">{{ archive_person.verification_label or '身份已收录' }}</span>
+          {% for alias in archive_person.presentation.primary_aliases[:3] %}<span class="archive-alias">{{ alias.label }} {{ alias.value }}</span>{% endfor %}
+        {% else %}<p>此处为中性视觉示意。检索并选择人物后，题签随规范 ID 更新。</p>{% endif %}
+      </div>
+      <div class="archive-content">
+        <div class="archive-topline"><span>数字题签 / 真实资料分层展示</span><span>{{ archive_person.person_id if archive_person else '未指定人物' }}</span></div>
+        <div class="archive-mode-tabs" role="group" aria-label="古籍展示模式">
+          <button type="button" class="archive-mode-button is-active" data-archive-mode="a" aria-pressed="true">A · 数字题签</button>
+          <button type="button" class="archive-mode-button" data-archive-mode="b" aria-pressed="false" {% if not archive_scan %}disabled aria-describedby="archive-scan-status"{% endif %}>B · 真实书影</button>
+        </div>
+        <div class="archive-mode-panel" data-archive-panel="a">
+          <div class="archive-digital-leaf" role="img" aria-label="中性古籍纸张氛围与独立数字题签；不是古籍扫描件">
+            <span class="archive-leaf-label">交互展示 · 非古籍原文扫描</span>
+            <strong>{{ archive_person.canonical_name if archive_person else '循名溯源' }}</strong>
+            <span class="archive-leaf-sub">{{ archive_person.person_id if archive_person else 'GUJI ID' }}</span>
+          </div>
+          {% if archive_person %}
+          <dl class="archive-facts">
+            <div><dt>姓名</dt><dd>{{ archive_person.canonical_name }}</dd></div>
+            {% for fact in archive_person.presentation.facts if fact.label in ['朝代', '籍贯'] %}<div><dt>{{ fact.label }}</dt><dd>{{ fact.value }}</dd></div>{% endfor %}
+          </dl>
+          {% if archive_person.identity_evidences %}
+            {% set clue = archive_person.identity_evidences[0] %}
+            <blockquote class="archive-quote">{{ clue.original_text }}</blockquote>
+            <p class="archive-citation">《{{ clue.book_title }}》{% if clue.volume %}{{ clue.volume }}{% endif %}{% if clue.chapter %} · {{ clue.chapter }}{% endif %} · {{ clue.type_label }}：{{ clue.alias_name }} <a href="{{ url_for('alias_detail', alias_id=clue.alias_id|url_id) }}">查看证据 →</a></p>
+          {% else %}<p class="archive-citation">暂无可核验的古籍原文摘录；请查阅下方现有来源与证据状态。</p>{% endif %}
+          {% else %}<p class="archive-citation">人物姓名与证据须从检索结果中的规范 ID 读取。</p>{% endif %}
+        </div>
+        {% if archive_scan %}
+        <div class="archive-mode-panel" data-archive-panel="b" hidden>
+          <div class="archive-scan-frame">
+            <img src="{{ archive_scan.image_url }}" alt="{{ archive_scan.provider }}提供的《{{ archive_scan.book_title }}》真实书影" loading="lazy" data-archive-scan>
+            {% if archive_scan.highlight %}<span class="archive-scan-highlight" style="left:{{ archive_scan.highlight.x }}%;top:{{ archive_scan.highlight.y }}%;width:{{ archive_scan.highlight.width }}%;height:{{ archive_scan.highlight.height }}%" aria-label="已人工核实的页内位置"></span>{% endif %}
+          </div>
+          <p class="archive-citation">《{{ archive_scan.book_title }}》{{ archive_scan.volume or '' }}{{ archive_scan.chapter or '' }} · {{ archive_scan.provider }} · 证据 {{ archive_scan.evidence_id }}</p>
+          <p class="archive-citation">使用说明：{{ archive_scan.license }} · <a href="{{ archive_scan.source_url }}" target="_blank" rel="noopener noreferrer">原始来源页 ↗</a>{% if not archive_scan.highlight %} · 尚未定位到页内文字{% endif %}</p>
+        </div>
+        {% endif %}
+        <p class="archive-scan-status" id="archive-scan-status" role="status" aria-live="polite">{% if archive_scan %}已有核实的书影关联；可切换查看原图与来源。{% else %}暂无可展示的真实书影，当前使用 A 模式数字题签。{% endif %}</p>
+        <div class="archive-footer-v2"><span>装饰图像不是历史证据</span>{% if archive_person %}<a href="{{ url_for('person_detail', person_id=archive_person.person_id|url_id) }}">查看完整人物档案 →</a>{% else %}<a href="#results">从姓名检索开始 →</a>{% endif %}</div>
+      </div>
+      <div class="archive-decoration-v2" aria-hidden="true"><span>辨</span><span>人</span><span>考</span><span>据</span></div>
+    </div>
+  </div>
+</section>

@@ -7,6 +7,8 @@ pytest-of-*/
 data/*.db
 data/*.db-*
 data/*.sqlite*
+data/external/
+data/ingestion/
 .env
 work/
 outputs/
