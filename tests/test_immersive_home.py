@@ -64,6 +64,8 @@ def test_single_person_search_drives_title_slip_from_canonical_id(immersive_clie
     response = immersive_client.get("/search", params={"q": "测试甲"})
     assert response.status_code == 200
     page = response.text
+    assert 'class="is-search-page"' in page
+    assert "immersive-home is-search-page" in page
     assert 'data-person-id="TEST-P-ONE"' in page
     assert 'class="archive-person-name">测试甲</strong>' in page
     assert "数字题签 · TEST-P-ONE" in page
@@ -79,6 +81,7 @@ def test_person_page_uses_same_dynamic_slip_and_links_to_its_own_profile(immersi
     response = immersive_client.get("/people/TEST-P-ONE")
     assert response.status_code == 200
     page = response.text
+    assert "is-search-page" not in page
     assert 'class="archive-person-name">测试甲</strong>' in page
     assert 'href="#profile-title">查看下方完整人物档案' in page
     assert 'href="/people/TEST-P-ONE">查看完整人物档案' not in page
@@ -146,3 +149,4 @@ def test_empty_database_does_not_suggest_unresolved_quick_searches(tmp_path):
         page = client.get("/").text
     assert "试寻" not in page
     assert "文徵明" not in page
+    assert "is-search-page" not in page

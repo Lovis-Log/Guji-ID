@@ -129,7 +129,30 @@ def run_full(browser, base, out, label, width, height, failures, report):
         page.wait_for_timeout(18)
     page.wait_for_timeout(150)
 
-    # Search via keyboard, then verify the fixed header does not cover results.
+    # The paper-white intro search must be wide and land directly on results,
+    # without replaying the three-act story above it.
+    page.goto(base + "/", wait_until="networkidle")
+    page.locator("#name-query").scroll_into_view_if_needed()
+    page.wait_for_timeout(250)
+    intro_input = page.locator("#name-query").bounding_box()
+    intro_width = intro_input["width"] if intro_input else 0
+    minimum_width = 400 if width > 760 else 180
+    check(intro_width >= minimum_width, f"{label}: bottom search input is too narrow ({intro_width}px)", failures)
+    page.locator("#name-query").fill("王珪")
+    with page.expect_navigation():
+        page.locator(".intro .search-controls button").click()
+    page.wait_for_load_state("networkidle")
+    wait_for_results(page)
+    story_display = page.locator(".story").evaluate("(node) => getComputedStyle(node).display")
+    intro_results_top = page.locator("#results").bounding_box()["y"]
+    check(story_display == "none", f"{label}: search page still renders the three-act story", failures)
+    check(page.url.endswith("#results"), f"{label}: bottom search did not target #results", failures)
+    check(page.locator(".candidate-card").count() == 2, f"{label}: bottom search lost 王珪 homonyms", failures)
+    data["intro_search"] = {"input_width": round(intro_width, 1), "story_display": story_display,
+                            "results_top": round(intro_results_top, 1), "api": "bottom intro form"}
+    screenshot(page, out, f"intro-search-direct-{label}")
+
+    # Search via keyboard from the hero, then verify the fixed header does not cover results.
     page.goto(base + "/", wait_until="networkidle")
     page.locator("#hero-search").focus()
     page.keyboard.type("王珪")

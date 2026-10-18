@@ -51,7 +51,7 @@
         </div>
         {% endif %}
         <p class="archive-scan-status" id="archive-scan-status" role="status" aria-live="polite">{% if archive_scan %}已有核实的书影关联；可切换查看原图与来源。{% else %}暂无可展示的真实书影，当前使用 A 模式数字题签。{% endif %}</p>
-        <div class="archive-footer-v2"><span>数字题签与装饰图为视觉示意；真实书影以来源与授权说明为准。</span>{% if archive_person and archive_on_person_page %}<a href="#profile-title">查看下方完整人物档案 →</a>{% elif archive_person %}{% set person_url = url_for('person_detail', person_id=archive_person.person_id|url_id) %}<a href="{{ person_url.include_query_params(q=q) if q else person_url }}">查看完整人物档案 →</a>{% else %}<a href="#top">回到卷首检索 →</a>{% endif %}</div>
+        <div class="archive-footer-v2"><span>数字题签与装饰图为视觉示意；真实书影以来源与授权说明为准。</span>{% if archive_person and archive_on_person_page %}<a href="#profile-title">查看下方完整人物档案 →</a>{% elif archive_person %}{% set person_url = url_for('person_detail', person_id=archive_person.person_id|url_id) %}<a href="{{ person_url.include_query_params(q=q) if q else person_url }}">查看完整人物档案 →</a>{% else %}<a href="{% if searched %}{{ url_for('home') }}{% else %}#top{% endif %}">回到卷首检索 →</a>{% endif %}</div>
       </div>
       <div class="archive-decoration-v2" aria-hidden="true"><span>辨</span><span>人</span><span>考</span><span>据</span></div>
     </div>
