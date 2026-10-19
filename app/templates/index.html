@@ -4,9 +4,11 @@
 {% block extra_head %}<link rel="stylesheet" href="{{ url_for('static', path='/immersive.css') }}"><script src="{{ url_for('static', path='/immersive.js') }}" defer></script>{% endblock %}
 {% block content %}
   {% include '_immersive_story.html' %}
-  {% set archive_person = results[0] if results|length == 1 else none %}
-  {% set archive_on_person_page = false %}
-  {% include '_archive_display.html' %}
+  {% if not searched %}
+    {% set archive_person = results[0] if results|length == 1 else none %}
+    {% set archive_on_person_page = false %}
+    {% include '_archive_display.html' %}
+  {% endif %}
   <div class="immersive-paper">
   <section class="intro" id="search-entry" aria-labelledby="intro-title">
     <div class="intro-copy">
@@ -54,6 +56,9 @@
     </div>
     {% endif %}
   </section>
+  {% set archive_person = results[0] if results|length == 1 else none %}
+  {% set archive_on_person_page = false %}
+  {% include '_archive_display.html' %}
   {% endif %}
   {% if public_counts.people == 0 %}<div class="public-empty-note"><strong>暂无可公开检索的已核对人物</strong><p>资料需先完成人工核对，再通过现有 CSV 流程导入。当前页面不使用待审核采集结果或虚构人物填充。</p></div>{% endif %}
   <section id="data" class="data-section" aria-labelledby="data-title">

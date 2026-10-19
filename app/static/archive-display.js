@@ -15,16 +15,15 @@ document.querySelectorAll("[data-archive-display]").forEach(display => {
   buttons.forEach(button => button.addEventListener("click", () => {
     if (!button.disabled) select(button.dataset.archiveMode);
   }));
-  const scan = display.querySelector("[data-archive-scan]");
-  const fallback = () => {
-    const button = display.querySelector('[data-archive-mode="b"]');
-    button.disabled = true;
-    button.setAttribute("aria-describedby", "archive-scan-status");
-    select("a");
-    status.textContent = "书影加载失败，已回退 A 模式数字题签；文字证据仍可查阅。";
+
+  const scans = [...display.querySelectorAll("[data-archive-scan]")];
+  const scanFailed = scan => {
+    const card = scan.closest(".archive-scan-card");
+    if (card) card.classList.add("is-scan-error");
+    if (status) status.textContent = "真实书影加载失败；AI 拟古绘像仍可查看，A 模式文字证据不受影响。";
   };
-  if (scan) {
-    scan.addEventListener("error", fallback);
-    if (scan.complete && scan.naturalWidth === 0) fallback();
-  }
+  scans.forEach(scan => {
+    scan.addEventListener("error", () => scanFailed(scan));
+    if (scan.complete && scan.naturalWidth === 0) scanFailed(scan);
+  });
 });

@@ -65,3 +65,8 @@
 .source-original-entry .quote-heading{margin:5px 0 10px;font-size:12px;color:#546257}.source-copy-quote{min-height:44px;padding:8px 12px;background:transparent;border:1px solid var(--line);color:var(--accent);font-size:12px}.source-copy-status{min-height:1.4em;margin:0 0 8px;font-size:12px;color:#546257}
 .source-relevant-line{color:#a02f25;background:#f8e8df;border-radius:2px;padding:1px 3px;box-decoration-break:clone;-webkit-box-decoration-break:clone;font-weight:700}.original-text{overflow-wrap:anywhere}
 
+/* Site-wide non-commercial disclaimer in the global footer. */
+footer{flex-wrap:wrap}
+.footer-disclaimer{flex-basis:100%;width:100%;margin:12px 0 0;padding-top:12px;border-top:1px solid var(--line);color:var(--muted);font-size:11px;line-height:1.9;text-align:left}
+@media(max-width:760px){.footer-disclaimer{margin-top:6px;padding-top:10px}}
+

@@ -70,12 +70,20 @@ def test_single_person_search_drives_title_slip_from_canonical_id(immersive_clie
     assert 'data-person-id="TEST-P-ONE"' in page
     assert 'class="archive-person-name">测试甲</strong>' in page
     assert "数字题签 · TEST-P-ONE" in page
-    assert "暂无可展示的真实书影，当前使用 A 模式数字题签。" in page
+    assert "暂无可展示的真实书影，当前使用 A 模式数字题签。" not in page
     assert 'id="archive-mode-b"' in page and "disabled" in page
     # A mode is not a manuscript scan and must say so.
     assert "交互展示 · 非古籍原文扫描" in page
     # The baked-in prototype name must not leak into a different person's record.
     assert "李白" not in page
+    # The neutral method note belongs only to the unassigned state.
+    assert "文献考据 · 凡例" not in page
+
+
+def test_single_person_archive_follows_search_results(immersive_client):
+    page = immersive_client.get("/search", params={"q": "测试甲"}).text
+    assert page.index('id="results"') < page.index("data-archive-display")
+    assert page.index("data-archive-display") < page.index('id="data"')
 
 
 def test_person_page_uses_same_dynamic_slip_and_links_to_its_own_profile(immersive_client):
@@ -119,8 +127,9 @@ def test_homonyms_keep_independent_results_and_neutral_archive(immersive_client)
     assert 'data-person-id="TEST-P-THREE"' in page
     assert 'data-archive-display data-person-id=""' in page
     assert "数字题签 · 待选人物" in page
-    assert "此处为中性视觉示意。检索并选择人物后，题签随规范 ID 更新。" in page
+    assert "此处为中性视觉示意。检索并选择人物后，题签随规范 ID 更新。" not in page
     assert "2 个同名候选" in page
+    assert "文献考据 · 凡例" in page
 
 
 def test_mode_b_appears_only_for_verified_person_evidence_source(
@@ -156,7 +165,7 @@ def test_mode_b_appears_only_for_verified_person_evidence_source(
 
     other = immersive_client.get("/people/TEST-P-TWO").text
     assert "https://example.invalid/scan.jpg" not in other
-    assert "暂无可展示的真实书影" in other
+    assert "暂无可展示的真实书影" not in other
 
 
 def test_empty_database_does_not_suggest_unresolved_quick_searches(tmp_path):

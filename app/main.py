@@ -1,4 +1,5 @@
 import logging
+import mimetypes
 import sqlite3
 from contextlib import asynccontextmanager
 from pathlib import Path
@@ -17,10 +18,11 @@ from app.normalization import normalize_name
 from app.auto_catalog import pipeline_counts
 from app.field_quality import has_quality
 from app.source_catalog import get_source,get_raw_record
-from app.archive_display import scan_for_person
+from app.archive_display import figure_gallery, figures_for_person, scans_for_person
 from app import classics
 
 logger = logging.getLogger(__name__)
+mimetypes.add_type("image/webp", ".webp")
 ASSET_ROOT = Path(__file__).resolve().parent
 templates = Jinja2Templates(directory=str(ASSET_ROOT / "templates"))
 templates.env.filters["url_id"] = lambda value: quote(value, safe="")
@@ -87,12 +89,17 @@ def create_app(db_path: str | Path | None = None) -> FastAPI:
                 held_count=connection.execute("SELECT count(*) FROM quality_quarantine WHERE instr(source_json,?)>0",(q,)).fetchone()[0]
         query = normalize_name(q or "")
         results = search_people(application.state.db_path, query)
-        archive_scan = scan_for_person(application.state.db_path, results[0]["person_id"]) if len(results) == 1 else None
+        selected_id = results[0]["person_id"] if len(results) == 1 else None
+        archive_scans = scans_for_person(application.state.db_path, selected_id) if selected_id else []
         return templates.TemplateResponse(request=request, name="index.html", context={
             "counts": counts, "verified_aliases": verified_aliases,
             "public_counts": public_counts(application.state.db_path),
             "q": query, "searched": q is not None,
-            "results": results, "archive_scan": archive_scan,
+            "results": results,
+            "archive_scans": archive_scans,
+            "archive_scan": archive_scans[0] if archive_scans else None,
+            "archive_figures": figures_for_person(application.state.db_path, selected_id) if selected_id else [],
+            "archive_figure_gallery": figure_gallery(application.state.db_path),
             "examples": curated_examples(application.state.db_path),
             "pipeline": pipeline_counts(application.state.db_path),
             "held_count":held_count,
@@ -129,9 +136,13 @@ def create_app(db_path: str | Path | None = None) -> FastAPI:
         person = get_person(application.state.db_path, person_id)
         if person is None:
             return unavailable(request, "人物档案")
+        archive_scans = scans_for_person(application.state.db_path, person_id)
         return templates.TemplateResponse(request=request, name="person.html", context={
             "person": person, "q": normalize_name(q),
-            "archive_scan": scan_for_person(application.state.db_path, person_id),
+            "archive_scans": archive_scans,
+            "archive_scan": archive_scans[0] if archive_scans else None,
+            "archive_figures": figures_for_person(application.state.db_path, person_id),
+            "archive_figure_gallery": figure_gallery(application.state.db_path),
             "classical": classics.person_library(application.state.db_path, person_id),
         })
 

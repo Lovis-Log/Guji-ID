@@ -173,12 +173,14 @@ body.immersive-home{color:#29231d;overflow-x:clip}
 .immersive-home .ink-focus{right:24%;top:40%;font-size:clamp(46px,6vw,94px);color:#f3e6cb;text-shadow:0 3px 17px #1b0d08,0 1px 4px #120c07}
 .immersive-home .ink-focus span{background:rgba(58,29,17,.25)}
 .immersive-home .archive-stage{margin-top:-1px;scroll-margin-top:120px}
+.immersive-home.is-search-page .immersive-paper .archive-stage{margin-inline:calc(-1 * max(32px,calc((100vw - 1160px)/2)))}
 .immersive-home .results-section,.immersive-home #data,.immersive-home #name-query{scroll-margin-top:120px}
 @keyframes results-reveal{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 .immersive-home .results-section{animation:results-reveal .55s cubic-bezier(.22,1,.36,1) both}
 @media(prefers-reduced-motion:reduce){.immersive-home .results-section{animation:none}}
 .immersive-home .immersive-paper{background:#eee5d3 url('assets/rice-paper.webp') center top/cover;padding:0 max(32px,calc((100vw - 1160px)/2)) 55px}
 .immersive-home .immersive-paper>.intro{padding-top:42px;border-top:1px solid #bba98b}
+.immersive-home.is-search-page .immersive-paper>.intro{padding-top:calc(102px + 42px);border-top:0}
 .immersive-home .immersive-paper .principles{border-color:#b7a78f}
 .immersive-home .immersive-paper .candidate-card,.immersive-home .immersive-paper .stats{background:#f7f0e3;border-color:#bbaa8f}
 .immersive-home .immersive-paper .candidate-card{border-top:2px solid #604833;box-shadow:0 9px 22px #6244280b}
@@ -188,6 +190,7 @@ body.immersive-home{color:#29231d;overflow-x:clip}
 .immersive-home .immersive-paper .eyebrow{color:#a14f37;margin-bottom:18px}
 .immersive-home .immersive-paper .intro h1{font-size:clamp(32px,3.5vw,48px);color:#30271f}
 .immersive-home footer:not(.footer){max-width:none;padding:28px max(32px,calc((100vw - 1160px)/2));background:#201d19;color:#c8b69b;border:0}
-@media(max-width:760px){.immersive-home .immersive-paper{padding-inline:22px}.immersive-home .immersive-paper>.intro{padding-top:32px}.immersive-home footer:not(.footer){padding-inline:22px}.immersive-home .topbar .brand{gap:8px}.immersive-home .hero-image-note{margin-top:10px}.immersive-home .ink-focus{right:15%;top:36%;font-size:50px}.immersive-home .manuscript-photo{background-position:68% center}.immersive-home .archive-stage,.immersive-home .results-section,.immersive-home #data,.immersive-home #name-query{scroll-margin-top:100px}}
-@media(max-width:380px){.immersive-home .immersive-paper{padding-inline:16px}.immersive-home footer:not(.footer){padding-inline:16px}}
+.immersive-home footer:not(.footer) .footer-disclaimer{border-top-color:rgba(200,182,155,.22);color:#a4917a}
+@media(max-width:760px){.immersive-home .immersive-paper{padding-inline:22px}.immersive-home .immersive-paper>.intro{padding-top:32px}.immersive-home.is-search-page .immersive-paper>.intro{padding-top:calc(80px + 32px)}.immersive-home footer:not(.footer){padding-inline:22px}.immersive-home .topbar .brand{gap:8px}.immersive-home .hero-image-note{margin-top:10px}.immersive-home .ink-focus{right:15%;top:36%;font-size:50px}.immersive-home .manuscript-photo{background-position:68% center}.immersive-home .archive-stage,.immersive-home .results-section,.immersive-home #data,.immersive-home #name-query{scroll-margin-top:100px}.immersive-home.is-search-page .immersive-paper .archive-stage{margin-inline:-22px}}
+@media(max-width:380px){.immersive-home .immersive-paper{padding-inline:16px}.immersive-home footer:not(.footer){padding-inline:16px}.immersive-home.is-search-page .immersive-paper .archive-stage{margin-inline:-16px}}
 

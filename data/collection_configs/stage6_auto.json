@@ -1,0 +1,14 @@
+{
+  "source_dir": "data/external/cbdb-20250520",
+  "source_version": "20250520",
+  "staging": "data/ingestion/stage6.sqlite3",
+  "database": "data/guji.db",
+  "candidate_limit": 1200,
+  "target_people": 400,
+  "batch_size": 50,
+  "max_alternate_names_per_person": 2,
+  "text_dir": "data/external/kanripo-stage6",
+  "text_volumes": 10,
+  "model_calls": false,
+  "source_license_policy": "data/external/cbdb-20250520/license_review.json"
+}

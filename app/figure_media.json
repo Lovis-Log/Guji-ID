@@ -1,0 +1,108 @@
+{
+  "schema": 1,
+  "disclosure": "AI生成·拟古演绎，非真实古籍书影",
+  "evidence_warning": "图像中的古文字与印章为生成效果，不可核验；不进入古籍证据表，也不作为人物姓名、字号或原文的证明。",
+  "mapping_note": "原素材目录未附 manifest.json 或人物映射 CSV；本清单依据文件名、素材 README 与正式库 person_id、规范姓名逐一核对生成，未新增或猜测 CBDB ID。王維绑定 P-CBDB-32174（700–761，字摩詰，有《舊唐書》《新唐書》直接证据），未绑定同名且无别称/证据的 P-CBDB-175377；陶淵明按其正式库规范名陶潛 P-CBDB-3835 绑定。",
+  "items": [
+    {
+      "person_id": "P-CBDB-32540",
+      "db_name": "李白",
+      "display_name": "李白",
+      "image_url": "/static/figure-media/li_bai.webp",
+      "source_file": "li_bai.png",
+      "alt": "AI拟古绘像：李白手持书卷，侧身立于拟古书页与山水之间",
+      "ai_generated": true,
+      "review_status": "verified"
+    },
+    {
+      "person_id": "P-CBDB-3915",
+      "db_name": "杜甫",
+      "display_name": "杜甫",
+      "image_url": "/static/figure-media/du_fu.webp",
+      "source_file": "du_fu.png",
+      "alt": "AI拟古绘像：杜甫展卷凝思，侧身坐于拟古书页之前",
+      "ai_generated": true,
+      "review_status": "verified"
+    },
+    {
+      "person_id": "P-CBDB-32227",
+      "db_name": "白居易",
+      "display_name": "白居易",
+      "image_url": "/static/figure-media/bai_juyi.webp",
+      "source_file": "bai_juyi.png",
+      "alt": "AI拟古绘像：白居易执卷端坐，身后为拟古书页与山水",
+      "ai_generated": true,
+      "review_status": "verified"
+    },
+    {
+      "person_id": "P-CBDB-32174",
+      "db_name": "王維",
+      "display_name": "王維",
+      "image_url": "/static/figure-media/wang_wei.webp",
+      "source_file": "wang_wei.png",
+      "alt": "AI拟古绘像：王維展卷而坐，背景为拟古山水",
+      "ai_generated": true,
+      "review_status": "verified"
+    },
+    {
+      "person_id": "P-0180cd77-04c3-471a-937a-cc8e77709e52",
+      "db_name": "苏轼",
+      "display_name": "苏轼",
+      "image_url": "/static/figure-media/su_shi.webp",
+      "source_file": "su_shi.png",
+      "alt": "AI拟古绘像：苏轼持卷倚坐，侧身望向拟古山水",
+      "ai_generated": true,
+      "review_status": "verified"
+    },
+    {
+      "person_id": "P-CBDB-19713",
+      "db_name": "李清照",
+      "display_name": "李清照",
+      "image_url": "/static/figure-media/li_qingzhao.webp",
+      "source_file": "li_qingzhao.png",
+      "alt": "AI拟古绘像：李清照执卷低眉，坐于拟古书案之前",
+      "ai_generated": true,
+      "review_status": "verified"
+    },
+    {
+      "person_id": "P-CBDB-30359",
+      "db_name": "辛棄疾",
+      "display_name": "辛棄疾",
+      "image_url": "/static/figure-media/xin_qiji.webp",
+      "source_file": "xin_qiji.png",
+      "alt": "AI拟古绘像：辛棄疾披卷侧立，背景为拟古书页与山水",
+      "ai_generated": true,
+      "review_status": "verified"
+    },
+    {
+      "person_id": "P-CBDB-3835",
+      "db_name": "陶潛",
+      "display_name": "陶淵明",
+      "image_url": "/static/figure-media/tao_yuanming.webp",
+      "source_file": "tao_yuanming.png",
+      "alt": "AI拟古绘像：陶淵明持卷坐于石上，旁有菊花与拟古山水",
+      "ai_generated": true,
+      "review_status": "verified"
+    },
+    {
+      "person_id": "P-S7-e471cf86a00e",
+      "db_name": "屈原",
+      "display_name": "屈原",
+      "image_url": "/static/figure-media/qu_yuan.webp",
+      "source_file": "qu_yuan.png",
+      "alt": "AI拟古绘像：屈原侧身而立，衣袂飘举，背景为拟古书页",
+      "ai_generated": true,
+      "review_status": "verified"
+    },
+    {
+      "person_id": "P-S7-949c8f1cd5e7",
+      "db_name": "司馬遷",
+      "display_name": "司馬遷",
+      "image_url": "/static/figure-media/sima_qian.webp",
+      "source_file": "sima_qian.png",
+      "alt": "AI拟古绘像：司馬遷展卷端坐，侧身望向拟古山水",
+      "ai_generated": true,
+      "review_status": "verified"
+    }
+  ]
+}

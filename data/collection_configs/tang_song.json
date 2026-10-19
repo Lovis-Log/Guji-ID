@@ -1,0 +1,30 @@
+{
+  "batch_name": "stage4-tang-song-20",
+  "target_total_people": 20,
+  "dynasties": ["唐", "宋"],
+  "source_priority": ["维基文库"],
+  "previous_batches": ["data/collections/2026-10-16-delivery"],
+  "output_root": "data/collections",
+  "cache_dir": "data/collection_cache",
+  "use_cache": true,
+  "offline": false,
+  "interval": 5,
+  "timeout": 15,
+  "max_requests": 12,
+  "max_catalogue_pages": 24,
+  "max_candidates": 400,
+  "max_aliases_per_person": 2,
+  "catalogues": [
+    {"title": "舊唐書/卷70", "dynasty": "唐"},
+    {"title": "宋史/卷312", "dynasty": "宋"},
+    {"title": "宋史/卷319", "dynasty": "宋"},
+    {"title": "新唐書/卷202", "dynasty": "唐"},
+    {"title": "舊唐書/卷190下", "dynasty": "唐"},
+    {"title": "舊唐書/卷166", "dynasty": "唐"}
+  ],
+  "volume_ranges": [
+    {"book": "新唐書", "start": 196, "end": 203, "dynasty": "唐"},
+    {"book": "宋史", "start": 308, "end": 330, "dynasty": "宋"},
+    {"book": "舊唐書", "start": 70, "end": 85, "dynasty": "唐"}
+  ]
+}

@@ -14,13 +14,20 @@
         {% if archive_person %}
           <span class="archive-identity-status">{{ archive_person.verification_label or '身份已收录' }}</span>
           {% for alias in archive_person.presentation.primary_aliases[:3] %}<span class="archive-alias">{{ alias.label }} {{ alias.value }}</span>{% endfor %}
-        {% else %}<p>此处为中性视觉示意。检索并选择人物后，题签随规范 ID 更新。</p>{% if searched and results|length > 1 %}<p><strong>{{ results|length }} 个同名候选</strong>：身份尚未确定，请在下方比较各自档案。</p>{% endif %}{% endif %}
+        {% else %}{% if searched and results|length > 1 %}<p><strong>{{ results|length }} 个同名候选</strong>：身份尚未确定，请在下方比较各自档案。</p>{% endif %}{% endif %}
       </div>
       <div class="archive-content">
         <div class="archive-topline"><span>数字题签 / 真实资料分层展示</span><span>{{ archive_person.person_id if archive_person else '未指定人物' }}</span></div>
+        {% set scans = archive_scans|default([], true) %}
+        {% set figures = archive_figures|default([], true) %}
+        {% set gallery = archive_figure_gallery|default([], true) %}
+        {% set has_scan = scans|length > 0 %}
+        {% set has_figure = figures|length > 0 %}
+        {% set has_gallery = (not archive_person) and not (searched|default(false)) and (gallery|length > 0) %}
+        {% set has_b = has_scan or has_figure or has_gallery %}
         <div class="archive-mode-tabs" role="group" aria-label="古籍展示模式">
           <button type="button" class="archive-mode-button is-active" id="archive-mode-a" data-archive-mode="a" aria-pressed="true" aria-controls="archive-panel-a">A · 数字题签</button>
-          <button type="button" class="archive-mode-button" id="archive-mode-b" data-archive-mode="b" aria-pressed="false" aria-controls="archive-panel-b" {% if not archive_scan %}disabled aria-describedby="archive-scan-status"{% endif %}>B · 真实书影</button>
+          <button type="button" class="archive-mode-button" id="archive-mode-b" data-archive-mode="b" aria-pressed="false" aria-controls="archive-panel-b" {% if not has_b %}disabled{% endif %}>B · 书影与图像</button>
         </div>
         <div class="archive-mode-panel" id="archive-panel-a" data-archive-panel="a">
           <div class="archive-digital-leaf" role="img" aria-label="中性古籍纸张氛围与独立数字题签；不是古籍扫描件">
@@ -38,20 +45,90 @@
             <blockquote class="archive-quote">{{ clue.original_text }}</blockquote>
             <p class="archive-citation">《{{ clue.book_title }}》{% if clue.volume %}{{ clue.volume }}{% endif %}{% if clue.chapter %} · {{ clue.chapter }}{% endif %} · {{ clue.type_label }}：{{ clue.alias_name }} <a href="{{ url_for('alias_detail', alias_id=clue.alias_id|url_id) }}">查看证据 →</a></p>
           {% else %}<p class="archive-citation">暂无可核验的古籍原文摘录；请查阅下方现有来源与证据状态。</p>{% endif %}
-          {% else %}<p class="archive-citation">人物姓名与证据须从检索结果中的规范 ID 读取。</p>{% endif %}
-        </div>
-        {% if archive_scan %}
-        <div class="archive-mode-panel" id="archive-panel-b" data-archive-panel="b" hidden>
-          <div class="archive-scan-frame">
-            <img src="{{ archive_scan.image_url }}" alt="{{ archive_scan.provider }}提供的《{{ archive_scan.book_title }}》真实书影" loading="lazy" data-archive-scan>
-            {% if archive_scan.highlight %}<span class="archive-scan-highlight" style="left:{{ archive_scan.highlight.x }}%;top:{{ archive_scan.highlight.y }}%;width:{{ archive_scan.highlight.width }}%;height:{{ archive_scan.highlight.height }}%" aria-label="已人工核实的页内位置"></span>{% endif %}
+          {% else %}
+          <div class="archive-method">
+            <p class="archive-method-lead"><span class="archive-method-seal" aria-hidden="true">考</span>文献考据 · 凡例</p>
+            <ol>
+              <li><span class="archive-method-index">壹</span><strong>录名</strong><small>姓名、字、号、谥号分别记录</small></li>
+              <li><span class="archive-method-index">贰</span><strong>系人</strong><small>同一身份归入规范人物 ID</small></li>
+              <li><span class="archive-method-index">叁</span><strong>证文</strong><small>原文、出处与核验状态俱存</small></li>
+            </ol>
           </div>
-          <p class="archive-citation">《{{ archive_scan.book_title }}》{{ archive_scan.volume or '' }}{{ archive_scan.chapter or '' }} · {{ archive_scan.provider }} · 证据 {{ archive_scan.evidence_id }}</p>
-          <p class="archive-citation">使用说明：{{ archive_scan.license }} · <a href="{{ archive_scan.source_url }}" target="_blank" rel="noopener noreferrer">原始来源页 ↗</a>{% if not archive_scan.highlight %} · 尚未定位到页内文字{% endif %}</p>
+          <p class="archive-citation">人物姓名与证据须从检索结果中的规范 ID 读取。</p>
+          {% endif %}
+        </div>
+        {% if has_b %}
+        {% set disclosure = (figures[0].disclosure if figures else (gallery[0].disclosure if gallery else 'AI生成·拟古演绎，非真实古籍书影')) %}
+        <div class="archive-mode-panel" id="archive-panel-b" data-archive-panel="b" hidden>
+          <div class="archive-b-intro">
+            <span>B · 书影与图像</span>
+            <p>真实书影与 AI 拟古绘像分层陈列，二者不混同：前者是古籍扫描件，后者是视觉演绎。</p>
+          </div>
+          <section class="archive-b-section archive-b-scans" aria-labelledby="archive-b-scans-title" data-real-scans>
+            <div class="archive-b-heading"><h3 id="archive-b-scans-title">真实书影</h3><span>有可靠来源与授权说明的古籍扫描件</span></div>
+            {% if scans %}
+              {% for scan in scans %}
+              <figure class="archive-scan-card">
+                <div class="archive-scan-frame">
+                  <img src="{{ scan.image_url }}" alt="{{ scan.provider }}提供的《{{ scan.book_title }}》真实书影" loading="lazy" data-archive-scan>
+                  {% if scan.highlight %}<span class="archive-scan-highlight" style="left:{{ scan.highlight.x }}%;top:{{ scan.highlight.y }}%;width:{{ scan.highlight.width }}%;height:{{ scan.highlight.height }}%" aria-label="已人工核实的页内位置"></span>{% endif %}
+                </div>
+                <figcaption class="archive-scan-caption">
+                  <p class="archive-scan-title">《{{ scan.book_title }}》{% if scan.volume %}{{ scan.volume }}{% endif %}</p>
+                  <p class="archive-citation">{% if scan.chapter %}卷次：{{ scan.chapter }} · {% endif %}版本：{{ scan.edition or '以原始来源页所载版本为准' }} · 馆藏/数字资源：{{ scan.holding or scan.provider }}</p>
+                  <p class="archive-citation">证据 {{ scan.evidence_id }} · 来源 {{ scan.provider }} · 使用说明：{{ scan.license }} · <a href="{{ scan.source_url }}" target="_blank" rel="noopener noreferrer">原始来源页 ↗</a>{% if not scan.highlight %} · 尚未定位到页内文字{% endif %}</p>
+                </figcaption>
+              </figure>
+              {% endfor %}
+            {% else %}
+              <p class="archive-b-empty">暂无可核验的真实书影。真实书影须同时通过人物身份、原文证据、来源与授权校验后才会显示；当前不以 AI 图像替代。</p>
+            {% endif %}
+          </section>
+          <section class="archive-b-section archive-b-figures" aria-labelledby="archive-b-figures-title">
+            <div class="archive-b-heading"><h3 id="archive-b-figures-title">AI 拟古绘像</h3><span class="archive-ai-disclosure">{{ disclosure }}</span></div>
+            {% if archive_person %}
+              {% if figures %}
+              <div class="archive-figure-grid{% if figures|length == 1 %} is-single{% endif %}">
+                {% for figure in figures %}
+                <figure class="archive-figure-card">
+                  <img src="{{ figure.image_url }}" alt="{{ figure.alt }}" loading="lazy" decoding="async" data-ai-figure>
+                  <figcaption>
+                    <div class="archive-figure-name"><strong>{{ figure.display_name }}</strong><span>数字题签 · {{ figure.person_id }}</span></div>
+                    <span class="archive-ai-badge">{{ disclosure }}</span>
+                    <p class="archive-ai-warning">{{ figure.evidence_warning }}</p>
+                  </figcaption>
+                </figure>
+                {% endfor %}
+              </div>
+              {% else %}
+              <p class="archive-b-empty">本人物暂无 AI 拟古绘像；真实书影与 A 模式文字证据不受影响。</p>
+              {% endif %}
+            {% else %}
+              {% if gallery %}
+              <p class="archive-b-empty">十位人物的 AI 拟古绘像图录。选择具体人物后，B 区只显示与其规范 ID 绑定的图像。</p>
+              <div class="archive-figure-grid archive-figure-gallery">
+                {% for figure in gallery %}
+                <figure class="archive-figure-card">
+                  <a class="archive-figure-link" href="{{ url_for('person_detail', person_id=figure.person_id|url_id) }}">
+                    <img src="{{ figure.image_url }}" alt="{{ figure.alt }}" loading="lazy" decoding="async" data-ai-figure>
+                  </a>
+                  <figcaption>
+                    <div class="archive-figure-name"><strong>{{ figure.display_name }}</strong><a href="{{ url_for('person_detail', person_id=figure.person_id|url_id) }}">人物档案 →</a></div>
+                    <span class="archive-ai-badge">{{ disclosure }}</span>
+                  </figcaption>
+                </figure>
+                {% endfor %}
+              </div>
+              {% else %}
+              <p class="archive-b-empty">暂无已接入的 AI 拟古绘像。</p>
+              {% endif %}
+            {% endif %}
+          </section>
+          <p class="archive-scan-status" id="archive-scan-status" role="status" aria-live="polite">{% if scans %}已有核实的书影关联；可切换查看原图与来源。{% else %}当前暂无已核实的真实书影；AI 拟古绘像仅作视觉演绎，不是史料。{% endif %}</p>
+          <p class="archive-ai-footnote">AI 图像中的古文字与印章并非可核验史料，不写入古籍证据表，也不作为人物姓名、字号和原文的证明。</p>
         </div>
         {% endif %}
-        <p class="archive-scan-status" id="archive-scan-status" role="status" aria-live="polite">{% if archive_scan %}已有核实的书影关联；可切换查看原图与来源。{% else %}暂无可展示的真实书影，当前使用 A 模式数字题签。{% endif %}</p>
-        <div class="archive-footer-v2"><span>数字题签与装饰图为视觉示意；真实书影以来源与授权说明为准。</span>{% if archive_person and archive_on_person_page %}<a href="#profile-title">查看下方完整人物档案 →</a>{% elif archive_person %}{% set person_url = url_for('person_detail', person_id=archive_person.person_id|url_id) %}<a href="{{ person_url.include_query_params(q=q) if q else person_url }}">查看完整人物档案 →</a>{% else %}<a href="#name-query">前往检索 →</a>{% endif %}</div>
+        <div class="archive-footer-v2"><span>数字题签与装饰图为视觉示意；真实书影以来源与授权说明为准。</span>{% if archive_person and archive_on_person_page %}<a href="#profile-title">查看下方完整人物档案 →</a>{% elif archive_person %}{% set person_url = url_for('person_detail', person_id=archive_person.person_id|url_id) %}<a href="{{ person_url.include_query_params(q=q) if q else person_url }}">查看完整人物档案 →</a>{% endif %}</div>
       </div>
       <div class="archive-decoration-v2" aria-hidden="true"><span>辨</span><span>人</span><span>考</span><span>据</span></div>
     </div>

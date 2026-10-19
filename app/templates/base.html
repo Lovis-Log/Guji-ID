@@ -7,7 +7,7 @@
   <title>{% block title %}GuJi ID · 古籍人物规范档{% endblock %}</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='2' fill='%238b3f32'/%3E%3Ctext x='16' y='23' text-anchor='middle' fill='%23fff5df' font-size='23'%3E籍%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="{{ url_for('static', path='/styles.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', path='/archive-display.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', path='/archive-display.css') }}?v=2">
   <link rel="stylesheet" href="{{ url_for('static', path='/classics.css') }}">
   {% block extra_head %}{% endblock %}
   <script src="{{ url_for('static', path='/app.js') }}" defer></script>
@@ -21,7 +21,7 @@
     <nav aria-label="主导航"><a href="{{ url_for('home') }}">称呼检索</a><a href="{{ url_for('classic_index') }}">古籍原文库</a><a href="{{ url_for('home') }}#data">数据概况</a><a href="{{ url_for('home') }}#import">导入模板</a></nav>
   </header>
   <main id="main">{% block content %}{% endblock %}</main>
-  <footer><span>GuJi ID ·《移动信息化》课程项目</span><span>人物检索与文献证据 · 仅展示已审核记录</span></footer>
+  <footer><span>GuJi ID ·《移动信息化》课程项目</span><span>人物检索与文献证据 · 仅展示已审核记录</span><p class="footer-disclaimer">本网站为个人非商业项目，网站内展示的部分数据来源于互联网公开信息爬取，仅作学习、个人展示用途，不用于任何商业盈利活动。</p></footer>
   {% include '_raw_record_dialog.html' %}
 </body>
 </html>
