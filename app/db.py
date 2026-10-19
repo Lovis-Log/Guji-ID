@@ -30,9 +30,10 @@ def init_db(path: str | Path) -> None:
     db_path = Path(path)
     db_path.parent.mkdir(parents=True, exist_ok=True)
     schema = Path(__file__).with_name("schema.sql").read_text(encoding="utf-8")
+    classical_schema = Path(__file__).with_name("schema_classical.sql").read_text(encoding="utf-8")
     with connect_db(db_path) as connection:
         try:
-            connection.executescript("BEGIN IMMEDIATE;\n" + schema + "\nCOMMIT;")
+            connection.executescript("BEGIN IMMEDIATE;\n" + schema + "\n" + classical_schema + "\nCOMMIT;")
         except sqlite3.Error:
             if connection.in_transaction:
                 connection.rollback()

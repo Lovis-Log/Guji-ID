@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block title %}{{ chapter.chapter_title }} · {{ work.title }} · GuJi ID{% endblock %}
+{% block body_class %}classics-page reader-page{% endblock %}
+{% block content %}
+<nav class="breadcrumbs" aria-label="当前位置"><a href="{{ url_for('home') }}">称呼检索</a><span aria-hidden="true">/</span><a href="{{ url_for('classic_index') }}">古籍原文库</a><span aria-hidden="true">/</span><a href="{{ url_for('classic_work', work_id=work.work_id|url_id) }}">{{ work.title }}</a><span aria-hidden="true">/</span><span aria-current="page">{{ chapter.volume or chapter.chapter_title }}</span></nav>
+<header class="reader-header">
+  <div>
+    <p class="eyebrow">{{ work.source_platform }} · {{ work.digital_edition or work.title }}</p>
+    <h1>{{ chapter.chapter_title }}</h1>
+    <p class="record-subtitle">《{{ work.title }}》{% if chapter.volume %} {{ chapter.volume }}{% endif %}{% if work.author %}<span class="subtitle-divider"> / </span>{{ work.author }}{% endif %}<span class="subtitle-divider"> / </span>{{ chapter.char_count }} 字</p>
+  </div>
+  <span class="verified-badge">{{ '完整篇章' if chapter.completeness == 'full' else '部分原文' }}</span>
+</header>
+{% if chapter.completeness_note %}<p class="source-original-citation">{{ chapter.completeness_note }}</p>{% endif %}
+<div class="reader-layout">
+  <article class="reader-main">
+    <div class="reader-mode-tabs" role="group" aria-label="阅读模式">
+      <button type="button" class="reader-mode-button{% if selected %} is-active{% endif %}" data-reader-mode="evidence" aria-pressed="{{ 'true' if selected else 'false' }}">证据模式</button>
+      <button type="button" class="reader-mode-button{% if not selected %} is-active{% endif %}" data-reader-mode="context" aria-pressed="{{ 'false' if selected else 'true' }}">上下文模式</button>
+      <button type="button" class="reader-mode-button" data-reader-mode="chapter" aria-pressed="false">篇章模式</button>
+    </div>
+
+    <section class="reader-panel" data-reader-panel="evidence"{% if not selected %} hidden{% endif %} aria-labelledby="evidence-mode-title">
+      <h2 id="evidence-mode-title">证据定位</h2>
+      {% if context %}
+      {% set link = context.link %}
+      <article class="reader-evidence-card">
+        <p class="reader-evidence-category">{{ link.category_label }}{% if link.person_id %} · <a class="text-link" href="{{ url_for('person_detail', person_id=link.person_id|url_id) }}">{{ link.canonical_name }}</a>{% endif %}</p>
+        <blockquote class="original-text reader-quote"><mark class="source-relevant-line">{{ link.quote }}</mark></blockquote>
+        <p class="reader-claim">{{ link.claim }}</p>
+        <dl class="evidence-facts">
+          <div><dt>所在篇章</dt><dd>{{ chapter.volume or '' }} {{ chapter.chapter_title }}</dd></div>
+          <div><dt>篇章字数</dt><dd>{{ chapter.char_count }} 字</dd></div>
+          <div><dt>证据状态</dt><dd>{{ link.status_label }}</dd></div>
+        </dl>
+        <p class="reading-note">引文与下方篇章正文逐字对应；切换到“上下文模式”可查看前后段落，切换到“篇章模式”可顺序阅读全篇。</p>
+      </article>
+      {% else %}
+      <div class="empty-state"><h3>请选择一条证据</h3><p>右侧列出本篇章中已定位的全部人物证据，点击任一条即可在此查看原文与解释。</p></div>
+      {% endif %}
+    </section>
+
+    <section class="reader-panel" data-reader-panel="context"{% if selected %} hidden{% endif %} aria-labelledby="context-mode-title">
+      <h2 id="context-mode-title">原文上下文</h2>
+      {% if context %}
+      <div class="context-text">
+        {% for item in context.segments %}
+        <p class="context-paragraph">{% if item.label %}<span class="context-label">{{ item.label }}</span>{% endif %}{{ item.before }}{% if item.quote %}<mark class="source-relevant-line">{{ item.quote }}</mark>{% endif %}{{ item.after }}</p>
+        {% endfor %}
+      </div>
+      <p class="reading-note">上下文按已保存篇章的自然段落显示；前后各展开一段，避免割裂语义。</p>
+      {% else %}
+      <div class="empty-state"><h3>尚未选择证据</h3><p>点击右侧证据条目后，此处显示该引文所在段落及相邻段落。</p></div>
+      {% endif %}
+    </section>
+
+    <section class="reader-panel" data-reader-panel="chapter" hidden aria-labelledby="chapter-mode-title">
+      <div class="section-heading"><h2 id="chapter-mode-title">篇章正文</h2><p>按已保存版本逐字显示，共 {{ chapter.char_count }} 字</p></div>
+      <div class="classic-text" lang="zh-Hant">
+        {% for segment in segments %}{% if segment.marked %}<mark class="classic-mark{% if segment.selected %} is-selected{% endif %}"{% if segment.selected %} id="ev-{{ selected }}"{% endif %} title="{% for item in segment.links %}{{ item.category_label }}{% if item.person_id %} · {{ item.canonical_name }}{% endif %}{% if not loop.last %}；{% endif %}{% endfor %}">{{ segment.text }}</mark>{% else %}<span class="classic-run">{{ segment.text }}</span>{% endif %}{% endfor %}
+      </div>
+      {% if chapter.evidence %}<p class="reading-note">文中标记处为已定位证据；共 {{ chapter.evidence|length }} 条关联。标记不改变原文文字。</p>{% endif %}
+    </section>
+
+    <nav class="reader-pagination" aria-label="篇章翻页">
+      {% if chapter.neighbours %}{% set prev = chapter.neighbours[0] %}<a href="{{ url_for('classic_chapter', work_id=work.work_id|url_id, chapter_id=prev.chapter_id|url_id) }}">← 上一篇 · {{ prev.chapter_title }}</a>{% else %}<span></span>{% endif %}
+      {% if chapter.next %}{% set nxt = chapter.next[0] %}<a href="{{ url_for('classic_chapter', work_id=work.work_id|url_id, chapter_id=nxt.chapter_id|url_id) }}">下一篇 · {{ nxt.chapter_title }} →</a>{% endif %}
+    </nav>
+  </article>
+
+  <aside class="reader-aside" aria-label="篇章证据索引">
+    <section>
+      <h2>本篇证据</h2>
+      {% if chapter.evidence %}
+      <ol class="reader-evidence-list">
+        {% for item in chapter.evidence %}
+        <li><a href="{{ item.reader_url }}"{% if item.link_id == selected %} class="is-current" aria-current="true"{% endif %}>
+          <span class="reader-evidence-person">{{ item.canonical_name }}</span>
+          <span class="reader-evidence-kind">{{ item.category_label }}</span>
+          <span class="reader-evidence-quote">{{ item.quote[:46] }}{% if item.quote|length > 46 %}…{% endif %}</span>
+        </a></li>
+        {% endfor %}
+      </ol>
+      {% else %}<p class="reading-note">本篇尚无已定位的人物证据。您仍可在“篇章模式”下阅读全文。</p>{% endif %}
+    </section>
+    <section class="reader-source-card">
+      <h2>版本与来源</h2>
+      <dl>
+        <div><dt>书名</dt><dd>《{{ work.title }}》</dd></div>
+        {% if chapter.volume %}<div><dt>卷次</dt><dd>{{ chapter.volume }}</dd></div>{% endif %}
+        <div><dt>数字化版本</dt><dd>{{ work.digital_edition or '未标注' }}</dd></div>
+        <div><dt>来源平台</dt><dd>{{ work.source_platform }}</dd></div>
+        <div><dt>许可</dt><dd>{{ work.license_id }}{% if work.license_url %} · <a href="{{ work.license_url }}" target="_blank" rel="noopener noreferrer">许可说明 ↗</a>{% endif %}</dd></div>
+      </dl>
+      <p><a class="text-link" href="{{ chapter.source_url }}" target="_blank" rel="noopener noreferrer">查看原始来源页 ↗</a></p>
+    </section>
+    <section>
+      <h2>本篇人物</h2>
+      {% if chapter.people %}<ul class="reader-people">{% for item in chapter.people %}<li><a href="{{ url_for('person_detail', person_id=item.person_id|url_id) }}">{{ item.canonical_name }}</a></li>{% endfor %}</ul>{% else %}<p class="reading-note">暂无。</p>{% endif %}
+    </section>
+  </aside>
+</div>
+{% endblock %}

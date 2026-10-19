@@ -13,3 +13,8 @@ data/ingestion/
 work/
 outputs/
 
+
+data/backups/
+data/collection_cache/
+data/collections/
+data/verifications/

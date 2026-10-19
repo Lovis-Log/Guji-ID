@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}{{ work.title }} · 古籍目录 · GuJi ID{% endblock %}
+{% block body_class %}classics-page{% endblock %}
+{% block content %}
+<nav class="breadcrumbs" aria-label="当前位置"><a href="{{ url_for('home') }}">称呼检索</a><span aria-hidden="true">/</span><a href="{{ url_for('classic_index') }}">古籍原文库</a><span aria-hidden="true">/</span><span aria-current="page">{{ work.title }}</span></nav>
+<header class="record-header classics-header">
+  <div><p class="eyebrow">古籍目录</p><h1>{{ work.title }}</h1>
+    <p class="record-subtitle">{% if work.author %}{{ work.author }}{% endif %}{% if work.dynasty %}<span class="subtitle-divider"> / </span>{{ work.dynasty }}{% endif %}{% if work.category %}<span class="subtitle-divider"> / </span>{{ work.category }}{% endif %}</p>
+  </div>
+  <span class="verified-badge">{{ work.chapters|length }} 篇已保存</span>
+</header>
+<section class="work-meta">
+  <dl>
+    <div><dt>数字化版本</dt><dd>{{ work.digital_edition or '未标注' }}</dd></div>
+    <div><dt>来源平台</dt><dd>{{ work.source_platform }}</dd></div>
+    <div><dt>许可</dt><dd>{{ work.license_id }}{% if work.license_url %} · <a href="{{ work.license_url }}" target="_blank" rel="noopener noreferrer">许可说明 ↗</a>{% endif %}</dd></div>
+    <div><dt>来源页</dt><dd><a href="{{ work.source_url }}" target="_blank" rel="noopener noreferrer">查看原始来源 ↗</a></dd></div>
+    <div><dt>采集时间</dt><dd>{{ work.retrieved_at }}</dd></div>
+  </dl>
+  {% if work.description %}<p class="reading-note">{{ work.description }}</p>{% endif %}
+</section>
+<section aria-labelledby="toc-title">
+  <div class="section-heading"><h2 id="toc-title">篇章目录</h2><p>按卷次顺序排列</p></div>
+  {% if work.chapters %}
+  <ol class="chapter-list">
+    {% for chapter in work.chapters %}
+    <li><a href="{{ url_for('classic_chapter', work_id=work.work_id|url_id, chapter_id=chapter.chapter_id|url_id) }}">
+      <span class="chapter-volume">{{ chapter.volume or '卷次待考' }}</span>
+      <span class="chapter-title">{{ chapter.chapter_title }}</span>
+      <span class="chapter-length">{{ chapter.char_count }} 字 · {{ '完整篇章' if chapter.completeness == 'full' else '部分原文' }}</span>
+      <span class="chapter-arrow" aria-hidden="true">阅读 →</span>
+    </a></li>
+    {% endfor %}
+  </ol>
+  {% else %}<div class="empty-state"><p>该版本尚未保存可阅读篇章。</p></div>{% endif %}
+</section>
+{% endblock %}

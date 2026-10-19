@@ -1,0 +1,409 @@
+{
+  "note": "年表、关系与争议种子。quote 必须在已保存篇章中逐字找到；找不到即跳过并报告，不按记忆补写。年份为现代通行系年时在 source_note 说明。",
+  "timeline": {
+    "蘇軾": [
+      {
+        "year_label": "嘉祐二年（1057）",
+        "year_value": 1057,
+        "certainty": "exact",
+        "event_text": "參加禮部考試，歐陽修得其文，置第二。",
+        "quote": "嘉祐二年試禮部",
+        "source_note": "年份见原文；月份及细节从原文。"
+      },
+      {
+        "year_label": "元豐二年（1079）",
+        "year_value": 1079,
+        "certainty": "exact",
+        "event_text": "因詩文被劾訕謗，逮赴臺獄。",
+        "quote": "逮赴臺獄",
+        "source_note": "原文载臺獄事；年份依通行系年。"
+      },
+      {
+        "year_label": "元豐三年（1080）",
+        "year_value": 1080,
+        "certainty": "approximate",
+        "event_text": "貶黃州團練副使，築室東坡，自號東坡居士。",
+        "quote": "以黄州團練副使安置",
+        "source_note": "原文载贬黄州及自号；具体年份依通行系年。"
+      },
+      {
+        "year_label": "元祐元年（1086）",
+        "year_value": 1086,
+        "certainty": "exact",
+        "event_text": "入侍延和殿，遷中書舍人，尋除翰林學士。",
+        "quote": "元祐元年軾以七品服入侍延和",
+        "source_note": "年份见原文。"
+      },
+      {
+        "year_label": "紹聖元年（1094）",
+        "year_value": 1094,
+        "certainty": "approximate",
+        "event_text": "貶寧遠軍節度副使，惠州安置。",
+        "quote": "紹聖初御史論軾",
+        "source_note": "原文作“紹聖初”；具体年份依通行系年。"
+      },
+      {
+        "year_label": "建中靖國元年（1101）",
+        "year_value": 1101,
+        "certainty": "exact",
+        "event_text": "卒於常州，年六十六。",
+        "quote": "建中靖國元年卒於常州年六十六",
+        "source_note": "年份、地点、年龄均见原文。"
+      }
+    ],
+    "曹操": [
+      {
+        "year_label": "光和末年（184）",
+        "year_value": 184,
+        "certainty": "approximate",
+        "event_text": "黃巾起，拜騎都尉，討潁川賊。",
+        "quote": "光和末黃巾起",
+        "source_note": "原文作“光和末”；年份依通行系年。"
+      },
+      {
+        "year_label": "建安元年（196）",
+        "year_value": 196,
+        "certainty": "approximate",
+        "event_text": "議迎天子，遣曹洪將兵西迎。",
+        "quote": "太祖將迎天子",
+        "source_note": "原文载迎天子事；年份依通行系年。"
+      },
+      {
+        "year_label": "建安五年（200）",
+        "year_value": 200,
+        "certainty": "approximate",
+        "event_text": "屯官渡，與袁紹相拒。",
+        "quote": "公軍官渡",
+        "source_note": "原文载官渡军事；年份依通行系年。"
+      },
+      {
+        "year_label": "建安十三年（208）",
+        "year_value": 208,
+        "certainty": "approximate",
+        "event_text": "至赤壁，與劉備戰不利，引軍還。",
+        "quote": "公至赤壁與備戰不利",
+        "source_note": "原文载赤壁战事；年份依通行系年。"
+      },
+      {
+        "year_label": "建安十八年（213）",
+        "year_value": 213,
+        "certainty": "exact",
+        "event_text": "天子策命曹操為魏公。",
+        "quote": "策命公為魏公",
+        "source_note": "原文载策命；年份依通行系年。"
+      },
+      {
+        "year_label": "建安二十一年（216）",
+        "year_value": 216,
+        "certainty": "exact",
+        "event_text": "進爵為魏王。",
+        "quote": "進公爵為魏王",
+        "source_note": "原文载进爵；年份依通行系年。"
+      },
+      {
+        "year_label": "建安二十五年（220）",
+        "year_value": 220,
+        "certainty": "exact",
+        "event_text": "崩於洛陽，年六十六。",
+        "quote": "王崩於洛陽年六十六",
+        "source_note": "年份、地点、年龄均见原文。"
+      }
+    ],
+    "韓愈": [
+      {
+        "year_label": "貞元年間",
+        "year_value": null,
+        "certainty": "approximate",
+        "event_text": "登進士第，後為監察御史。",
+        "quote": "尋登進士第",
+        "source_note": "原文未在此处书年，仅系于貞元年间。"
+      },
+      {
+        "year_label": "元和十四年（819）",
+        "year_value": 819,
+        "certainty": "approximate",
+        "event_text": "因諫佛骨貶為潮州刺史。",
+        "quote": "乃貶為潮州刺史",
+        "source_note": "原文载贬潮州；具体年份依通行系年。"
+      },
+      {
+        "year_label": "長慶四年（824）",
+        "year_value": 824,
+        "certainty": "exact",
+        "event_text": "十二月卒，年五十七，諡曰文。",
+        "quote": "長慶四年十二月卒時年五十七",
+        "source_note": "年份、年龄见原文；谥号见同段。"
+      }
+    ],
+    "柳宗元": [
+      {
+        "year_label": "貞元十九年（803）",
+        "year_value": 803,
+        "certainty": "exact",
+        "event_text": "為監察御史。",
+        "quote": "貞元十九年為監察御史",
+        "source_note": "年份见原文。"
+      },
+      {
+        "year_label": "永貞元年（805）",
+        "year_value": 805,
+        "certainty": "approximate",
+        "event_text": "王叔文敗後，貶邵州刺史，再貶永州司馬。",
+        "quote": "貶永州司馬",
+        "source_note": "原文载贬永州；具体年份依通行系年。"
+      },
+      {
+        "year_label": "元和十年（815）",
+        "year_value": 815,
+        "certainty": "exact",
+        "event_text": "例移為柳州刺史。",
+        "quote": "元和十年例移為栁州刺史",
+        "source_note": "年份见原文。"
+      }
+    ],
+    "陶潛": [
+      {
+        "year_label": "義熙元年（405）",
+        "year_value": 405,
+        "certainty": "approximate",
+        "event_text": "為彭澤令，不願束帶見督郵，解印綬去職。",
+        "quote": "以為彭澤令",
+        "source_note": "原文载彭泽令及去职；年份依通行系年。"
+      },
+      {
+        "year_label": "義熙元年（405）",
+        "year_value": 405,
+        "certainty": "approximate",
+        "event_text": "去職時賦《歸去來兮辭》。",
+        "quote": "賦歸去來",
+        "source_note": "原文载赋归去来；年份依通行系年。"
+      }
+    ],
+    "司馬遷": [
+      {
+        "year_label": "元封三年（前108）",
+        "year_value": -108,
+        "certainty": "approximate",
+        "event_text": "繼父職為太史令，整理石室金匱之書。",
+        "quote": "遷為太史令",
+        "source_note": "原文载为太史令；具体年份依通行系年。"
+      },
+      {
+        "year_label": "太初元年（前104）",
+        "year_value": -104,
+        "certainty": "exact",
+        "event_text": "太初改曆，司馬遷參與其事。",
+        "quote": "太初元年",
+        "source_note": "年份见原文。"
+      },
+      {
+        "year_label": "天漢二年（前99）",
+        "year_value": -99,
+        "certainty": "approximate",
+        "event_text": "遭李陵之禍，身受腐刑。",
+        "quote": "遭李陵之禍",
+        "source_note": "原文载李陵之祸；具体年份依通行系年。"
+      }
+    ],
+    "李清照": [
+      {
+        "year_label": "建中靖國元年（1101）",
+        "year_value": 1101,
+        "certainty": "approximate",
+        "event_text": "嫁趙挺之之子趙明誠。",
+        "quote": "嫁趙挺之之子",
+        "source_note": "原文载婚配；具体年份依通行系年。"
+      },
+      {
+        "year_label": "生平",
+        "year_value": null,
+        "certainty": "unknown",
+        "event_text": "自號易安居士，詩文尤有稱於時。",
+        "quote": "自號易安居士",
+        "source_note": "原文未书年。"
+      }
+    ],
+    "辛棄疾": [
+      {
+        "year_label": "紹興三十一年（1161）",
+        "year_value": 1161,
+        "certainty": "approximate",
+        "event_text": "耿京聚兵山東，辛棄疾為掌書記。",
+        "quote": "耿京聚兵",
+        "source_note": "原文载耿京起兵；具体年份依通行系年。"
+      },
+      {
+        "year_label": "紹興三十二年（1162）",
+        "year_value": 1162,
+        "certainty": "exact",
+        "event_text": "奉表歸宋，高宗召見，授承務郎。",
+        "quote": "紹興三十二年",
+        "source_note": "年份见原文。"
+      },
+      {
+        "year_label": "淳熙六年（1179）",
+        "year_value": 1179,
+        "certainty": "approximate",
+        "event_text": "知潭州兼湖南安撫，討平湖湘盜。",
+        "quote": "知潭州兼湖南安撫",
+        "source_note": "原文载职任；具体年份依通行系年。"
+      }
+    ],
+    "孔子": [
+      {
+        "year_label": "魯襄公二十二年（前551）",
+        "year_value": -551,
+        "certainty": "exact",
+        "event_text": "孔子生於魯昌平鄉陬邑。",
+        "quote": "魯襄公二十二年而孔子生",
+        "source_note": "年份见原文。"
+      },
+      {
+        "year_label": "魯哀公十六年（前479）",
+        "year_value": -479,
+        "certainty": "exact",
+        "event_text": "孔子卒，年七十三。",
+        "quote": "孔子年七十三",
+        "source_note": "原文载年龄；年份依通行系年。"
+      }
+    ]
+  },
+  "relations": {
+    "蘇軾": [
+      {
+        "related_name": "蘇洵",
+        "relation_type": "父子",
+        "quote": "父洵",
+        "note": "《宋史》本传载其父为苏洵。"
+      },
+      {
+        "related_name": "蘇轍",
+        "relation_type": "兄弟",
+        "quote": "弟轍",
+        "note": "《宋史》本传载其弟为苏辙。"
+      }
+    ],
+    "曹操": [
+      {
+        "related_name": "曹植",
+        "relation_type": "父子",
+        "quote": "曹植",
+        "note": "《三國志》本纪及曹植传互见。"
+      }
+    ],
+    "韓愈": [
+      {
+        "related_name": "孟郊",
+        "relation_type": "友人",
+        "quote": "與洛陽人孟郊",
+        "note": "本传载韩愈与孟郊、张籍友善。"
+      },
+      {
+        "related_name": "張籍",
+        "relation_type": "友人",
+        "quote": "東郡人張籍",
+        "note": "本传载韩愈与孟郊、张籍友善。"
+      }
+    ],
+    "陶潛": [
+      {
+        "related_name": "顏延之",
+        "relation_type": "友人",
+        "quote": "顏延之",
+        "note": "《宋書》本传载颜延之与陶潜交往。"
+      }
+    ],
+    "李清照": [
+      {
+        "related_name": "趙明誠",
+        "relation_type": "夫妻",
+        "quote": "嫁趙挺之之子",
+        "note": "《宋史·李格非传》附载李清照嫁赵明诚。"
+      }
+    ],
+    "辛棄疾": [
+      {
+        "related_name": "耿京",
+        "relation_type": "部屬",
+        "quote": "耿京聚兵",
+        "note": "《宋史》本传载辛弃疾为耿京掌书记。"
+      }
+    ],
+    "孔子": [
+      {
+        "related_name": "老子",
+        "relation_type": "问礼",
+        "quote": "蓋見老子云",
+        "note": "《史記·孔子世家》载孔子适周问礼，见老子。"
+      }
+    ]
+  },
+  "disputes": {
+    "陶潛": [
+      {
+        "topic": "名字与字的不同记载",
+        "account_a": "《宋書·隱逸傳》称“陶潛字淵明，或云淵明字元亮”。",
+        "account_b": "《晉書·隱逸傳》称“陶潛字元亮”；《南史》又有“或云字深明”之说。",
+        "note": "不同史传所记字号不一致，本库分别保留，不强行统一。",
+        "quote": "陶潛字淵明"
+      }
+    ],
+    "王羲之": [
+      {
+        "topic": "生卒年",
+        "account_a": "通行系年作303—361年。",
+        "account_b": "另有321—379年说。",
+        "note": "《晉書》本传未载确切生卒年，本库不把通行系年当作原文事实。"
+      }
+    ],
+    "司馬遷": [
+      {
+        "topic": "生年",
+        "account_a": "通行系年多作约公元前145年。",
+        "account_b": "另有约公元前135年说。",
+        "note": "《漢書》本传未载确切生年，本库在人物档案中标注异说。"
+      }
+    ],
+    "屈原": [
+      {
+        "topic": "生卒年",
+        "account_a": "通行说法约公元前340—前278年。",
+        "account_b": "具体生卒年及卒因在学界有不同讨论。",
+        "note": "《史記》本传未载确切生卒年。"
+      }
+    ],
+    "曹雪芹": [
+      {
+        "topic": "生卒年",
+        "account_a": "通行说法约1715—约1763年。",
+        "account_b": "具体生卒年有不同考订。",
+        "note": "本阶段尚未取得可公开展示的完整本传原文。"
+      }
+    ],
+    "武則天": [
+      {
+        "topic": "名字与生年",
+        "account_a": "《舊唐書》本纪称“則天皇后武氏，諱曌”。",
+        "account_b": "其本名、生年及入宮前事在不同文献中有异说。",
+        "note": "本库只展示本纪原文所载，不补推本名。"
+      }
+    ],
+    "李白": [
+      {
+        "topic": "籍贯",
+        "account_a": "《舊唐書》本传称“李白，字太白，山東人”。",
+        "account_b": "《新唐書》本传称其为興聖皇帝九世孫，先世徙西域，神龍初遁還客巴西。",
+        "note": "两书本传记载不同，本库并列保留，不作单一结论。"
+      }
+    ],
+    "房玄齡": [
+      {
+        "topic": "字喬与字喬松",
+        "account_a": "《新唐書》本传称“房玄齡，字喬”。",
+        "account_b": "部分后世工具书及CBDB作“字喬松”。",
+        "note": "本库以《新唐書》原文作“喬”，并保留“喬松”异说，不强行合并。",
+        "quote": "字喬"
+      }
+    ]
+  }
+}

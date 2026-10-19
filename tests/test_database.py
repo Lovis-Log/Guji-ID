@@ -10,7 +10,9 @@ def test_schema_initialization_is_repeatable_and_empty(db_path):
     init_db(db_path)
     with connect_db(db_path) as connection:
         tables = {row[0] for row in connection.execute("SELECT name FROM sqlite_master WHERE type = 'table'")}
-        assert tables == {"people", "aliases", "sources", "evidences"}
+        assert {"people", "aliases", "sources", "evidences"} <= tables
+        assert {"classical_works", "classical_chapters", "classical_paragraphs",
+                "classical_evidence_links", "person_profiles"} <= tables
         assert connection.execute("SELECT COUNT(*) FROM people").fetchone()[0] == 0
         assert connection.execute("PRAGMA foreign_key_check").fetchall() == []
         assert connection.execute("PRAGMA integrity_check").fetchone()[0] == "ok"

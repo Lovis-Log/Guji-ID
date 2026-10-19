@@ -76,8 +76,10 @@ def test_new_quotations_do_not_change_names_years_or_other_evidence():
     assert receipt['counts_after']['people']==receipt['counts_before']['people']==454
     assert receipt['counts_after']['aliases']==receipt['counts_before']['aliases']==1195
     with connect_db(before) as old,connect_db(DB) as current:
-        for table in ('people','aliases'):
-            assert [dict(r) for r in old.execute('SELECT * FROM '+table)]==[dict(r) for r in current.execute('SELECT * FROM '+table)]
+        for table,key in (('people','person_id'),('aliases','alias_id')):
+            for row in old.execute('SELECT * FROM '+table):
+                found=current.execute(f'SELECT * FROM {table} WHERE {key}=?',(row[key],)).fetchone()
+                assert found is not None and dict(found)==dict(row), (table,row[key])
         for table,key in (('sources','source_id'),('evidences','evidence_id')):
             for row in old.execute('SELECT * FROM '+table):
                 assert dict(current.execute(f'SELECT * FROM {table} WHERE {key}=?',(row[key],)).fetchone())==dict(row)

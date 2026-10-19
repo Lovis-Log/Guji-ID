@@ -18,6 +18,7 @@ from app.auto_catalog import pipeline_counts
 from app.field_quality import has_quality
 from app.source_catalog import get_source,get_raw_record
 from app.archive_display import scan_for_person
+from app import classics
 
 logger = logging.getLogger(__name__)
 ASSET_ROOT = Path(__file__).resolve().parent
@@ -100,6 +101,29 @@ def create_app(db_path: str | Path | None = None) -> FastAPI:
     def unavailable(request, kind):
         return templates.TemplateResponse(request=request, name="unavailable.html", status_code=404, context={"kind": kind})
 
+    @application.get("/classics", response_class=HTMLResponse, name="classic_index")
+    def classic_index(request: Request):
+        return templates.TemplateResponse(request=request, name="classic_index.html",
+            context={"works": classics.work_index(application.state.db_path)})
+
+    @application.get("/classics/{work_id}", response_class=HTMLResponse, name="classic_work")
+    def classic_work(request: Request, work_id: str):
+        work = classics.get_work(application.state.db_path, work_id)
+        if work is None:
+            return unavailable(request, "古籍目录")
+        return templates.TemplateResponse(request=request, name="classic_work.html",
+            context={"work": work})
+
+    @application.get("/classics/{work_id}/{chapter_id}", response_class=HTMLResponse, name="classic_chapter")
+    def classic_chapter(request: Request, work_id: str, chapter_id: str,
+                        evidence: str = Query(default="", max_length=200),
+                        person: str = Query(default="", max_length=200)):
+        data = classics.reader_data(application.state.db_path, work_id, chapter_id,
+                                    person_id=person, selected=evidence)
+        if data is None:
+            return unavailable(request, "古籍篇章")
+        return templates.TemplateResponse(request=request, name="classic_chapter.html", context=data)
+
     @application.get("/people/{person_id:path}", response_class=HTMLResponse)
     def person_detail(request: Request, person_id: str, q: str = Query(default="", max_length=100)):
         person = get_person(application.state.db_path, person_id)
@@ -108,6 +132,7 @@ def create_app(db_path: str | Path | None = None) -> FastAPI:
         return templates.TemplateResponse(request=request, name="person.html", context={
             "person": person, "q": normalize_name(q),
             "archive_scan": scan_for_person(application.state.db_path, person_id),
+            "classical": classics.person_library(application.state.db_path, person_id),
         })
 
     @application.get("/aliases/{alias_id:path}", response_class=HTMLResponse)

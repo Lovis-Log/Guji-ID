@@ -1,0 +1,4564 @@
+{
+  "run_id": "STG7-20261018T154009Z",
+  "generated_at": "2026-10-18T15:40:30+00:00",
+  "status": "completed",
+  "db": {
+    "people": 500,
+    "profiles": 500,
+    "tiers": {
+      "A": 60,
+      "B": 140,
+      "C": 300
+    },
+    "works": 16,
+    "chapters": 89,
+    "paragraphs": 6962,
+    "links": 682,
+    "distinct_quote_locations": 592,
+    "people_with_classical_links": 59,
+    "aliases": 1306,
+    "evidences": 2446,
+    "sources": 119
+  },
+  "builder_stats": {
+    "works": 92,
+    "chapters": 89,
+    "paragraphs": 6962,
+    "ws_missing": 6,
+    "ws_ingested": 74,
+    "new_people": 46,
+    "profiles": 605,
+    "a_profiles": 60,
+    "b_profiles": 140,
+    "c_profiles": 300,
+    "aliases": 111,
+    "evidences": 682,
+    "links": 682,
+    "a_people": 59,
+    "kr_chapters": 24,
+    "chapters_unchanged": 3,
+    "timeline_events": 31,
+    "relations": 9,
+    "disputes": 8,
+    "literary_entries": 78,
+    "duplicate_quote_locations": 90,
+    "verified_chapters": 89,
+    "verified_links": 682,
+    "integrity_issues": 0
+  },
+  "verification": {
+    "chapters": 89,
+    "links": 682,
+    "issues": []
+  },
+  "gaps": [
+    {
+      "type": "wikisource_missing",
+      "key": "hanshu_054",
+      "work": "漢書",
+      "volume": "卷54",
+      "reason": "漢書/卷054 第1次: curl exit 28: curl: (28) Connection timed out after 25016 milliseconds\r\n | 漢書/卷054 第2次: curl exit 28: curl: (28) Operation timed out after 25013 milliseconds with 0 bytes received\r\n | 漢書/卷054 第3次: curl exit 28: curl: (28) Connection timed out after 25009 milliseconds\r\n | 漢書/卷54 第1次: curl exit 28: curl: (28) Connection timed out after 25006 milliseconds\r\n | 漢書/卷54 第2次: HTTP 404 | 漢書/卷54 第3次: curl exit 28: curl: (28) Connection timed out after 25012 milliseconds\r\n"
+    },
+    {
+      "type": "wikisource_missing",
+      "key": "sanguozhi_001",
+      "work": "三國志",
+      "volume": "卷1",
+      "reason": "三國志/卷001 第1次: HTTP 404 | 三國志/卷001 第2次: HTTP 404 | 三國志/卷001 第3次: curl exit 28: curl: (28) Connection timed out after 25014 milliseconds\r\n | 三國志/卷1 第1次: HTTP 404 | 三國志/卷1 第2次: HTTP 404 | 三國志/卷1 第3次: curl exit 28: curl: (28) Connection timed out after 25015 milliseconds\r\n"
+    },
+    {
+      "type": "wikisource_missing",
+      "key": "songshu_093",
+      "work": "宋書",
+      "volume": "卷93",
+      "reason": "宋書/卷93 第1次: curl exit 28: curl: (28) Connection timed out after 25012 milliseconds\r\n | 宋書/卷93 第2次: curl exit 28: curl: (28) Connection timed out after 25013 milliseconds\r\n | 宋書/卷93 第3次: curl exit 28: curl: (28) Connection timed out after 25004 milliseconds\r\n | 宋書/卷九十三 第1次: HTTP 404 | 宋書/卷九十三 第2次: HTTP 404 | 宋書/卷九十三 第3次: curl exit 28: curl: (28) Connection timed out after 25007 milliseconds\r\n"
+    },
+    {
+      "type": "wikisource_missing",
+      "key": "jiutangshu_174",
+      "work": "舊唐書",
+      "volume": "卷174",
+      "reason": "舊唐書/卷174 第1次: curl exit 28: curl: (28) Connection timed out after 25010 milliseconds\r\n | 舊唐書/卷174 第2次: curl exit 28: curl: (28) Operation timed out after 25016 milliseconds with 10 bytes received\r\n | 舊唐書/卷174 第3次: curl exit 28: curl: (28) Operation timed out after 25005 milliseconds with 10 bytes received\r\n | 舊唐書/卷一百七十四 第1次: curl exit 28: curl: (28) Connection timed out after 25009 milliseconds\r\n | 舊唐書/卷一百七十四 第2次: HTTP 404 | 舊唐書/卷一百七十四 第3次: HTTP 404"
+    },
+    {
+      "type": "wikisource_missing",
+      "key": "songshi_429",
+      "work": "宋史",
+      "volume": "卷429",
+      "reason": "宋史/卷429 第1次: curl exit 28: curl: (28) Connection timed out after 25009 milliseconds\r\n | 宋史/卷429 第2次: curl exit 28: curl: (28) Connection timed out after 25002 milliseconds\r\n | 宋史/卷429 第3次: curl exit 28: curl: (28) Connection timed out after 25012 milliseconds\r\n | 宋史/卷四百二十九 第1次: curl exit 28: curl: (28) Connection timed out after 25015 milliseconds\r\n | 宋史/卷四百二十九 第2次: curl exit 28: curl: (28) Connection timed out after 25006 milliseconds\r\n | 宋史/卷四百二十九 第3次: HTTP 404"
+    },
+    {
+      "type": "wikisource_missing",
+      "key": "shiji_074",
+      "work": "史記",
+      "volume": "卷74",
+      "reason": "史記/卷074 第1次: curl exit 28: curl: (28) Operation timed out after 25010 milliseconds with 10 bytes received\r\n | 史記/卷074 第2次: curl exit 28: curl: (28) Connection timed out after 25013 milliseconds\r\n | 史記/卷074 第3次: curl exit 28: curl: (28) Operation timed out after 25004 milliseconds with 0 bytes received\r\n | 史記/卷74 第1次: curl exit 28: curl: (28) Connection timed out after 25010 milliseconds\r\n | 史記/卷74 第2次: HTTP 404 | 史記/卷74 第3次: curl exit 28: curl: (28) Connection timed out after 25001 milliseconds\r\n"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "李白",
+      "alias": "青蓮居士",
+      "alias_type": "art",
+      "chapter_id": "C-WS-jiutangshu_190b"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "李白",
+      "alias": "青蓮居士",
+      "alias_type": "art",
+      "chapter_id": "C-WS-xintangshu_202"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "杜甫",
+      "alias": "少陵野老",
+      "alias_type": "art",
+      "chapter_id": "C-WS-jiutangshu_190b"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "杜甫",
+      "alias": "子美",
+      "alias_type": "courtesy",
+      "chapter_id": "C-WS-xintangshu_201"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "杜甫",
+      "alias": "少陵野老",
+      "alias_type": "art",
+      "chapter_id": "C-WS-xintangshu_201"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "杜甫",
+      "alias": "杜工部",
+      "alias_type": "other",
+      "chapter_id": "C-WS-xintangshu_201"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "蘇軾",
+      "alias": "子瞻",
+      "alias_type": "courtesy",
+      "chapter_id": "C-WS-songshi_338"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "蘇軾",
+      "alias": "文忠",
+      "alias_type": "posthumous",
+      "chapter_id": "C-WS-songshi_338"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "陶潛",
+      "alias": "元亮",
+      "alias_type": "courtesy",
+      "chapter_id": "C-WS-nanshi_075"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "陶潛",
+      "alias": "靖節",
+      "alias_type": "posthumous",
+      "chapter_id": "C-KR-KR2a0016-093-93001"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "司馬遷",
+      "alias": "子長",
+      "alias_type": "courtesy",
+      "chapter_id": "C-WS-hanshu_062"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "司馬遷",
+      "alias": "子長",
+      "alias_type": "courtesy",
+      "chapter_id": "C-WS-shiji_130"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "司馬遷",
+      "alias": "子長",
+      "alias_type": "courtesy",
+      "chapter_id": "C-KR-KR2a0007-062-62001"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "韓愈",
+      "alias": "文",
+      "alias_type": "posthumous",
+      "chapter_id": "C-WS-jiutangshu_160"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "韓愈",
+      "alias": "文",
+      "alias_type": "posthumous",
+      "chapter_id": "C-WS-xintangshu_176"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "韓愈",
+      "alias": "韓吏部",
+      "alias_type": "other",
+      "chapter_id": "C-WS-xintangshu_176"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "白居易",
+      "alias": "香山居士",
+      "alias_type": "art",
+      "chapter_id": "C-KR-KR2a0026-166-166001"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "李商隱",
+      "alias": "玉溪生",
+      "alias_type": "art",
+      "chapter_id": "C-WS-jiutangshu_190b"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "李商隱",
+      "alias": "樊南生",
+      "alias_type": "art",
+      "chapter_id": "C-WS-jiutangshu_190b"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "李商隱",
+      "alias": "玉溪生",
+      "alias_type": "art",
+      "chapter_id": "C-WS-xintangshu_203"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "李商隱",
+      "alias": "樊南生",
+      "alias_type": "art",
+      "chapter_id": "C-WS-xintangshu_203"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "杜牧",
+      "alias": "樊川",
+      "alias_type": "art",
+      "chapter_id": "C-WS-xintangshu_166"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "歐陽修",
+      "alias": "永叔",
+      "alias_type": "courtesy",
+      "chapter_id": "C-WS-songshi_319"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "王安石",
+      "alias": "介甫",
+      "alias_type": "courtesy",
+      "chapter_id": "C-WS-songshi_327"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "王安石",
+      "alias": "半山",
+      "alias_type": "art",
+      "chapter_id": "C-WS-songshi_327"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "王安石",
+      "alias": "文",
+      "alias_type": "posthumous",
+      "chapter_id": "C-WS-songshi_327"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "王安石",
+      "alias": "半山",
+      "alias_type": "art",
+      "chapter_id": "C-KR-KR2a0032-327-327001"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "司馬光",
+      "alias": "迂叟",
+      "alias_type": "art",
+      "chapter_id": "C-WS-songshi_336"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "司馬光",
+      "alias": "文正",
+      "alias_type": "posthumous",
+      "chapter_id": "C-WS-songshi_336"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "司馬光",
+      "alias": "迂叟",
+      "alias_type": "art",
+      "chapter_id": "C-KR-KR2a0032-336-336001"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "范仲淹",
+      "alias": "希文",
+      "alias_type": "courtesy",
+      "chapter_id": "C-WS-songshi_314"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "陸游",
+      "alias": "務觀",
+      "alias_type": "courtesy",
+      "chapter_id": "C-WS-songshi_395"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "陸游",
+      "alias": "放翁",
+      "alias_type": "art",
+      "chapter_id": "C-WS-songshi_395"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "岳飛",
+      "alias": "忠武",
+      "alias_type": "posthumous",
+      "chapter_id": "C-WS-songshi_365"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "岳飛",
+      "alias": "武穆",
+      "alias_type": "posthumous",
+      "chapter_id": "C-KR-KR2a0032-365-365001"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "岳飛",
+      "alias": "忠武",
+      "alias_type": "posthumous",
+      "chapter_id": "C-KR-KR2a0032-365-365001"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "朱熹",
+      "alias": "晦庵",
+      "alias_type": "art",
+      "chapter_id": "C-KR-KR2a0032-429-429001"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "孟浩然",
+      "alias": "浩然",
+      "alias_type": "courtesy",
+      "chapter_id": "C-WS-jiutangshu_190b"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "孟浩然",
+      "alias": "孟山人",
+      "alias_type": "art",
+      "chapter_id": "C-WS-jiutangshu_190b"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "孟浩然",
+      "alias": "孟山人",
+      "alias_type": "art",
+      "chapter_id": "C-WS-xintangshu_203"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "張九齡",
+      "alias": "文獻",
+      "alias_type": "posthumous",
+      "chapter_id": "C-WS-xintangshu_126"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "溫庭筠",
+      "alias": "飛卿",
+      "alias_type": "courtesy",
+      "chapter_id": "C-WS-xintangshu_203"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "李煜",
+      "alias": "重光",
+      "alias_type": "courtesy",
+      "chapter_id": "C-WS-songshi_478"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "李煜",
+      "alias": "從嘉",
+      "alias_type": "name",
+      "chapter_id": "C-WS-songshi_478"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "李煜",
+      "alias": "鍾隱",
+      "alias_type": "art",
+      "chapter_id": "C-WS-songshi_478"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "李煜",
+      "alias": "李後主",
+      "alias_type": "other",
+      "chapter_id": "C-WS-songshi_478"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "李煜",
+      "alias": "鍾隱",
+      "alias_type": "art",
+      "chapter_id": "C-WS-xinwudaishi_062"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "李煜",
+      "alias": "李後主",
+      "alias_type": "other",
+      "chapter_id": "C-WS-xinwudaishi_062"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "蘇洵",
+      "alias": "文",
+      "alias_type": "posthumous",
+      "chapter_id": "C-WS-songshi_443"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "蘇轍",
+      "alias": "文定",
+      "alias_type": "posthumous",
+      "chapter_id": "C-WS-songshi_339"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "曾鞏",
+      "alias": "文定",
+      "alias_type": "posthumous",
+      "chapter_id": "C-WS-songshi_319"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "黃庭堅",
+      "alias": "文節",
+      "alias_type": "posthumous",
+      "chapter_id": "C-WS-songshi_444"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "文天祥",
+      "alias": "宋瑞",
+      "alias_type": "courtesy",
+      "chapter_id": "C-WS-songshi_418"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "文天祥",
+      "alias": "文山",
+      "alias_type": "art",
+      "chapter_id": "C-WS-songshi_418"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "文天祥",
+      "alias": "忠烈",
+      "alias_type": "posthumous",
+      "chapter_id": "C-WS-songshi_418"
+    },
+    {
+      "type": "a_no_alias_evidence",
+      "name": "文天祥"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "狄仁傑",
+      "alias": "文惠",
+      "alias_type": "posthumous",
+      "chapter_id": "C-WS-jiutangshu_089"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "狄仁傑",
+      "alias": "文惠",
+      "alias_type": "posthumous",
+      "chapter_id": "C-WS-xintangshu_115"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "郭子儀",
+      "alias": "子儀",
+      "alias_type": "courtesy",
+      "chapter_id": "C-WS-jiutangshu_120"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "郭子儀",
+      "alias": "忠武",
+      "alias_type": "posthumous",
+      "chapter_id": "C-WS-jiutangshu_120"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "郭子儀",
+      "alias": "忠武",
+      "alias_type": "posthumous",
+      "chapter_id": "C-WS-xintangshu_137"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "顏真卿",
+      "alias": "文忠",
+      "alias_type": "posthumous",
+      "chapter_id": "C-WS-jiutangshu_128"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "房玄齡",
+      "alias": "喬",
+      "alias_type": "courtesy",
+      "chapter_id": "C-WS-jiutangshu_066"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "房玄齡",
+      "alias": "喬松",
+      "alias_type": "courtesy",
+      "chapter_id": "C-WS-jiutangshu_066"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "房玄齡",
+      "alias": "喬松",
+      "alias_type": "courtesy",
+      "chapter_id": "C-WS-xintangshu_096"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "褚遂良",
+      "alias": "登善",
+      "alias_type": "courtesy",
+      "chapter_id": "C-WS-jiutangshu_080"
+    },
+    {
+      "type": "a_no_chapter",
+      "name": "曹雪芹"
+    }
+  ],
+  "conflicts": [],
+  "per_person": [
+    {
+      "person_id": "P-0180cd77-04c3-471a-937a-cc8e77709e52",
+      "canonical_name": "苏轼",
+      "tier": "A",
+      "classical_links": 22,
+      "chapters": 2,
+      "works": 2
+    },
+    {
+      "person_id": "P-CBDB-3332",
+      "canonical_name": "韓愈",
+      "tier": "A",
+      "classical_links": 22,
+      "chapters": 3,
+      "works": 3
+    },
+    {
+      "person_id": "P-CBDB-3605",
+      "canonical_name": "柳宗元",
+      "tier": "A",
+      "classical_links": 20,
+      "chapters": 3,
+      "works": 3
+    },
+    {
+      "person_id": "P-CBDB-32227",
+      "canonical_name": "白居易",
+      "tier": "A",
+      "classical_links": 19,
+      "chapters": 3,
+      "works": 3
+    },
+    {
+      "person_id": "P-CBDB-30359",
+      "canonical_name": "辛棄疾",
+      "tier": "A",
+      "classical_links": 19,
+      "chapters": 2,
+      "works": 2
+    },
+    {
+      "person_id": "P-CBDB-3835",
+      "canonical_name": "陶潛",
+      "tier": "A",
+      "classical_links": 18,
+      "chapters": 2,
+      "works": 2
+    },
+    {
+      "person_id": "P-S7-9d2a5e9aa477",
+      "canonical_name": "孔子",
+      "tier": "A",
+      "classical_links": 17,
+      "chapters": 2,
+      "works": 2
+    },
+    {
+      "person_id": "P-b5e5232e-9dc8-42fb-adcd-26220d535678",
+      "canonical_name": "欧阳修",
+      "tier": "A",
+      "classical_links": 17,
+      "chapters": 2,
+      "works": 2
+    },
+    {
+      "person_id": "P-S7-737e2c4d60ac",
+      "canonical_name": "李世民",
+      "tier": "A",
+      "classical_links": 16,
+      "chapters": 2,
+      "works": 2
+    },
+    {
+      "person_id": "P-S7-949c8f1cd5e7",
+      "canonical_name": "司馬遷",
+      "tier": "A",
+      "classical_links": 15,
+      "chapters": 3,
+      "works": 3
+    },
+    {
+      "person_id": "P-S7-a6e550c3b7b6",
+      "canonical_name": "元稹",
+      "tier": "A",
+      "classical_links": 14,
+      "chapters": 3,
+      "works": 3
+    },
+    {
+      "person_id": "P-CBDB-33606",
+      "canonical_name": "劉禹錫",
+      "tier": "A",
+      "classical_links": 14,
+      "chapters": 3,
+      "works": 3
+    },
+    {
+      "person_id": "P-S7-9d4e73a30b26",
+      "canonical_name": "武則天",
+      "tier": "A",
+      "classical_links": 14,
+      "chapters": 2,
+      "works": 2
+    },
+    {
+      "person_id": "P-CBDB-32174",
+      "canonical_name": "王維",
+      "tier": "A",
+      "classical_links": 14,
+      "chapters": 2,
+      "works": 2
+    },
+    {
+      "person_id": "P-CBDB-1488",
+      "canonical_name": "司馬光",
+      "tier": "A",
+      "classical_links": 13,
+      "chapters": 2,
+      "works": 2
+    },
+    {
+      "person_id": "P-S7-71e6b4064204",
+      "canonical_name": "岳飛",
+      "tier": "A",
+      "classical_links": 13,
+      "chapters": 2,
+      "works": 2
+    },
+    {
+      "person_id": "P-S7-e5ec798df87a",
+      "canonical_name": "顏真卿",
+      "tier": "A",
+      "classical_links": 13,
+      "chapters": 2,
+      "works": 2
+    },
+    {
+      "person_id": "P-S7-e471cf86a00e",
+      "canonical_name": "屈原",
+      "tier": "A",
+      "classical_links": 12,
+      "chapters": 2,
+      "works": 2
+    },
+    {
+      "person_id": "P-S7-f46ae32cd400",
+      "canonical_name": "房玄齡",
+      "tier": "A",
+      "classical_links": 12,
+      "chapters": 2,
+      "works": 2
+    },
+    {
+      "person_id": "P-CBDB-3257",
+      "canonical_name": "朱熹",
+      "tier": "A",
+      "classical_links": 12,
+      "chapters": 1,
+      "works": 1
+    },
+    {
+      "person_id": "P-CBDB-24412",
+      "canonical_name": "李商隱",
+      "tier": "A",
+      "classical_links": 12,
+      "chapters": 2,
+      "works": 2
+    },
+    {
+      "person_id": "P-CBDB-3551",
+      "canonical_name": "李煜",
+      "tier": "A",
+      "classical_links": 12,
+      "chapters": 2,
+      "works": 2
+    },
+    {
+      "person_id": "P-CBDB-32540",
+      "canonical_name": "李白",
+      "tier": "A",
+      "classical_links": 12,
+      "chapters": 2,
+      "works": 2
+    },
+    {
+      "person_id": "P-S7-1ea22ce7b00f",
+      "canonical_name": "杜如晦",
+      "tier": "A",
+      "classical_links": 12,
+      "chapters": 2,
+      "works": 2
+    },
+    {
+      "person_id": "P-S7-bf5efdb02620",
+      "canonical_name": "狄仁傑",
+      "tier": "A",
+      "classical_links": 12,
+      "chapters": 2,
+      "works": 2
+    },
+    {
+      "person_id": "P-CBDB-1762",
+      "canonical_name": "王安石",
+      "tier": "A",
+      "classical_links": 12,
+      "chapters": 2,
+      "works": 2
+    },
+    {
+      "person_id": "P-CBDB-8043",
+      "canonical_name": "范仲淹",
+      "tier": "A",
+      "classical_links": 12,
+      "chapters": 2,
+      "works": 2
+    },
+    {
+      "person_id": "P-S7-7b055d340a95",
+      "canonical_name": "包拯",
+      "tier": "A",
+      "classical_links": 11,
+      "chapters": 1,
+      "works": 1
+    },
+    {
+      "person_id": "P-CBDB-3915",
+      "canonical_name": "杜甫",
+      "tier": "A",
+      "classical_links": 11,
+      "chapters": 1,
+      "works": 1
+    },
+    {
+      "person_id": "P-S7-07e176bd00c0",
+      "canonical_name": "王羲之",
+      "tier": "A",
+      "classical_links": 11,
+      "chapters": 1,
+      "works": 1
+    },
+    {
+      "person_id": "P-S7-d04f06a6480e",
+      "canonical_name": "褚遂良",
+      "tier": "A",
+      "classical_links": 11,
+      "chapters": 2,
+      "works": 2
+    },
+    {
+      "person_id": "P-S7-c2f6a688f3e7",
+      "canonical_name": "諸葛亮",
+      "tier": "A",
+      "classical_links": 11,
+      "chapters": 1,
+      "works": 1
+    },
+    {
+      "person_id": "P-S7-48caef428fa1",
+      "canonical_name": "郭子儀",
+      "tier": "A",
+      "classical_links": 11,
+      "chapters": 2,
+      "works": 2
+    },
+    {
+      "person_id": "P-CBDB-31322",
+      "canonical_name": "陳子昂",
+      "tier": "A",
+      "classical_links": 11,
+      "chapters": 1,
+      "works": 1
+    },
+    {
+      "person_id": "P-CBDB-3640",
+      "canonical_name": "陸游",
+      "tier": "A",
+      "classical_links": 11,
+      "chapters": 2,
+      "works": 2
+    },
+    {
+      "person_id": "P-S7-b4b4294fe0b1",
+      "canonical_name": "魏徵",
+      "tier": "A",
+      "classical_links": 11,
+      "chapters": 2,
+      "works": 2
+    },
+    {
+      "person_id": "P-S7-ba3f4f99cdd0",
+      "canonical_name": "司馬相如",
+      "tier": "A",
+      "classical_links": 10,
+      "chapters": 1,
+      "works": 1
+    },
+    {
+      "person_id": "P-S7-ff0ae9c2a3b3",
+      "canonical_name": "周瑜",
+      "tier": "A",
+      "classical_links": 10,
+      "chapters": 1,
+      "works": 1
+    },
+    {
+      "person_id": "P-S7-94f424853f5b",
+      "canonical_name": "孟子",
+      "tier": "A",
+      "classical_links": 10,
+      "chapters": 1,
+      "works": 1
+    },
+    {
+      "person_id": "P-CBDB-3130",
+      "canonical_name": "張九齡",
+      "tier": "A",
+      "classical_links": 10,
+      "chapters": 1,
+      "works": 1
+    },
+    {
+      "person_id": "P-S7-73128034e0a5",
+      "canonical_name": "張衡",
+      "tier": "A",
+      "classical_links": 10,
+      "chapters": 1,
+      "works": 1
+    },
+    {
+      "person_id": "P-S7-4fbe01ab8d14",
+      "canonical_name": "曹操",
+      "tier": "A",
+      "classical_links": 10,
+      "chapters": 1,
+      "works": 1
+    },
+    {
+      "person_id": "P-S7-69501a8ca5ac",
+      "canonical_name": "曹植",
+      "tier": "A",
+      "classical_links": 10,
+      "chapters": 2,
+      "works": 2
+    },
+    {
+      "person_id": "P-S7-ca29d914f13a",
+      "canonical_name": "李德裕",
+      "tier": "A",
+      "classical_links": 10,
+      "chapters": 1,
+      "works": 1
+    },
+    {
+      "person_id": "P-S7-ee2cec00ab36",
+      "canonical_name": "班固",
+      "tier": "A",
+      "classical_links": 10,
+      "chapters": 1,
+      "works": 1
+    },
+    {
+      "person_id": "P-S7-bd6d51b9a302",
+      "canonical_name": "蘇洵",
+      "tier": "A",
+      "classical_links": 10,
+      "chapters": 1,
+      "works": 1
+    },
+    {
+      "person_id": "P-CBDB-1493",
+      "canonical_name": "蘇轍",
+      "tier": "A",
+      "classical_links": 10,
+      "chapters": 1,
+      "works": 1
+    },
+    {
+      "person_id": "P-CBDB-21194",
+      "canonical_name": "杜牧",
+      "tier": "A",
+      "classical_links": 9,
+      "chapters": 1,
+      "works": 1
+    },
+    {
+      "person_id": "P-S7-fef26c0ed896",
+      "canonical_name": "關羽",
+      "tier": "A",
+      "classical_links": 9,
+      "chapters": 1,
+      "works": 1
+    },
+    {
+      "person_id": "P-CBDB-15353",
+      "canonical_name": "賀知章",
+      "tier": "A",
+      "classical_links": 8,
+      "chapters": 1,
+      "works": 1
+    },
+    {
+      "person_id": "P-CBDB-30982",
+      "canonical_name": "王勃",
+      "tier": "A",
+      "classical_links": 7,
+      "chapters": 1,
+      "works": 1
+    },
+    {
+      "person_id": "P-S7-1380c5389a5b",
+      "canonical_name": "黃庭堅",
+      "tier": "A",
+      "classical_links": 7,
+      "chapters": 1,
+      "works": 1
+    },
+    {
+      "person_id": "P-CBDB-93956",
+      "canonical_name": "孟浩然",
+      "tier": "A",
+      "classical_links": 6,
+      "chapters": 2,
+      "works": 2
+    },
+    {
+      "person_id": "P-CBDB-7364",
+      "canonical_name": "曾鞏",
+      "tier": "A",
+      "classical_links": 6,
+      "chapters": 1,
+      "works": 1
+    },
+    {
+      "person_id": "P-CBDB-19713",
+      "canonical_name": "李清照",
+      "tier": "A",
+      "classical_links": 6,
+      "chapters": 2,
+      "works": 2
+    },
+    {
+      "person_id": "P-S7-36bca534e6fe",
+      "canonical_name": "秦觀",
+      "tier": "A",
+      "classical_links": 6,
+      "chapters": 1,
+      "works": 1
+    },
+    {
+      "person_id": "P-CBDB-33485",
+      "canonical_name": "李賀",
+      "tier": "A",
+      "classical_links": 4,
+      "chapters": 1,
+      "works": 1
+    },
+    {
+      "person_id": "P-CBDB-447567",
+      "canonical_name": "溫庭筠",
+      "tier": "A",
+      "classical_links": 4,
+      "chapters": 2,
+      "works": 2
+    },
+    {
+      "person_id": "P-CBDB-19123",
+      "canonical_name": "文天祥",
+      "tier": "A",
+      "classical_links": 1,
+      "chapters": 1,
+      "works": 1
+    },
+    {
+      "person_id": "P-CBDB-34504",
+      "canonical_name": "于謙",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-498830",
+      "canonical_name": "于謙",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-474",
+      "canonical_name": "井度",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-552",
+      "canonical_name": "仲簡",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-678",
+      "canonical_name": "何中立",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-681",
+      "canonical_name": "何佾",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-680",
+      "canonical_name": "何俌",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-674",
+      "canonical_name": "何偁",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-686",
+      "canonical_name": "何琬",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-679",
+      "canonical_name": "何逢原",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-685",
+      "canonical_name": "何郯",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-694",
+      "canonical_name": "侯叔獻",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-692",
+      "canonical_name": "侯臨",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-627",
+      "canonical_name": "傅堯俞",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-624",
+      "canonical_name": "傅崧卿",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-621",
+      "canonical_name": "傅求",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-625",
+      "canonical_name": "傅自修",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-D-5e56e1a9dd9ecbec943ec3b6",
+      "canonical_name": "劉敞",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-S7-078156447e65",
+      "canonical_name": "劉邦",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-706",
+      "canonical_name": "向伯奮",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-714",
+      "canonical_name": "向子忞",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-715",
+      "canonical_name": "向子諲",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-710",
+      "canonical_name": "向宗旦",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-711",
+      "canonical_name": "向宗道",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-705",
+      "canonical_name": "向敏中",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-D-a23f3192993e26dcb77d3ac3",
+      "canonical_name": "吳充",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-501",
+      "canonical_name": "周世修",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-483",
+      "canonical_name": "周之道",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-480",
+      "canonical_name": "周嘉正",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-508",
+      "canonical_name": "周彥質",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-502",
+      "canonical_name": "周操",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-504",
+      "canonical_name": "周敦頤",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-487",
+      "canonical_name": "周沆",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-503",
+      "canonical_name": "周淙",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-506",
+      "canonical_name": "周渭",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-478",
+      "canonical_name": "周湛",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-481",
+      "canonical_name": "周秩",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-485",
+      "canonical_name": "周穜",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-498",
+      "canonical_name": "周紳",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-505",
+      "canonical_name": "周綰",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-491",
+      "canonical_name": "周葵",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-16567",
+      "canonical_name": "周邦彥",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-488",
+      "canonical_name": "周需",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-S7-559eee8d3e4e",
+      "canonical_name": "商鞅",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-138",
+      "canonical_name": "喬執中",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-141",
+      "canonical_name": "喬維岳",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-699",
+      "canonical_name": "夏之文",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-702",
+      "canonical_name": "夏守贇",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-698",
+      "canonical_name": "夏安期",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-701",
+      "canonical_name": "夏珙",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-703",
+      "canonical_name": "夏竦",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-455",
+      "canonical_name": "姜仲謙",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-29608",
+      "canonical_name": "姜夔",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-457",
+      "canonical_name": "姜師仲",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-456",
+      "canonical_name": "姜詵",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-459",
+      "canonical_name": "姜遵",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-S7-fe9b5a19c609",
+      "canonical_name": "孫武",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-1",
+      "canonical_name": "安惇",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-3",
+      "canonical_name": "安燾",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-629",
+      "canonical_name": "富元衡",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-628",
+      "canonical_name": "富弼",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-32583",
+      "canonical_name": "岑參",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-D-6510cc62a6e01df61e18a806",
+      "canonical_name": "岑文本",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-213",
+      "canonical_name": "張中庸",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-268",
+      "canonical_name": "張佖",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-193",
+      "canonical_name": "張佶",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-267",
+      "canonical_name": "張保雍",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-218",
+      "canonical_name": "張傅",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-238",
+      "canonical_name": "張匯",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-275",
+      "canonical_name": "張升卿",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-185",
+      "canonical_name": "張去華",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-326",
+      "canonical_name": "張友直",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-288",
+      "canonical_name": "張叔椿",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-272",
+      "canonical_name": "張商英",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-317",
+      "canonical_name": "張問",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-321",
+      "canonical_name": "張堯佐",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-279",
+      "canonical_name": "張士遜",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-250",
+      "canonical_name": "張奎",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-299",
+      "canonical_name": "張存",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-3144",
+      "canonical_name": "張孝祥",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-325",
+      "canonical_name": "張宇",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-173",
+      "canonical_name": "張安上",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-306",
+      "canonical_name": "張宗彝",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-305",
+      "canonical_name": "張宗誨",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-303",
+      "canonical_name": "張宗諤",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-234",
+      "canonical_name": "張峋",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-264",
+      "canonical_name": "張嵲",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-209",
+      "canonical_name": "張巨",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-280",
+      "canonical_name": "張師德",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-248",
+      "canonical_name": "張康國",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-187",
+      "canonical_name": "張愨",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-271",
+      "canonical_name": "張掞",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-217",
+      "canonical_name": "張方平",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-175",
+      "canonical_name": "張昌",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-318",
+      "canonical_name": "張昷之",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-205",
+      "canonical_name": "張景憲",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-255",
+      "canonical_name": "張根",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-7164",
+      "canonical_name": "張栻",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-199",
+      "canonical_name": "張植",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-311",
+      "canonical_name": "張次山",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-247",
+      "canonical_name": "張汝賢",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-262",
+      "canonical_name": "張沔",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-310",
+      "canonical_name": "張洞",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-211",
+      "canonical_name": "張浚",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-178",
+      "canonical_name": "張澄",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-298",
+      "canonical_name": "張燾",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-300",
+      "canonical_name": "張琮",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-301",
+      "canonical_name": "張璪",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-284",
+      "canonical_name": "張璹",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-225",
+      "canonical_name": "張瓌",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-200",
+      "canonical_name": "張知白",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-182",
+      "canonical_name": "張祁",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-269",
+      "canonical_name": "張秉",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-323",
+      "canonical_name": "張穎",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-283",
+      "canonical_name": "張綬",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-252",
+      "canonical_name": "張綱",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-259",
+      "canonical_name": "張綸",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-196",
+      "canonical_name": "張繼能",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-261",
+      "canonical_name": "張美",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-201",
+      "canonical_name": "張致遠",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-291",
+      "canonical_name": "張舜民",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-245",
+      "canonical_name": "張若谷",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-256",
+      "canonical_name": "張觀",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-184",
+      "canonical_name": "張觷",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-332",
+      "canonical_name": "張詠",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-233",
+      "canonical_name": "張詢",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-229",
+      "canonical_name": "張詵",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-285",
+      "canonical_name": "張述",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-329",
+      "canonical_name": "張運",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-223",
+      "canonical_name": "張錫",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-208",
+      "canonical_name": "張鑄",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-198",
+      "canonical_name": "張鑑",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-174",
+      "canonical_name": "張闡",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-191",
+      "canonical_name": "張震",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-197",
+      "canonical_name": "張頡",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-S7-053e123c825b",
+      "canonical_name": "張飛",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-S7-d518a940d05f",
+      "canonical_name": "張騫",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-183",
+      "canonical_name": "張齊賢",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-136",
+      "canonical_name": "強浚明",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-748",
+      "canonical_name": "徐九思",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-757",
+      "canonical_name": "徐仁傑",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-754",
+      "canonical_name": "徐休復",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-768",
+      "canonical_name": "徐大方",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-764",
+      "canonical_name": "徐奭",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-773",
+      "canonical_name": "徐子寅",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-742",
+      "canonical_name": "徐常",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-760",
+      "canonical_name": "徐庚",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-763",
+      "canonical_name": "徐林",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-743",
+      "canonical_name": "徐琛",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-770",
+      "canonical_name": "徐的",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-746",
+      "canonical_name": "徐確",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-753",
+      "canonical_name": "徐禧",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-745",
+      "canonical_name": "徐處仁",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-744",
+      "canonical_name": "徐起",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-749",
+      "canonical_name": "徐鑄",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-133",
+      "canonical_name": "成大亨",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-134",
+      "canonical_name": "戚綸",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-D-f4c12946b985387c2bf9523e",
+      "canonical_name": "戴胄",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-405",
+      "canonical_name": "折彥質",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-596",
+      "canonical_name": "方仲荀",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-597",
+      "canonical_name": "方偕",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-599",
+      "canonical_name": "方孟卿",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-595",
+      "canonical_name": "方宙",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-601",
+      "canonical_name": "方師尹",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-600",
+      "canonical_name": "方慎言",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-603",
+      "canonical_name": "方滋",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-602",
+      "canonical_name": "方澤",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-598",
+      "canonical_name": "方略",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-11",
+      "canonical_name": "晁公武",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-12",
+      "canonical_name": "晁公邁",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-13",
+      "canonical_name": "晁補之",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-10",
+      "canonical_name": "晁謙之",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-2073",
+      "canonical_name": "晏殊",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-S7-48a0d0fa5255",
+      "canonical_name": "曹雪芹",
+      "tier": "A",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-528",
+      "canonical_name": "朱伯虎",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-527",
+      "canonical_name": "朱勃",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-531",
+      "canonical_name": "朱台符",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-518",
+      "canonical_name": "朱宗",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-521",
+      "canonical_name": "朱巽",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-534",
+      "canonical_name": "朱彥美",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-512",
+      "canonical_name": "朱昂",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-526",
+      "canonical_name": "朱明之",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-532",
+      "canonical_name": "朱縡",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-420",
+      "canonical_name": "李誡",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-D-ffb96b2d1292d7a8735d0395",
+      "canonical_name": "李適",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-34916",
+      "canonical_name": "杜荀鶴",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-5",
+      "canonical_name": "查籥",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-4",
+      "canonical_name": "查道",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-43739",
+      "canonical_name": "柳永",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-6",
+      "canonical_name": "柴成務",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-31110",
+      "canonical_name": "楊炯",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-10566",
+      "canonical_name": "楊萬里",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-137828",
+      "canonical_name": "楊萬里",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-469497",
+      "canonical_name": "楊萬里",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-164",
+      "canonical_name": "楚建中",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-163",
+      "canonical_name": "楚昭輔",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-556",
+      "canonical_name": "樊光遠",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-554",
+      "canonical_name": "樊知古",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-165",
+      "canonical_name": "權邦彥",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-451",
+      "canonical_name": "江公著",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-454",
+      "canonical_name": "江衍",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-D-aec8137a7c31daaeac359439",
+      "canonical_name": "沈佺期",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-169067",
+      "canonical_name": "温庭筠",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-172",
+      "canonical_name": "湛俞",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-94814",
+      "canonical_name": "溫廷筠",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-741",
+      "canonical_name": "熊彥詩",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-740",
+      "canonical_name": "熊本",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-525",
+      "canonical_name": "牛冕",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-30374",
+      "canonical_name": "王守仁",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-92035",
+      "canonical_name": "王昌齡",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-D-46c39186c9a0fa0d8177b557",
+      "canonical_name": "王珪",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-D-470d41f21e8cab39f12341ed",
+      "canonical_name": "王珪",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-175377",
+      "canonical_name": "王維",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-S7-93cca40abb4d",
+      "canonical_name": "班昭",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-33651",
+      "canonical_name": "盧照鄰",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-537",
+      "canonical_name": "祝閔",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-157",
+      "canonical_name": "秦希甫",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-160",
+      "canonical_name": "秦梓",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-156",
+      "canonical_name": "秦羲",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-114",
+      "canonical_name": "程之元",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-113",
+      "canonical_name": "程之才",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-112",
+      "canonical_name": "程之邵",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-117",
+      "canonical_name": "程克俊",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-121",
+      "canonical_name": "程博文",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-122",
+      "canonical_name": "程師孟",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-116",
+      "canonical_name": "程戡",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-110",
+      "canonical_name": "程昌寓",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-118",
+      "canonical_name": "程琳",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-128",
+      "canonical_name": "程瑀",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-131",
+      "canonical_name": "程筠",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-111",
+      "canonical_name": "程節",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-119",
+      "canonical_name": "程邁",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-346",
+      "canonical_name": "章元振",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-344",
+      "canonical_name": "章得象",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-333",
+      "canonical_name": "章惇",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-336",
+      "canonical_name": "章服",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-345",
+      "canonical_name": "章楶",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-339",
+      "canonical_name": "章誼",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-342",
+      "canonical_name": "章頻",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-65803",
+      "canonical_name": "納蘭性德",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-S7-8fab213d600f",
+      "canonical_name": "老子",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-580",
+      "canonical_name": "范世京",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-584",
+      "canonical_name": "范同",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-574",
+      "canonical_name": "范塤",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-575",
+      "canonical_name": "范如圭",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-587",
+      "canonical_name": "范子儀",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-586",
+      "canonical_name": "范子奇",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-581",
+      "canonical_name": "范師道",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-7211",
+      "canonical_name": "范成大",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-577",
+      "canonical_name": "范旻",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-565",
+      "canonical_name": "范正國",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-566",
+      "canonical_name": "范正辭",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-562",
+      "canonical_name": "范沖",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-563",
+      "canonical_name": "范漴",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-578",
+      "canonical_name": "范百祿",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-571",
+      "canonical_name": "范祥",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-559",
+      "canonical_name": "范純仁",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-560",
+      "canonical_name": "范純禮",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-561",
+      "canonical_name": "范純粹",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-591",
+      "canonical_name": "范育",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-569",
+      "canonical_name": "范諷",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-568",
+      "canonical_name": "范鍔",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-582",
+      "canonical_name": "范鏜",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-593",
+      "canonical_name": "范雍",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-S7-6f623a071f19",
+      "canonical_name": "荊軻",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-546",
+      "canonical_name": "莊公岳",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-S7-07a9029fc611",
+      "canonical_name": "莊子",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-545",
+      "canonical_name": "莊徽",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-547",
+      "canonical_name": "莊必彊",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-S7-71c11ba245ea",
+      "canonical_name": "華佗",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-461",
+      "canonical_name": "蔣之奇",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-465",
+      "canonical_name": "蔣堂",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-462",
+      "canonical_name": "蔣彝",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-466",
+      "canonical_name": "蔣璨",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-722",
+      "canonical_name": "蕭世京",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-718",
+      "canonical_name": "蕭固",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-723",
+      "canonical_name": "蕭定基",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-716",
+      "canonical_name": "蕭振",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-719",
+      "canonical_name": "蕭貫",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-S7-75acd26f733b",
+      "canonical_name": "蘇武",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-S7-7671ff2eb66c",
+      "canonical_name": "衛青",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-432",
+      "canonical_name": "計有功",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-783",
+      "canonical_name": "許仲宣",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-778",
+      "canonical_name": "許安世",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-781",
+      "canonical_name": "許將",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-780",
+      "canonical_name": "許幾",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-166",
+      "canonical_name": "詹公薦",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-168",
+      "canonical_name": "詹大方",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-167",
+      "canonical_name": "詹太和",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-169",
+      "canonical_name": "詹度",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-726",
+      "canonical_name": "謝伋",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-725",
+      "canonical_name": "謝卿材",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-733",
+      "canonical_name": "謝德權",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-728",
+      "canonical_name": "謝景溫",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-732",
+      "canonical_name": "謝泌",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-727",
+      "canonical_name": "謝絳",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-688",
+      "canonical_name": "賀允中",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-434",
+      "canonical_name": "賈安宅",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-444",
+      "canonical_name": "賈收",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-435",
+      "canonical_name": "賈昌衡",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-440",
+      "canonical_name": "賈易",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-448",
+      "canonical_name": "賈琰",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-S7-7ec09d204247",
+      "canonical_name": "賈誼",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-436",
+      "canonical_name": "賈青",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-449",
+      "canonical_name": "賈黯",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-380",
+      "canonical_name": "趙不棄",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-370",
+      "canonical_name": "趙令詪",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-371",
+      "canonical_name": "趙令鑠",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-362",
+      "canonical_name": "趙億",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-364",
+      "canonical_name": "趙公稱",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-398",
+      "canonical_name": "趙子淔",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-400",
+      "canonical_name": "趙子潚",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-17690",
+      "canonical_name": "趙孟頫",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-351",
+      "canonical_name": "趙岍",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-375",
+      "canonical_name": "趙抃",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-394",
+      "canonical_name": "趙挺之",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-402",
+      "canonical_name": "趙揚",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-348",
+      "canonical_name": "趙昌言",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-403",
+      "canonical_name": "趙暘",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-360",
+      "canonical_name": "趙湘",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-352",
+      "canonical_name": "趙瞻",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-353",
+      "canonical_name": "趙稹",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-359",
+      "canonical_name": "趙賀",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-363",
+      "canonical_name": "趙開",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-S7-5a9ef8007b69",
+      "canonical_name": "趙雲",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-373",
+      "canonical_name": "趙霈",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-395",
+      "canonical_name": "趙鼎臣",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-467",
+      "canonical_name": "蹇周輔",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-468",
+      "canonical_name": "蹇序辰",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-737",
+      "canonical_name": "辛仲甫",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-738",
+      "canonical_name": "辛次膺",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-433",
+      "canonical_name": "郟亶",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-316",
+      "canonical_name": "郭思",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-414",
+      "canonical_name": "鄭仲熊",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-413",
+      "canonical_name": "鄭僅",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-411",
+      "canonical_name": "鄭戩",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-428",
+      "canonical_name": "鄭文寶",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-427",
+      "canonical_name": "鄭望之",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-412",
+      "canonical_name": "鄭知剛",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-416",
+      "canonical_name": "鄭驤",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-417",
+      "canonical_name": "鄭驤",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-419",
+      "canonical_name": "鄭鬲",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-470",
+      "canonical_name": "金君卿",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-469",
+      "canonical_name": "金安節",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-147",
+      "canonical_name": "錢公輔",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-145",
+      "canonical_name": "錢勰",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-146",
+      "canonical_name": "錢易",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-149",
+      "canonical_name": "錢時敏",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-142",
+      "canonical_name": "錢曖",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-150",
+      "canonical_name": "錢端禮",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-152",
+      "canonical_name": "錢遹",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-550",
+      "canonical_name": "鍾世明",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-551",
+      "canonical_name": "鍾伷",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-553",
+      "canonical_name": "鍾離瑾",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-78",
+      "canonical_name": "陳世卿",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-36",
+      "canonical_name": "陳之淵",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-21",
+      "canonical_name": "陳倩",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-101",
+      "canonical_name": "陳兗",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-77",
+      "canonical_name": "陳升之",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-65",
+      "canonical_name": "陳古",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-47",
+      "canonical_name": "陳向",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-69",
+      "canonical_name": "陳國瑞",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-34",
+      "canonical_name": "陳執中",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-98",
+      "canonical_name": "陳堯佐",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-97",
+      "canonical_name": "陳堯叟",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-99",
+      "canonical_name": "陳堯咨",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-17",
+      "canonical_name": "陳安石",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-19",
+      "canonical_name": "陳察",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-79",
+      "canonical_name": "陳師錫",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-62",
+      "canonical_name": "陳康伯",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-64",
+      "canonical_name": "陳廓",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-72",
+      "canonical_name": "陳彌作",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-102",
+      "canonical_name": "陳彥恭",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-92",
+      "canonical_name": "陳從信",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-93",
+      "canonical_name": "陳從易",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-83",
+      "canonical_name": "陳恕",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-31",
+      "canonical_name": "陳戩",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-39",
+      "canonical_name": "陳扃",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-66",
+      "canonical_name": "陳括",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-94",
+      "canonical_name": "陳敦夫",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-29",
+      "canonical_name": "陳桷",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-89",
+      "canonical_name": "陳橐",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-26",
+      "canonical_name": "陳機",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-24",
+      "canonical_name": "陳正同",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-22",
+      "canonical_name": "陳求道",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-58",
+      "canonical_name": "陳汝錫",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-25",
+      "canonical_name": "陳洎",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-100",
+      "canonical_name": "陳琰",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-82",
+      "canonical_name": "陳璹",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-33",
+      "canonical_name": "陳知儉",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-90",
+      "canonical_name": "陳粹",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-28",
+      "canonical_name": "陳絳",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-46",
+      "canonical_name": "陳繫",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-55",
+      "canonical_name": "陳繹",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-70",
+      "canonical_name": "陳良弼",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-56",
+      "canonical_name": "陳若拙",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-67",
+      "canonical_name": "陳貫",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-20",
+      "canonical_name": "陳起宗",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-108",
+      "canonical_name": "陳越",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-52",
+      "canonical_name": "陳輝",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-43",
+      "canonical_name": "陳郛",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-37",
+      "canonical_name": "陳靖",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-S7-231a8c50798c",
+      "canonical_name": "霍去病",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-542",
+      "canonical_name": "鞠仲謀",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-541",
+      "canonical_name": "鞠真卿",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-544",
+      "canonical_name": "鞠詠",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-669",
+      "canonical_name": "韓元吉",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-670",
+      "canonical_name": "韓元龍",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-651",
+      "canonical_name": "韓國華",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-662",
+      "canonical_name": "韓宗師",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-664",
+      "canonical_name": "韓宗彥",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-663",
+      "canonical_name": "韓宗道",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-667",
+      "canonical_name": "韓彥直",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-644",
+      "canonical_name": "韓忠彥",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-633",
+      "canonical_name": "韓昭",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-640",
+      "canonical_name": "韓晉卿",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-635",
+      "canonical_name": "韓正彥",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-632",
+      "canonical_name": "韓球",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-642",
+      "canonical_name": "韓琚",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-630",
+      "canonical_name": "韓琦",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-648",
+      "canonical_name": "韓璜",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-641",
+      "canonical_name": "韓璩",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-652",
+      "canonical_name": "韓璹",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-656",
+      "canonical_name": "韓粹彥",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-636",
+      "canonical_name": "韓絳",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-657",
+      "canonical_name": "韓綜",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-634",
+      "canonical_name": "韓縝",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-649",
+      "canonical_name": "韓繹",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-646",
+      "canonical_name": "韓肖胄",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-638",
+      "canonical_name": "韓贄",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-631",
+      "canonical_name": "韓跂",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-S7-2b7734c66eb6",
+      "canonical_name": "項羽",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-34252",
+      "canonical_name": "顧炎武",
+      "tier": "B",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-607",
+      "canonical_name": "馮京",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-610",
+      "canonical_name": "馮如晦",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-611",
+      "canonical_name": "馮康國",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-606",
+      "canonical_name": "馮拯",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-608",
+      "canonical_name": "馮方",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-31143",
+      "canonical_name": "駱賓王",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-30851",
+      "canonical_name": "高適",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    },
+    {
+      "person_id": "P-CBDB-735",
+      "canonical_name": "鮮于侁",
+      "tier": "C",
+      "classical_links": 0,
+      "chapters": 0,
+      "works": 0
+    }
+  ]
+}

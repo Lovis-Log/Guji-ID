@@ -35,6 +35,20 @@
     {% include '_identity_evidence.html' %}
     <p class="record-id profile-record-id">档案编号 {{ person.person_id }}{% if person.source_person_id %} · CBDB 人物编号 {{ person.source_person_id }}{% endif %}</p>
   </section>
+  {% if classical %}
+  <nav class="record-section-nav" aria-label="档案章节">
+    <a href="#profile-title">身份</a>
+    <a href="#classical-overview">生平</a>
+    <a href="#aliases-title">称谓</a>
+    <a href="#classical-evidence">古籍原文</a>
+    {% if classical.timeline %}<a href="#classical-timeline">年表</a>{% endif %}
+    {% if classical.literary %}<a href="#classical-works">作品</a>{% endif %}
+    {% if classical.relations %}<a href="#classical-relations">关系</a>{% endif %}
+    {% if classical.disputes %}<a href="#classical-disputes">争议</a>{% endif %}
+    <a href="#classical-references">文献索引</a>
+  </nav>
+  {% include '_classical_person.html' %}
+  {% endif %}
   <section class="aliases-section" aria-labelledby="aliases-title">
     <div class="section-heading"><h2 id="aliases-title">已核对的别称</h2><p>{{ person.aliases|length }} 条有来源支持的称呼</p></div>
     {% if person.aliases %}

@@ -1,0 +1,110 @@
+{% if classical %}
+<section class="classical-overview" id="classical-overview" aria-labelledby="classical-overview-title">
+  <div class="section-heading"><h2 id="classical-overview-title">生平概述</h2><p>{{ classical.profile.tier_label }}</p></div>
+  {% if classical.profile.biography_modern %}
+  <div class="modern-biography"><p>{{ classical.profile.biography_modern }}</p>
+    <p class="reading-note">{{ classical.profile.biography_basis or '现代整理说明；不作为古籍原文。' }}</p>
+  </div>
+  {% else %}
+  <div class="empty-state"><h3>本阶段尚未整理详细生平</h3><p>该人物已有基础身份资料；详细生平与古籍原文将在取得可靠来源后补充。</p></div>
+  {% endif %}
+  {% if classical.profile.chronology_note %}<p class="reading-note">系年说明：{{ classical.profile.chronology_note }}</p>{% endif %}
+  <dl class="classical-stats">
+    <div><dt>古籍证据</dt><dd>{{ classical.counts.links }} 条关联 · {{ classical.counts.distinct_quotes }} 处原文</dd></div>
+    <div><dt>涉及篇章</dt><dd>{{ classical.counts.chapters }} 篇 · {{ classical.counts.works }} 种典籍版本</dd></div>
+    <div><dt>已核对称谓</dt><dd>{{ person.aliases|length }} 条</dd></div>
+    <div><dt>代表作品</dt><dd>{{ classical.literary|length }} 项目录</dd></div>
+  </dl>
+</section>
+
+<section class="classical-evidence-section" id="classical-evidence" aria-labelledby="classical-evidence-title">
+  <div class="section-heading"><h2 id="classical-evidence-title">古籍原文与证据</h2><p>每条均可在保存篇章中定位</p></div>
+  {% if classical.links %}
+  <p class="reading-note">下列引文均取自本页所列版本，位置、段落与篇章正文逐字对应。称谓证据与生平片段分别标注，不把作品中的提及混作直接称谓证明。</p>
+  {% for work in classical.works %}
+  <article class="classical-work-group">
+    <header><h3>《{{ work.title }}》</h3><p>{{ work.dynasty }}{% if work.dynasty and work.author %} · {% endif %}{{ work.author }}<span class="subtitle-divider"> / </span>{{ work.edition }}</p></header>
+    <ol class="classical-evidence-list">
+      {% for item in classical.links if item.work_id == work.work_id %}
+      <li>
+        <div class="classical-evidence-head"><span class="evidence-kind">{{ item.category_label }}</span><span class="evidence-place">{{ item.volume or '' }} · {{ item.chapter_title }}</span></div>
+        <blockquote class="classical-quote">{{ item.quote_preview }}</blockquote>
+        {% if item.quote_is_excerpt %}<p class="reading-note">本页显示引文节选；完整引文、准确位置与上下文见保存篇章。</p>{% endif %}
+        <p class="classical-claim">{{ item.claim }}</p>
+        <p class="classical-links"><a class="text-link" href="{{ item.reader_url }}">在篇章中定位并阅读上下文 →</a><span class="evidence-status">{{ item.status_label }}</span></p>
+      </li>
+      {% endfor %}
+    </ol>
+  </article>
+  {% endfor %}
+  {% else %}
+  <div class="empty-state"><h3>尚未取得可定位的古籍原文</h3><p>本阶段不为该人物补写原文，也不把结构化数据库记录当作古籍正文。缺口已列入数据报告，待取得合法来源后补充。</p></div>
+  {% endif %}
+</section>
+
+{% if classical.timeline %}
+<section class="classical-timeline-section" id="classical-timeline" aria-labelledby="classical-timeline-title">
+  <div class="section-heading"><h2 id="classical-timeline-title">生平年表</h2><p>只列有来源依据的事件</p></div>
+  <ol class="timeline-list">
+    {% for event in classical.timeline %}
+    <li>
+      <span class="timeline-year">{{ event.year_label }}</span>
+      <div class="timeline-body"><p>{{ event.event_text }}</p>{% if event.place %}<p class="timeline-place">地点：{{ event.place }}</p>{% endif %}
+        {% if event.source_note %}<p class="reading-note">{{ event.source_note }}</p>{% endif %}
+        {% if event.reader_url %}<a class="text-link" href="{{ event.reader_url }}">查看文献依据 →</a>{% endif %}
+      </div>
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+{% endif %}
+
+{% if classical.literary %}
+<section class="classical-works-section" id="classical-works" aria-labelledby="classical-works-title">
+  <div class="section-heading"><h2 id="classical-works-title">代表作品</h2><p>作品目录与可读状态</p></div>
+  <ul class="literary-list">
+    {% for item in classical.literary %}
+    <li><span class="literary-title">{{ item.title }}</span><span class="literary-genre">{{ item.genre or '文体待考' }}</span>
+      <span class="literary-status">{% if item.attribution_status == 'disputed' %}归属有争议{% elif item.chapter_id %}全文可读{% else %}仅列目{% endif %}</span>
+      {% if item.note %}<p class="reading-note">{{ item.note }}</p>{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+{% if classical.relations %}
+<section class="classical-relations-section" id="classical-relations" aria-labelledby="classical-relations-title">
+  <div class="section-heading"><h2 id="classical-relations-title">人物关系</h2><p>有文献依据的交往与亲属关系</p></div>
+  <ul class="relation-list">
+    {% for item in classical.relations %}
+    <li>{% if item.related_person_id %}<a class="relation-name" href="{{ url_for('person_detail', person_id=item.related_person_id|url_id) }}">{{ item.related_name }}</a>{% else %}<strong>{{ item.related_name }}</strong>{% endif %}<span class="relation-type">{{ item.relation_type }}</span>{% if item.note %}<p>{{ item.note }}</p>{% endif %}</li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+{% if classical.disputes %}
+<section class="classical-disputes-section" id="classical-disputes" aria-labelledby="classical-disputes-title">
+  <div class="section-heading"><h2 id="classical-disputes-title">历史争议与不同记载</h2><p>保留异说，不强行统一</p></div>
+  <div class="dispute-list">
+    {% for item in classical.disputes %}
+    <article><h3>{{ item.topic }}</h3><p>{{ item.account_a }}</p>{% if item.account_b %}<p>{{ item.account_b }}</p>{% endif %}{% if item.note %}<p class="reading-note">{{ item.note }}</p>{% endif %}</article>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<section class="classical-references-section" id="classical-references" aria-labelledby="classical-references-title">
+  <div class="section-heading"><h2 id="classical-references-title">文献来源索引</h2><p>按书名、卷次和篇章组织</p></div>
+  {% if classical.works %}
+  <ul class="reference-list">
+    {% for work in classical.works %}
+    <li><strong>《{{ work.title }}》</strong><span class="reference-edition">{{ work.edition }}</span>
+      <ul>{% for chapter in work.chapters.values() %}<li><a href="{{ chapter.reader_url }}">{{ chapter.volume or '' }} {{ chapter.title }}</a><span>{{ chapter.count }} 条证据</span></li>{% endfor %}</ul>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}<p class="reading-note">暂无已保存的文献篇章。</p>{% endif %}
+</section>
+{% endif %}

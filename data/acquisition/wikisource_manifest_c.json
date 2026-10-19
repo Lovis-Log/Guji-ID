@@ -1,0 +1,37 @@
+{
+  "provider": "Wikisource",
+  "license_id": "CC-BY-SA-4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "pages": {
+    "houhanshu_059": {
+      "key": "houhanshu_059",
+      "work": "後漢書",
+      "volume": "卷59",
+      "hint": "張衡傳",
+      "title": "後漢書/卷59",
+      "url": "https://zh.wikisource.org/wiki/%E5%BE%8C%E6%BC%A2%E6%9B%B8%2F%E5%8D%B759",
+      "raw_url": "https://zh.wikisource.org/w/index.php?title=%E5%BE%8C%E6%BC%A2%E6%9B%B8%2F%E5%8D%B759&action=raw",
+      "license_id": "CC-BY-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "retrieved_at": "2026-10-18T15:31:16+00:00",
+      "bytes": 94105,
+      "sha256": "ba5fb898f914e844d989e0fce2e151a6e72dfc91d697d485914e5ca977e84e4a",
+      "oldid": null,
+      "status": "ok",
+      "last_error": "",
+      "local_path": "data\\external\\wikisource\\houhanshu_059.wikitext"
+    },
+    "xintangshu_174": {
+      "key": "xintangshu_174",
+      "status": "failed",
+      "last_error": "新唐書/卷174 第1次: curl exit 28: curl: (28) Connection timed out after 25001 milliseconds\r\n | 新唐書/卷174 第2次: curl exit 28: curl: (28) Connection timed out after 25005 milliseconds\r\n | 新唐書/卷174 第3次: curl exit 6: curl: (6) Could not resolve host: zh.wikisource.org\r\n | 新唐書/卷一百七十四 第1次: HTTP 404 | 新唐書/卷一百七十四 第2次: HTTP 404 | 新唐書/卷一百七十四 第3次: curl exit 28: curl: (28) Connection timed out after 25008 milliseconds\r\n",
+      "last_attempt_at": "2026-10-18T15:33:36+00:00"
+    },
+    "xintangshu_196": {
+      "key": "xintangshu_196",
+      "status": "failed",
+      "last_error": "新唐書/卷196 第1次: curl exit 28: curl: (28) Connection timed out after 25016 milliseconds\r\n | 新唐書/卷196 第2次: curl exit 28: curl: (28) Connection timed out after 25002 milliseconds\r\n | 新唐書/卷196 第3次: curl exit 28: curl: (28) Connection timed out after 25013 milliseconds\r\n | 新唐書/卷一百九十六 第1次: HTTP 404 | 新唐書/卷一百九十六 第2次: HTTP 404 | 新唐書/卷一百九十六 第3次: HTTP 404",
+      "last_attempt_at": "2026-10-18T15:35:34+00:00"
+    }
+  }
+}

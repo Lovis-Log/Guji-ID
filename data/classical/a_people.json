@@ -1,0 +1,2412 @@
+{
+  "note": "A级人物称谓种子。patterns 仅用于在已保存篇章中定位直接记载；找不到即跳过并报告，不补写。",
+  "people": {
+    "李白": {
+      "sources": [
+        {
+          "ws": "jiutangshu_190b",
+          "heading": "李白"
+        },
+        {
+          "ws": "xintangshu_202",
+          "heading": "李白"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "太白",
+          "type": "courtesy",
+          "patterns": [
+            "字太白"
+          ],
+          "claim": "本传直接记载李白字太白"
+        },
+        {
+          "name": "青蓮居士",
+          "type": "art",
+          "patterns": [
+            "青蓮居士",
+            "青莲居士"
+          ],
+          "claim": "本传或相关记载称其青蓮居士"
+        },
+        {
+          "name": "謫仙",
+          "type": "other",
+          "patterns": [
+            "謫仙人",
+            "谪仙人"
+          ],
+          "claim": "贺知章称其为谪仙人，见本传"
+        }
+      ],
+      "summary": "唐代诗人，字太白，号青莲居士，世称“诗仙”。其诗想象雄奇、风格豪放，代表作有《蜀道难》《将进酒》等。",
+      "name_forms": [
+        "李白",
+        "太白",
+        "李太白"
+      ],
+      "start_markers": [
+        "李白，字太白",
+        "李白字太白",
+        "李白，字太白，"
+      ]
+    },
+    "杜甫": {
+      "sources": [
+        {
+          "ws": "jiutangshu_190b",
+          "heading": "杜甫"
+        },
+        {
+          "ws": "xintangshu_201",
+          "heading": "杜甫"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "子美",
+          "type": "courtesy",
+          "patterns": [
+            "字子美"
+          ],
+          "claim": "本传直接记载杜甫字子美"
+        },
+        {
+          "name": "少陵野老",
+          "type": "art",
+          "patterns": [
+            "少陵野老",
+            "少陵"
+          ],
+          "claim": "本传或相关记载称其少陵野老"
+        },
+        {
+          "name": "杜工部",
+          "type": "other",
+          "patterns": [
+            "工部員外郎",
+            "检校工部员外郎",
+            "檢校工部員外郎"
+          ],
+          "claim": "本传载其官职工部员外郎，后世称杜工部"
+        }
+      ],
+      "summary": "唐代诗人，字子美，自号少陵野老，世称“诗圣”。其诗深刻反映安史之乱前后的社会现实，代表作有《春望》《登高》等。",
+      "name_forms": [
+        "杜甫",
+        "子美",
+        "杜子美"
+      ],
+      "start_markers": [
+        "杜甫，字子美",
+        "杜甫字子美"
+      ]
+    },
+    "蘇軾": {
+      "person_id": "P-0180cd77-04c3-471a-937a-cc8e77709e52",
+      "sources": [
+        {
+          "ws": "songshi_338",
+          "heading": "蘇軾"
+        },
+        {
+          "kr": "KR2a0032",
+          "file": "KR2a0032_338.txt",
+          "volume": "卷338",
+          "title": "卷三百三十八"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "子瞻",
+          "type": "courtesy",
+          "patterns": [
+            "字子瞻"
+          ],
+          "claim": "本传直接记载苏轼字子瞻"
+        },
+        {
+          "name": "東坡居士",
+          "type": "art",
+          "patterns": [
+            "東坡居士",
+            "东坡居士",
+            "自號東坡"
+          ],
+          "claim": "本传记载其自号东坡居士"
+        },
+        {
+          "name": "文忠",
+          "type": "posthumous",
+          "patterns": [
+            "諡文忠",
+            "谥文忠",
+            "謚文忠"
+          ],
+          "claim": "本传记载其谥号文忠"
+        }
+      ],
+      "summary": "北宋文学家、书画家，字子瞻，号东坡居士，唐宋八大家之一。诗、词、文、书、画皆卓然成家，代表作有《赤壁赋》《念奴娇·赤壁怀古》等。",
+      "name_forms": [
+        "蘇軾",
+        "蘇轼",
+        "子瞻",
+        "東坡"
+      ],
+      "start_markers": [
+        "蘇軾字子瞻",
+        "蘇軾，字子瞻"
+      ]
+    },
+    "諸葛亮": {
+      "sources": [
+        {
+          "ws": "sanguozhi_035",
+          "heading": "諸葛亮"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "孔明",
+          "type": "courtesy",
+          "patterns": [
+            "字孔明"
+          ],
+          "claim": "本传直接记载诸葛亮字孔明"
+        },
+        {
+          "name": "臥龍",
+          "type": "art",
+          "patterns": [
+            "臥龍",
+            "卧龙"
+          ],
+          "claim": "本传载徐庶称其为卧龙"
+        }
+      ],
+      "summary": "三国时期蜀汉丞相，字孔明，号卧龙。辅佐刘备建立蜀汉，主持北伐，著《出师表》等。",
+      "name_forms": [
+        "諸葛亮",
+        "諸葛孔明",
+        "孔明"
+      ],
+      "start_markers": [
+        "諸葛亮字孔明",
+        "諸葛亮，字孔明",
+        "亮字孔明"
+      ]
+    },
+    "曹操": {
+      "sources": [
+        {
+          "ws": "sanguozhi_001",
+          "heading": "曹操"
+        },
+        {
+          "kr": "KR2a0012",
+          "file": "KR2a0012_001.txt",
+          "volume": "卷1",
+          "title": "卷一"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "孟德",
+          "type": "courtesy",
+          "patterns": [
+            "字孟德"
+          ],
+          "claim": "本传直接记载曹操字孟德"
+        },
+        {
+          "name": "武皇帝",
+          "type": "posthumous",
+          "patterns": [
+            "武皇帝",
+            "諡曰武"
+          ],
+          "claim": "本传记载其谥号武皇帝"
+        },
+        {
+          "name": "太祖",
+          "type": "other",
+          "patterns": [
+            "太祖武皇帝"
+          ],
+          "claim": "本传以太祖武皇帝称之"
+        }
+      ],
+      "summary": "东汉末年政治家、军事家、文学家，字孟德，魏武帝，曹魏政权奠基者。代表作有《短歌行》《观沧海》等。",
+      "name_forms": [
+        "曹操",
+        "諱操",
+        "曹公",
+        "太祖"
+      ],
+      "start_markers": [
+        "太祖武皇帝",
+        "太祖武皇帝，"
+      ]
+    },
+    "曹植": {
+      "sources": [
+        {
+          "ws": "sanguozhi_019",
+          "heading": "曹植"
+        },
+        {
+          "kr": "KR2a0012",
+          "file": "KR2a0012_019.txt",
+          "volume": "卷19",
+          "title": "卷十九"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "子建",
+          "type": "courtesy",
+          "patterns": [
+            "字子建"
+          ],
+          "claim": "本传直接记载曹植字子建"
+        },
+        {
+          "name": "陳思王",
+          "type": "other",
+          "patterns": [
+            "陳思王",
+            "陈思王"
+          ],
+          "claim": "本传记载其封陈王、谥思"
+        }
+      ],
+      "summary": "三国时期曹魏文学家，字子建，曹操之子，建安文学代表。代表作有《洛神赋》《白马篇》等。",
+      "name_forms": [
+        "曹植",
+        "子建",
+        "陳思王",
+        "陈思王",
+        "陳思王植",
+        "植字子建"
+      ],
+      "start_markers": [
+        "陳思王植字子建",
+        "曹植字子建",
+        "植字子建",
+        "陳思王植字子建",
+        "陳思王植，字子建"
+      ]
+    },
+    "陶潛": {
+      "sources": [
+        {
+          "ws": "songshu_093",
+          "heading": "陶潛"
+        },
+        {
+          "ws": "nanshi_075",
+          "heading": "陶潛"
+        },
+        {
+          "kr": "KR2a0016",
+          "file": "KR2a0016_093.txt",
+          "volume": "卷93",
+          "title": "卷九十三"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "淵明",
+          "type": "courtesy",
+          "patterns": [
+            "字淵明",
+            "字渊明"
+          ],
+          "claim": "本传记载陶潜字渊明"
+        },
+        {
+          "name": "元亮",
+          "type": "courtesy",
+          "patterns": [
+            "字元亮"
+          ],
+          "claim": "本传又载或云淵明字元亮"
+        },
+        {
+          "name": "靖節",
+          "type": "posthumous",
+          "patterns": [
+            "靖節",
+            "靖节",
+            "靖節徵士",
+            "靖节徵士"
+          ],
+          "claim": "本传或相关记载称其靖节"
+        }
+      ],
+      "summary": "东晋诗人，一名潜，字元亮（又作渊明），世称靖节先生。田园诗派代表，代表作有《归去来兮辞》《桃花源记》等。",
+      "name_forms": [
+        "陶潛",
+        "陶淵明",
+        "淵明"
+      ],
+      "start_markers": [
+        "陶潛字淵明",
+        "陶潛，字淵明",
+        "陶潛字元亮"
+      ]
+    },
+    "王羲之": {
+      "sources": [
+        {
+          "ws": "jinshu_080",
+          "heading": "王羲之"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "逸少",
+          "type": "courtesy",
+          "patterns": [
+            "字逸少"
+          ],
+          "claim": "本传直接记载王羲之字逸少"
+        },
+        {
+          "name": "王右軍",
+          "type": "other",
+          "patterns": [
+            "右軍將軍",
+            "右军将军"
+          ],
+          "claim": "本传载其官至右军将军，世称王右军"
+        }
+      ],
+      "summary": "东晋书法家，字逸少，官至右军将军，世称“书圣”。代表作《兰亭集序》被誉为天下第一行书。",
+      "name_forms": [
+        "王羲之",
+        "逸少",
+        "王右軍"
+      ],
+      "start_markers": [
+        "王羲之字逸少",
+        "王羲之，字逸少"
+      ]
+    },
+    "司馬遷": {
+      "sources": [
+        {
+          "ws": "hanshu_062",
+          "heading": "司馬遷"
+        },
+        {
+          "ws": "shiji_130",
+          "heading": "太史公自序"
+        },
+        {
+          "kr": "KR2a0007",
+          "file": "KR2a0007_062.txt",
+          "volume": "卷62",
+          "title": "司馬遷傳"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "子長",
+          "type": "courtesy",
+          "patterns": [
+            "字子長",
+            "字子长"
+          ],
+          "claim": "《汉书》本传直接记载司马迁字子长"
+        },
+        {
+          "name": "太史公",
+          "type": "other",
+          "patterns": [
+            "太史公"
+          ],
+          "claim": "本传自称太史公"
+        }
+      ],
+      "summary": "西汉史学家、文学家，字子长，著《史记》，开创纪传体通史。",
+      "name_forms": [
+        "司馬遷",
+        "太史公",
+        "子長"
+      ],
+      "start_markers": [
+        "司馬遷字子長",
+        "遷字子長",
+        "司馬遷，字子長"
+      ]
+    },
+    "韓愈": {
+      "sources": [
+        {
+          "ws": "jiutangshu_160",
+          "heading": "韓愈"
+        },
+        {
+          "ws": "xintangshu_176",
+          "heading": "韓愈"
+        },
+        {
+          "kr": "KR2a0026",
+          "file": "KR2a0026_160.txt",
+          "volume": "卷160",
+          "title": "卷一百六十"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "退之",
+          "type": "courtesy",
+          "patterns": [
+            "字退之"
+          ],
+          "claim": "本传直接记载韩愈字退之"
+        },
+        {
+          "name": "文",
+          "type": "posthumous",
+          "patterns": [
+            "諡曰文",
+            "谥曰文",
+            "諡文"
+          ],
+          "claim": "本传记载其谥号为文"
+        },
+        {
+          "name": "韓吏部",
+          "type": "other",
+          "patterns": [
+            "吏部侍郎"
+          ],
+          "claim": "本传载其官吏部侍郎，后世称韩吏部"
+        }
+      ],
+      "summary": "唐代文学家、思想家，字退之，世称韩昌黎，唐宋八大家之首。倡导古文运动，代表作有《师说》《进学解》等。",
+      "name_forms": [
+        "韓愈",
+        "韩愈",
+        "退之"
+      ],
+      "start_markers": [
+        "韓愈字退之",
+        "韓愈，字退之"
+      ]
+    },
+    "柳宗元": {
+      "sources": [
+        {
+          "ws": "jiutangshu_160",
+          "heading": "柳宗元"
+        },
+        {
+          "ws": "xintangshu_168",
+          "heading": "柳宗元"
+        },
+        {
+          "kr": "KR2a0026",
+          "file": "KR2a0026_160.txt",
+          "volume": "卷160",
+          "title": "卷一百六十"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "子厚",
+          "type": "courtesy",
+          "patterns": [
+            "字子厚"
+          ],
+          "claim": "本传直接记载柳宗元字子厚"
+        },
+        {
+          "name": "柳柳州",
+          "type": "other",
+          "patterns": [
+            "柳州刺史",
+            "栁州刺史"
+          ],
+          "claim": "本传载其官柳州刺史，世称柳柳州"
+        }
+      ],
+      "summary": "唐代文学家、思想家，字子厚，唐宋八大家之一。与韩愈共同倡导古文运动，代表作有《永州八记》《捕蛇者说》等。",
+      "name_forms": [
+        "柳宗元",
+        "子厚",
+        "栁宗元"
+      ],
+      "start_markers": [
+        "栁宗元字子厚",
+        "柳宗元字子厚",
+        "柳宗元，字子厚"
+      ]
+    },
+    "白居易": {
+      "sources": [
+        {
+          "ws": "jiutangshu_166",
+          "heading": "白居易"
+        },
+        {
+          "ws": "xintangshu_119",
+          "heading": "白居易"
+        },
+        {
+          "kr": "KR2a0026",
+          "file": "KR2a0026_166.txt",
+          "volume": "卷166",
+          "title": "卷一百六十六"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "樂天",
+          "type": "courtesy",
+          "patterns": [
+            "字樂天",
+            "字乐天"
+          ],
+          "claim": "本传直接记载白居易字乐天"
+        },
+        {
+          "name": "香山居士",
+          "type": "art",
+          "patterns": [
+            "香山居士",
+            "自號醉吟先生",
+            "自号醉吟先生"
+          ],
+          "claim": "本传或相关记载称其香山居士、醉吟先生"
+        },
+        {
+          "name": "文",
+          "type": "posthumous",
+          "patterns": [
+            "諡曰文",
+            "谥曰文",
+            "贈尚書右僕射"
+          ],
+          "claim": "本传记载其赠官与谥号"
+        }
+      ],
+      "summary": "唐代诗人，字乐天，号香山居士，新乐府运动倡导者。代表作有《长恨歌》《琵琶行》等。",
+      "name_forms": [
+        "白居易",
+        "樂天",
+        "乐天"
+      ],
+      "start_markers": [
+        "白居易字樂天",
+        "白居易，字樂天"
+      ]
+    },
+    "王維": {
+      "sources": [
+        {
+          "ws": "jiutangshu_190b",
+          "heading": "王維"
+        },
+        {
+          "ws": "xintangshu_202",
+          "heading": "王維"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "摩詰",
+          "type": "courtesy",
+          "patterns": [
+            "字摩詰",
+            "字摩诘"
+          ],
+          "claim": "本传直接记载王维字摩诘"
+        },
+        {
+          "name": "王右丞",
+          "type": "other",
+          "patterns": [
+            "尚書右丞",
+            "尚书右丞",
+            "右丞"
+          ],
+          "claim": "本传载其官尚书右丞，世称王右丞"
+        }
+      ],
+      "summary": "唐代诗人、画家，字摩诘，官至尚书右丞，世称王右丞。山水田园诗代表，苏轼称其“诗中有画，画中有诗”。",
+      "name_forms": [
+        "王維",
+        "王维",
+        "摩詰",
+        "摩诘"
+      ],
+      "start_markers": [
+        "王維字摩詰",
+        "王維，字摩詰"
+      ],
+      "person_id": "P-CBDB-32174"
+    },
+    "李商隱": {
+      "sources": [
+        {
+          "ws": "jiutangshu_190b",
+          "heading": "李商隱"
+        },
+        {
+          "ws": "xintangshu_203",
+          "heading": "李商隱"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "義山",
+          "type": "courtesy",
+          "patterns": [
+            "字義山",
+            "字义山"
+          ],
+          "claim": "本传直接记载李商隐字义山"
+        },
+        {
+          "name": "玉溪生",
+          "type": "art",
+          "patterns": [
+            "玉溪生"
+          ],
+          "claim": "本传或相关记载称其玉溪生"
+        },
+        {
+          "name": "樊南生",
+          "type": "art",
+          "patterns": [
+            "樊南生"
+          ],
+          "claim": "相关记载称其樊南生"
+        }
+      ],
+      "summary": "唐代诗人，字义山，号玉溪生、樊南生。与杜牧并称“小李杜”，代表作有《锦瑟》《无题》等。",
+      "name_forms": [
+        "李商隱",
+        "李商隐",
+        "義山",
+        "义山"
+      ],
+      "start_markers": [
+        "李商隱字義山",
+        "李商隱，字義山"
+      ]
+    },
+    "杜牧": {
+      "sources": [
+        {
+          "ws": "xintangshu_166",
+          "heading": "杜牧"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "牧之",
+          "type": "courtesy",
+          "patterns": [
+            "字牧之"
+          ],
+          "claim": "本传直接记载杜牧字牧之"
+        },
+        {
+          "name": "樊川",
+          "type": "art",
+          "patterns": [
+            "樊川"
+          ],
+          "claim": "相关记载称其樊川"
+        }
+      ],
+      "summary": "唐代诗人、文学家，字牧之，与李商隐并称“小李杜”。代表作有《阿房宫赋》《清明》等。",
+      "name_forms": [
+        "杜牧",
+        "牧之"
+      ],
+      "start_markers": [
+        "牧，字牧之",
+        "杜牧字牧之",
+        "牧字牧之",
+        "杜牧，字牧之"
+      ]
+    },
+    "歐陽修": {
+      "person_id": "P-b5e5232e-9dc8-42fb-adcd-26220d535678",
+      "sources": [
+        {
+          "ws": "songshi_319",
+          "heading": "歐陽修"
+        },
+        {
+          "kr": "KR2a0032",
+          "file": "KR2a0032_319.txt",
+          "volume": "卷319",
+          "title": "卷三百一十九"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "永叔",
+          "type": "courtesy",
+          "patterns": [
+            "字永叔"
+          ],
+          "claim": "本传直接记载欧阳修字永叔"
+        },
+        {
+          "name": "醉翁",
+          "type": "art",
+          "patterns": [
+            "醉翁"
+          ],
+          "claim": "本传或相关记载称其醉翁"
+        },
+        {
+          "name": "六一居士",
+          "type": "art",
+          "patterns": [
+            "六一居士"
+          ],
+          "claim": "本传记载其晚号六一居士"
+        },
+        {
+          "name": "文忠",
+          "type": "posthumous",
+          "patterns": [
+            "諡文忠",
+            "谥文忠",
+            "謚文忠",
+            "諡曰文忠",
+            "謚曰文忠"
+          ],
+          "claim": "本传记载其谥号文忠"
+        }
+      ],
+      "summary": "北宋文学家、史学家，字永叔，号醉翁、六一居士，唐宋八大家之一。代表作有《醉翁亭记》《秋声赋》等。",
+      "name_forms": [
+        "歐陽修",
+        "欧阳修",
+        "歐陽脩",
+        "永叔"
+      ],
+      "start_markers": [
+        "歐陽修字永叔",
+        "歐陽脩字永叔",
+        "歐陽修，字永叔"
+      ]
+    },
+    "王安石": {
+      "sources": [
+        {
+          "ws": "songshi_327",
+          "heading": "王安石"
+        },
+        {
+          "kr": "KR2a0032",
+          "file": "KR2a0032_327.txt",
+          "volume": "卷327",
+          "title": "卷三百二十七"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "介甫",
+          "type": "courtesy",
+          "patterns": [
+            "字介甫"
+          ],
+          "claim": "本传直接记载王安石字介甫"
+        },
+        {
+          "name": "半山",
+          "type": "art",
+          "patterns": [
+            "半山"
+          ],
+          "claim": "本传或相关记载称其半山"
+        },
+        {
+          "name": "文",
+          "type": "posthumous",
+          "patterns": [
+            "諡曰文",
+            "谥曰文"
+          ],
+          "claim": "本传记载其谥号为文"
+        }
+      ],
+      "summary": "北宋政治家、文学家，字介甫，号半山，唐宋八大家之一。主持熙宁变法，代表作有《伤仲永》《泊船瓜洲》等。",
+      "name_forms": [
+        "王安石",
+        "介甫"
+      ],
+      "start_markers": [
+        "王安石字介甫",
+        "王安石，字介甫"
+      ]
+    },
+    "司馬光": {
+      "sources": [
+        {
+          "ws": "songshi_336",
+          "heading": "司馬光"
+        },
+        {
+          "kr": "KR2a0032",
+          "file": "KR2a0032_336.txt",
+          "volume": "卷336",
+          "title": "卷三百三十六"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "君實",
+          "type": "courtesy",
+          "patterns": [
+            "字君實",
+            "字君实"
+          ],
+          "claim": "本传直接记载司马光字君实"
+        },
+        {
+          "name": "迂叟",
+          "type": "art",
+          "patterns": [
+            "迂叟"
+          ],
+          "claim": "本传或相关记载称其迂叟"
+        },
+        {
+          "name": "文正",
+          "type": "posthumous",
+          "patterns": [
+            "諡文正",
+            "谥文正",
+            "謚文正"
+          ],
+          "claim": "本传记载其谥号文正"
+        }
+      ],
+      "summary": "北宋政治家、史学家，字君实，号迂叟，主持编纂《资治通鉴》。",
+      "name_forms": [
+        "司馬光",
+        "司马光",
+        "君實",
+        "君实"
+      ],
+      "start_markers": [
+        "司馬光字君實",
+        "司馬光，字君實"
+      ]
+    },
+    "范仲淹": {
+      "sources": [
+        {
+          "ws": "songshi_314",
+          "heading": "范仲淹"
+        },
+        {
+          "kr": "KR2a0032",
+          "file": "KR2a0032_314.txt",
+          "volume": "卷314",
+          "title": "卷三百一十四"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "希文",
+          "type": "courtesy",
+          "patterns": [
+            "字希文"
+          ],
+          "claim": "本传直接记载范仲淹字希文"
+        },
+        {
+          "name": "文正",
+          "type": "posthumous",
+          "patterns": [
+            "諡文正",
+            "谥文正",
+            "謚文正"
+          ],
+          "claim": "本传记载其谥号文正"
+        }
+      ],
+      "summary": "北宋政治家、文学家，字希文，谥文正。主持庆历新政，代表作《岳阳楼记》提出“先天下之忧而忧”。",
+      "name_forms": [
+        "范仲淹",
+        "希文"
+      ],
+      "start_markers": [
+        "范仲淹字希文",
+        "范仲淹，字希文"
+      ]
+    },
+    "李清照": {
+      "sources": [
+        {
+          "ws": "songshi_444",
+          "heading": "李清照"
+        },
+        {
+          "kr": "KR2a0032",
+          "file": "KR2a0032_444.txt",
+          "volume": "卷444",
+          "title": "卷四百四十四"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "易安居士",
+          "type": "art",
+          "patterns": [
+            "易安居士"
+          ],
+          "claim": "本传或相关记载称其易安居士"
+        }
+      ],
+      "summary": "宋代女词人，号易安居士，婉约词派代表。代表作有《声声慢》《如梦令》等。",
+      "name_forms": [
+        "李清照",
+        "清照"
+      ],
+      "start_markers": [
+        "女清照"
+      ]
+    },
+    "辛棄疾": {
+      "sources": [
+        {
+          "ws": "songshi_401",
+          "heading": "辛棄疾"
+        },
+        {
+          "kr": "KR2a0032",
+          "file": "KR2a0032_401.txt",
+          "volume": "卷401",
+          "title": "卷四百一"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "幼安",
+          "type": "courtesy",
+          "patterns": [
+            "字幼安"
+          ],
+          "claim": "本传直接记载辛弃疾字幼安"
+        },
+        {
+          "name": "稼軒",
+          "type": "art",
+          "patterns": [
+            "稼軒",
+            "稼轩"
+          ],
+          "claim": "本传或相关记载称其稼轩"
+        },
+        {
+          "name": "忠敏",
+          "type": "posthumous",
+          "patterns": [
+            "諡忠敏",
+            "谥忠敏",
+            "謚忠敏"
+          ],
+          "claim": "本传记载其谥号忠敏"
+        }
+      ],
+      "summary": "南宋词人、将领，字幼安，号稼轩，豪放词派代表。代表作有《破阵子》《青玉案》等。",
+      "name_forms": [
+        "辛棄疾",
+        "辛弃疾",
+        "幼安",
+        "稼軒",
+        "稼轩"
+      ],
+      "start_markers": [
+        "辛棄疾字幼安",
+        "辛棄疾，字幼安"
+      ]
+    },
+    "陸游": {
+      "sources": [
+        {
+          "ws": "songshi_395",
+          "heading": "陸游"
+        },
+        {
+          "kr": "KR2a0032",
+          "file": "KR2a0032_395.txt",
+          "volume": "卷395",
+          "title": "卷三百九十五"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "務觀",
+          "type": "courtesy",
+          "patterns": [
+            "字務觀",
+            "字务观"
+          ],
+          "claim": "本传直接记载陆游字务观"
+        },
+        {
+          "name": "放翁",
+          "type": "art",
+          "patterns": [
+            "放翁"
+          ],
+          "claim": "本传或相关记载称其放翁"
+        }
+      ],
+      "summary": "南宋诗人，字务观，号放翁。一生力主抗金，存诗近万首，代表作有《示儿》《钗头凤》等。",
+      "name_forms": [
+        "陸游",
+        "陆游",
+        "務觀",
+        "务观",
+        "放翁"
+      ],
+      "start_markers": [
+        "陸游字務觀",
+        "陸游，字務觀"
+      ]
+    },
+    "岳飛": {
+      "sources": [
+        {
+          "ws": "songshi_365",
+          "heading": "岳飛"
+        },
+        {
+          "kr": "KR2a0032",
+          "file": "KR2a0032_365.txt",
+          "volume": "卷365",
+          "title": "卷三百六十五"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "鵬舉",
+          "type": "courtesy",
+          "patterns": [
+            "字鵬舉",
+            "字鹏举"
+          ],
+          "claim": "本传直接记载岳飞字鹏举"
+        },
+        {
+          "name": "武穆",
+          "type": "posthumous",
+          "patterns": [
+            "諡武穆",
+            "谥武穆",
+            "謚武穆"
+          ],
+          "claim": "本传记载其谥号武穆"
+        },
+        {
+          "name": "忠武",
+          "type": "posthumous",
+          "patterns": [
+            "改諡忠武",
+            "改谥忠武",
+            "諡忠武"
+          ],
+          "claim": "本传记载其后改谥忠武"
+        }
+      ],
+      "summary": "南宋抗金名将，字鹏举，官至枢密副使。后以“莫须有”罪名遇害，孝宗时追谥武穆。",
+      "name_forms": [
+        "岳飛",
+        "岳飞",
+        "鵬舉",
+        "鹏举"
+      ],
+      "start_markers": [
+        "岳飛字鵬舉",
+        "岳飛，字鵬舉"
+      ]
+    },
+    "屈原": {
+      "sources": [
+        {
+          "ws": "shiji_084",
+          "heading": "屈原"
+        },
+        {
+          "kr": "KR2a0001",
+          "file": "KR2a0001_500.txt",
+          "volume": "卷84",
+          "title": "屈原賈生列傳"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "平",
+          "type": "name",
+          "patterns": [
+            "名平"
+          ],
+          "claim": "本传直接记载屈原名平"
+        }
+      ],
+      "summary": "战国时期楚国诗人、政治家，名平，楚辞代表作家。代表作有《离骚》《九歌》等。",
+      "name_forms": [
+        "屈原",
+        "屈平"
+      ],
+      "start_markers": [
+        "屈原者，名平",
+        "屈原者名平"
+      ]
+    },
+    "孔子": {
+      "sources": [
+        {
+          "ws": "shiji_047",
+          "heading": "孔子世家"
+        },
+        {
+          "kr": "KR2a0001",
+          "file": "KR2a0001_400.txt",
+          "volume": "卷47",
+          "title": "孔子世家"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "仲尼",
+          "type": "courtesy",
+          "patterns": [
+            "字仲尼"
+          ],
+          "claim": "本传直接记载孔子字仲尼"
+        },
+        {
+          "name": "孔丘",
+          "type": "name",
+          "patterns": [
+            "名曰丘",
+            "名丘"
+          ],
+          "claim": "本传记载孔子名丘"
+        }
+      ],
+      "summary": "春秋时期思想家、教育家，名丘，字仲尼，儒家学派创始人。其言行由弟子辑为《论语》。",
+      "name_forms": [
+        "孔子",
+        "孔丘",
+        "仲尼"
+      ],
+      "start_markers": [
+        "孔子生魯昌平",
+        "孔子生鲁昌平"
+      ]
+    },
+    "孟子": {
+      "sources": [
+        {
+          "ws": "shiji_074",
+          "heading": "孟子"
+        },
+        {
+          "kr": "KR2a0001",
+          "file": "KR2a0001_500.txt",
+          "volume": "卷74",
+          "title": "孟子荀卿列傳"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "軻",
+          "type": "name",
+          "patterns": [
+            "孟軻",
+            "孟轲"
+          ],
+          "claim": "本传以孟轲称之"
+        }
+      ],
+      "summary": "战国时期思想家，名轲，儒家学派代表人物，主张性善与仁政，著有《孟子》。",
+      "name_forms": [
+        "孟子",
+        "孟軻",
+        "孟轲"
+      ],
+      "start_markers": [
+        "孟軻，騶人也",
+        "孟軻",
+        "孟轲"
+      ]
+    },
+    "朱熹": {
+      "sources": [
+        {
+          "ws": "songshi_429",
+          "heading": "朱熹"
+        },
+        {
+          "kr": "KR2a0032",
+          "file": "KR2a0032_429.txt",
+          "volume": "卷429",
+          "title": "卷四百二十九"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "元晦",
+          "type": "courtesy",
+          "patterns": [
+            "字元晦"
+          ],
+          "claim": "本传直接记载朱熹字元晦"
+        },
+        {
+          "name": "仲晦",
+          "type": "courtesy",
+          "patterns": [
+            "一字仲晦"
+          ],
+          "claim": "本传记载其一字仲晦"
+        },
+        {
+          "name": "晦庵",
+          "type": "art",
+          "patterns": [
+            "晦庵"
+          ],
+          "claim": "本传或相关记载称其晦庵"
+        },
+        {
+          "name": "文",
+          "type": "posthumous",
+          "patterns": [
+            "諡曰文",
+            "谥曰文",
+            "諡文",
+            "謚曰文",
+            "諡曰文",
+            "谥曰文"
+          ],
+          "claim": "本传记载其谥号为文"
+        }
+      ],
+      "summary": "南宋理学家、教育家，字元晦，一字仲晦，号晦庵，理学集大成者。著有《四书章句集注》等。",
+      "name_forms": [
+        "朱熹",
+        "元晦",
+        "晦庵"
+      ],
+      "start_markers": [
+        "朱熹字元晦",
+        "朱熹，字元晦"
+      ]
+    },
+    "李世民": {
+      "sources": [
+        {
+          "kr": "KR2a0026",
+          "file": "KR2a0026_002.txt",
+          "volume": "卷2",
+          "title": "卷二 太宗本紀"
+        },
+        {
+          "ws": "jiutangshu_002",
+          "heading": "太宗"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "世民",
+          "type": "name",
+          "patterns": [
+            "諱世民",
+            "讳世民"
+          ],
+          "claim": "本纪直接记载其讳世民"
+        },
+        {
+          "name": "太宗",
+          "type": "other",
+          "patterns": [
+            "太宗"
+          ],
+          "claim": "本纪以太宗称之"
+        },
+        {
+          "name": "文武大聖大廣孝皇帝",
+          "type": "posthumous",
+          "patterns": [
+            "文武大聖大廣孝皇帝",
+            "文武大圣大广孝皇帝"
+          ],
+          "claim": "本纪记载其谥号"
+        }
+      ],
+      "summary": "唐朝第二位皇帝，庙号太宗，年号贞观，开创“贞观之治”。",
+      "name_forms": [
+        "李世民",
+        "世民",
+        "諱世民",
+        "太宗"
+      ],
+      "start_markers": [
+        "太宗文武大聖大廣孝皇帝",
+        "諱世民",
+        "太宗文武大圣大广孝皇帝"
+      ]
+    },
+    "武則天": {
+      "sources": [
+        {
+          "kr": "KR2a0026",
+          "file": "KR2a0026_006.txt",
+          "volume": "卷6",
+          "title": "卷六 則天皇后本紀"
+        },
+        {
+          "ws": "jiutangshu_006",
+          "heading": "則天"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "曌",
+          "type": "name",
+          "patterns": [
+            "名曌",
+            "自名曌",
+            "武曌",
+            "諱曌",
+            "讳曌",
+            "武曌"
+          ],
+          "claim": "本纪直接记载其名曌"
+        },
+        {
+          "name": "則天",
+          "type": "other",
+          "patterns": [
+            "則天",
+            "则天"
+          ],
+          "claim": "本纪以则天称之"
+        }
+      ],
+      "summary": "中国历史上唯一正统女皇帝，建立武周，晚年退位，谥则天皇后。",
+      "name_forms": [
+        "武則天",
+        "武氏",
+        "則天",
+        "曌"
+      ],
+      "start_markers": [
+        "則天皇后武氏",
+        "武氏諱曌",
+        "则天皇后武氏"
+      ]
+    },
+    "王勃": {
+      "sources": [
+        {
+          "ws": "xintangshu_201",
+          "heading": "王勃"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "子安",
+          "type": "courtesy",
+          "patterns": [
+            "字子安"
+          ],
+          "claim": "本传直接记载王勃字子安"
+        }
+      ],
+      "summary": "唐代文学家，字子安，“初唐四杰”之首。代表作有《滕王阁序》《送杜少府之任蜀州》等。",
+      "start_markers": [
+        "王勃字子安",
+        "王勃，字子安"
+      ]
+    },
+    "陳子昂": {
+      "sources": [
+        {
+          "ws": "xintangshu_107",
+          "heading": "陳子昂"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "伯玉",
+          "type": "courtesy",
+          "patterns": [
+            "字伯玉"
+          ],
+          "claim": "本传直接记载陈子昂字伯玉"
+        },
+        {
+          "name": "陳拾遺",
+          "type": "other",
+          "patterns": [
+            "拾遺",
+            "拾遗"
+          ],
+          "claim": "本传载其官右拾遗，世称陈拾遗"
+        }
+      ],
+      "summary": "唐代文学家，字伯玉，倡导汉魏风骨，代表作有《登幽州台歌》等。",
+      "start_markers": [
+        "陳子昂字伯玉",
+        "子昂字伯玉",
+        "陳子昂，字伯玉"
+      ]
+    },
+    "孟浩然": {
+      "sources": [
+        {
+          "ws": "jiutangshu_190b",
+          "heading": "孟浩然"
+        },
+        {
+          "ws": "xintangshu_203",
+          "heading": "孟浩然"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "浩然",
+          "type": "courtesy",
+          "patterns": [
+            "字浩然"
+          ],
+          "claim": "本传直接记载孟浩然字浩然"
+        },
+        {
+          "name": "孟山人",
+          "type": "art",
+          "patterns": [
+            "孟山人"
+          ],
+          "claim": "相关记载称其孟山人"
+        }
+      ],
+      "summary": "唐代山水田园诗人，字浩然，代表作有《春晓》《过故人庄》等。",
+      "start_markers": [
+        "孟浩然字浩然",
+        "孟浩然，字浩然"
+      ]
+    },
+    "賀知章": {
+      "sources": [
+        {
+          "ws": "xintangshu_196",
+          "heading": "賀知章"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "季真",
+          "type": "courtesy",
+          "patterns": [
+            "字季真"
+          ],
+          "claim": "本传直接记载贺知章字季真"
+        },
+        {
+          "name": "四明狂客",
+          "type": "art",
+          "patterns": [
+            "四明狂客"
+          ],
+          "claim": "本传或相关记载称其四明狂客"
+        }
+      ],
+      "summary": "唐代诗人、书法家，字季真，号四明狂客，代表作有《回乡偶书》等。",
+      "start_markers": [
+        "賀知章字季真",
+        "賀知章，字季真"
+      ]
+    },
+    "張九齡": {
+      "sources": [
+        {
+          "ws": "xintangshu_126",
+          "heading": "張九齡"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "子壽",
+          "type": "courtesy",
+          "patterns": [
+            "字子壽",
+            "字子寿"
+          ],
+          "claim": "本传直接记载张九龄字子寿"
+        },
+        {
+          "name": "文獻",
+          "type": "posthumous",
+          "patterns": [
+            "諡文獻",
+            "谥文献",
+            "謚文獻"
+          ],
+          "claim": "本传记载其谥号文献"
+        }
+      ],
+      "summary": "唐代政治家、文学家，字子寿，开元名相，代表作有《感遇》等。",
+      "start_markers": [
+        "張九齡字子壽",
+        "張九齡，字子壽"
+      ]
+    },
+    "劉禹錫": {
+      "sources": [
+        {
+          "ws": "jiutangshu_160",
+          "heading": "劉禹錫"
+        },
+        {
+          "ws": "xintangshu_168",
+          "heading": "劉禹錫"
+        },
+        {
+          "kr": "KR2a0026",
+          "file": "KR2a0026_160.txt",
+          "volume": "卷160",
+          "title": "卷一百六十"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "夢得",
+          "type": "courtesy",
+          "patterns": [
+            "字夢得",
+            "字梦得"
+          ],
+          "claim": "本传直接记载刘禹锡字梦得"
+        }
+      ],
+      "summary": "唐代文学家、哲学家，字梦得，与柳宗元并称“刘柳”，代表作有《陋室铭》《竹枝词》等。",
+      "start_markers": [
+        "劉禹錫字夢得",
+        "劉禹錫，字夢得"
+      ]
+    },
+    "元稹": {
+      "sources": [
+        {
+          "ws": "jiutangshu_166",
+          "heading": "元稹"
+        },
+        {
+          "ws": "xintangshu_174",
+          "heading": "元稹"
+        },
+        {
+          "kr": "KR2a0026",
+          "file": "KR2a0026_166.txt",
+          "volume": "卷166",
+          "title": "卷一百六十六"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "微之",
+          "type": "courtesy",
+          "patterns": [
+            "字微之",
+            "字㣲之"
+          ],
+          "claim": "本传直接记载元稹字微之"
+        }
+      ],
+      "summary": "唐代诗人、小说家，字微之，与白居易并称“元白”，代表作有《遣悲怀》《莺莺传》等。",
+      "start_markers": [
+        "元稹字㣲之",
+        "元稹字微之",
+        "元稹，字微之"
+      ]
+    },
+    "李賀": {
+      "sources": [
+        {
+          "ws": "xintangshu_203",
+          "heading": "李賀"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "長吉",
+          "type": "courtesy",
+          "patterns": [
+            "字長吉",
+            "字长吉"
+          ],
+          "claim": "本传直接记载李贺字长吉"
+        }
+      ],
+      "summary": "唐代诗人，字长吉，世称“诗鬼”，代表作有《雁门太守行》《李凭箜篌引》等。",
+      "start_markers": [
+        "李賀字長吉",
+        "李賀，字長吉"
+      ]
+    },
+    "溫庭筠": {
+      "sources": [
+        {
+          "ws": "jiutangshu_190b",
+          "heading": "溫庭筠"
+        },
+        {
+          "ws": "xintangshu_203",
+          "heading": "溫庭筠"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "飛卿",
+          "type": "courtesy",
+          "patterns": [
+            "字飛卿",
+            "字飞卿"
+          ],
+          "claim": "本传直接记载温庭筠字飞卿"
+        }
+      ],
+      "summary": "唐代诗人、词人，字飞卿，花间词派代表，代表作有《菩萨蛮》《商山早行》等。",
+      "start_markers": [
+        "溫庭筠字飛卿",
+        "溫庭筠，字飛卿"
+      ]
+    },
+    "李煜": {
+      "sources": [
+        {
+          "ws": "songshi_478",
+          "heading": "李煜"
+        },
+        {
+          "ws": "xinwudaishi_062",
+          "heading": "李煜"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "重光",
+          "type": "courtesy",
+          "patterns": [
+            "字重光"
+          ],
+          "claim": "本传直接记载李煜字重光"
+        },
+        {
+          "name": "從嘉",
+          "type": "name",
+          "patterns": [
+            "名從嘉",
+            "名从嘉"
+          ],
+          "claim": "本传记载其初名从嘉"
+        },
+        {
+          "name": "鍾隱",
+          "type": "art",
+          "patterns": [
+            "鍾隱",
+            "钟隐"
+          ],
+          "claim": "本传或相关记载称其钟隐"
+        },
+        {
+          "name": "李後主",
+          "type": "other",
+          "patterns": [
+            "後主",
+            "后主"
+          ],
+          "claim": "史传以李后主称之"
+        }
+      ],
+      "summary": "南唐末代君主，字重光，世称李后主。其词作情感深挚，代表作有《虞美人》《浪淘沙》等。",
+      "start_markers": [
+        "李煜字重光",
+        "煜字重光",
+        "李煜，字重光"
+      ]
+    },
+    "蘇洵": {
+      "sources": [
+        {
+          "ws": "songshi_443",
+          "heading": "蘇洵"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "明允",
+          "type": "courtesy",
+          "patterns": [
+            "字明允"
+          ],
+          "claim": "本传直接记载苏洵字明允"
+        },
+        {
+          "name": "文",
+          "type": "posthumous",
+          "patterns": [
+            "諡文",
+            "谥文"
+          ],
+          "claim": "本传记载其谥号为文"
+        }
+      ],
+      "summary": "北宋文学家，字明允，苏辙、苏轼之父，唐宋八大家之一。代表作有《六国论》等。",
+      "start_markers": [
+        "蘇洵字明允",
+        "蘇洵，字明允"
+      ]
+    },
+    "蘇轍": {
+      "sources": [
+        {
+          "ws": "songshi_339",
+          "heading": "蘇轍"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "子由",
+          "type": "courtesy",
+          "patterns": [
+            "字子由"
+          ],
+          "claim": "本传直接记载苏辙字子由"
+        },
+        {
+          "name": "潁濱遺老",
+          "type": "art",
+          "patterns": [
+            "潁濱遺老",
+            "颍滨遗老"
+          ],
+          "claim": "本传或相关记载称其颍滨遗老"
+        },
+        {
+          "name": "文定",
+          "type": "posthumous",
+          "patterns": [
+            "諡文定",
+            "谥文定",
+            "謚文定"
+          ],
+          "claim": "本传记载其谥号文定"
+        }
+      ],
+      "summary": "北宋文学家，字子由，号颍滨遗老，唐宋八大家之一。与父苏洵、兄苏轼合称“三苏”。",
+      "start_markers": [
+        "蘇轍字子由",
+        "蘇轍，字子由"
+      ]
+    },
+    "曾鞏": {
+      "sources": [
+        {
+          "ws": "songshi_319",
+          "heading": "曾鞏"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "子固",
+          "type": "courtesy",
+          "patterns": [
+            "字子固"
+          ],
+          "claim": "本传直接记载曾巩字子固"
+        },
+        {
+          "name": "文定",
+          "type": "posthumous",
+          "patterns": [
+            "諡文定",
+            "谥文定",
+            "謚文定"
+          ],
+          "claim": "本传记载其谥号文定"
+        }
+      ],
+      "summary": "北宋文学家，字子固，世称南丰先生，唐宋八大家之一。代表作有《墨池记》等。",
+      "start_markers": [
+        "曾鞏字子固",
+        "曾鞏，字子固"
+      ]
+    },
+    "黃庭堅": {
+      "sources": [
+        {
+          "ws": "songshi_444",
+          "heading": "黃庭堅"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "魯直",
+          "type": "courtesy",
+          "patterns": [
+            "字魯直",
+            "字鲁直"
+          ],
+          "claim": "本传直接记载黄庭坚字鲁直"
+        },
+        {
+          "name": "山谷",
+          "type": "art",
+          "patterns": [
+            "山谷"
+          ],
+          "claim": "本传或相关记载称其山谷"
+        },
+        {
+          "name": "文節",
+          "type": "posthumous",
+          "patterns": [
+            "諡文節",
+            "谥文节",
+            "謚文節"
+          ],
+          "claim": "本传记载其谥号文节"
+        }
+      ],
+      "summary": "北宋诗人、书法家，字鲁直，号山谷道人，江西诗派开创者，与苏轼并称“苏黄”。",
+      "start_markers": [
+        "黃庭堅字魯直",
+        "黃庭堅，字魯直"
+      ]
+    },
+    "秦觀": {
+      "sources": [
+        {
+          "ws": "songshi_444",
+          "heading": "秦觀"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "少遊",
+          "type": "courtesy",
+          "patterns": [
+            "字少遊",
+            "字少游"
+          ],
+          "claim": "本传直接记载秦观字少游"
+        },
+        {
+          "name": "太虛",
+          "type": "courtesy",
+          "patterns": [
+            "字太虛",
+            "字太虚"
+          ],
+          "claim": "本传或相关记载载其字太虚"
+        }
+      ],
+      "summary": "北宋词人，字少游，一字太虚，苏门四学士之一，婉约词代表。代表作有《鹊桥仙》等。",
+      "start_markers": [
+        "秦觀字少遊",
+        "秦觀字少游",
+        "秦觀，字少游"
+      ]
+    },
+    "文天祥": {
+      "sources": [
+        {
+          "ws": "songshi_418",
+          "heading": "文天祥"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "宋瑞",
+          "type": "courtesy",
+          "patterns": [
+            "字宋瑞"
+          ],
+          "claim": "本传直接记载文天祥字宋瑞"
+        },
+        {
+          "name": "文山",
+          "type": "art",
+          "patterns": [
+            "文山"
+          ],
+          "claim": "本传或相关记载称其文山"
+        },
+        {
+          "name": "忠烈",
+          "type": "posthumous",
+          "patterns": [
+            "諡忠烈",
+            "谥忠烈",
+            "謚忠烈"
+          ],
+          "claim": "本传记载其谥号忠烈"
+        }
+      ],
+      "summary": "南宋末年政治家、文学家，字宋瑞，号文山。抗元被俘，从容就义，代表作《过零丁洋》《正气歌》。",
+      "start_markers": [
+        "文天祥字宋瑞",
+        "文天祥，字宋瑞"
+      ]
+    },
+    "包拯": {
+      "sources": [
+        {
+          "ws": "songshi_316",
+          "heading": "包拯"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "希仁",
+          "type": "courtesy",
+          "patterns": [
+            "字希仁"
+          ],
+          "claim": "本传直接记载包拯字希仁"
+        },
+        {
+          "name": "孝肅",
+          "type": "posthumous",
+          "patterns": [
+            "諡孝肅",
+            "谥孝肃",
+            "謚孝肅"
+          ],
+          "claim": "本传记载其谥号孝肃"
+        }
+      ],
+      "summary": "北宋名臣，字希仁，庐州合肥人。以清廉刚直、执法严明著称，官至枢密副使。",
+      "start_markers": [
+        "包拯字希仁",
+        "包拯，字希仁"
+      ]
+    },
+    "狄仁傑": {
+      "sources": [
+        {
+          "ws": "jiutangshu_089",
+          "heading": "狄仁傑"
+        },
+        {
+          "ws": "xintangshu_115",
+          "heading": "狄仁傑"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "懷英",
+          "type": "courtesy",
+          "patterns": [
+            "字懷英",
+            "字怀英"
+          ],
+          "claim": "本传直接记载狄仁杰字怀英"
+        },
+        {
+          "name": "文惠",
+          "type": "posthumous",
+          "patterns": [
+            "諡文惠",
+            "谥文惠",
+            "謚文惠"
+          ],
+          "claim": "本传记载其谥号文惠"
+        }
+      ],
+      "summary": "唐代名臣，字怀英，武则天时期宰相，以断狱与举贤著称。",
+      "start_markers": [
+        "狄仁傑字懷英",
+        "狄仁傑，字懷英"
+      ]
+    },
+    "郭子儀": {
+      "sources": [
+        {
+          "ws": "jiutangshu_120",
+          "heading": "郭子儀"
+        },
+        {
+          "ws": "xintangshu_137",
+          "heading": "郭子儀"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "子儀",
+          "type": "courtesy",
+          "patterns": [
+            "字子儀",
+            "字子仪"
+          ],
+          "claim": "本传直接记载郭子仪字子仪"
+        },
+        {
+          "name": "忠武",
+          "type": "posthumous",
+          "patterns": [
+            "諡忠武",
+            "谥忠武",
+            "謚忠武"
+          ],
+          "claim": "本传记载其谥号忠武"
+        }
+      ],
+      "summary": "唐代名将，字子仪，平定安史之乱的主要统帅之一，封汾阳郡王。",
+      "start_markers": [
+        "郭子儀字子儀",
+        "郭子儀，字子儀"
+      ]
+    },
+    "顏真卿": {
+      "sources": [
+        {
+          "ws": "jiutangshu_128",
+          "heading": "顏真卿"
+        },
+        {
+          "ws": "xintangshu_153",
+          "heading": "顏真卿"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "清臣",
+          "type": "courtesy",
+          "patterns": [
+            "字清臣"
+          ],
+          "claim": "本传直接记载颜真卿字清臣"
+        },
+        {
+          "name": "文忠",
+          "type": "posthumous",
+          "patterns": [
+            "諡文忠",
+            "谥文忠",
+            "謚文忠"
+          ],
+          "claim": "本传记载其谥号文忠"
+        }
+      ],
+      "summary": "唐代书法家、名臣，字清臣，楷书“颜体”创立者，安史之乱中起兵抗贼，后殉难。",
+      "start_markers": [
+        "顏真卿字清臣",
+        "顏真卿，字清臣"
+      ]
+    },
+    "杜如晦": {
+      "sources": [
+        {
+          "ws": "jiutangshu_066",
+          "heading": "杜如晦"
+        },
+        {
+          "ws": "xintangshu_096",
+          "heading": "杜如晦"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "克明",
+          "type": "courtesy",
+          "patterns": [
+            "字克明"
+          ],
+          "claim": "本传直接记载杜如晦字克明"
+        }
+      ],
+      "summary": "唐初名相，字克明，与房玄龄并称“房杜”，为李世民秦王府谋臣。",
+      "start_markers": [
+        "杜如晦字克明",
+        "杜如晦，字克明"
+      ]
+    },
+    "房玄齡": {
+      "sources": [
+        {
+          "ws": "jiutangshu_066",
+          "heading": "房玄齡"
+        },
+        {
+          "ws": "xintangshu_096",
+          "heading": "房玄齡"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "喬",
+          "type": "courtesy",
+          "patterns": [
+            "字喬"
+          ],
+          "claim": "《新唐書》本传直接记载房玄龄字喬"
+        },
+        {
+          "name": "喬松",
+          "type": "courtesy",
+          "patterns": [
+            "字喬松",
+            "字乔松"
+          ],
+          "claim": "本传直接记载房玄龄字乔松"
+        }
+      ],
+      "summary": "唐初名相，字乔松，辅佐李世民，主持修撰《晋书》等。",
+      "start_markers": [
+        "房玄齡字喬松",
+        "房玄齡，字喬松"
+      ]
+    },
+    "魏徵": {
+      "sources": [
+        {
+          "ws": "jiutangshu_071",
+          "heading": "魏徵"
+        },
+        {
+          "ws": "xintangshu_097",
+          "heading": "魏徵"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "玄成",
+          "type": "courtesy",
+          "patterns": [
+            "字玄成"
+          ],
+          "claim": "本传直接记载魏徵字玄成"
+        }
+      ],
+      "summary": "唐初政治家，字玄成，以直言谏诤著称，辅佐唐太宗，卒谥文贞。",
+      "start_markers": [
+        "魏徵字玄成",
+        "魏徵，字玄成"
+      ]
+    },
+    "褚遂良": {
+      "sources": [
+        {
+          "ws": "jiutangshu_080",
+          "heading": "褚遂良"
+        },
+        {
+          "ws": "xintangshu_105",
+          "heading": "褚遂良"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "登善",
+          "type": "courtesy",
+          "patterns": [
+            "字登善"
+          ],
+          "claim": "本传直接记载褚遂良字登善"
+        }
+      ],
+      "summary": "唐代书法家、政治家，字登善，官至中书令，因反对立武则天为后遭贬。",
+      "start_markers": [
+        "褚遂良字登善",
+        "褚遂良，字登善"
+      ]
+    },
+    "李德裕": {
+      "sources": [
+        {
+          "ws": "jiutangshu_174",
+          "heading": "李德裕"
+        },
+        {
+          "ws": "xintangshu_180",
+          "heading": "李德裕"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "文饒",
+          "type": "courtesy",
+          "patterns": [
+            "字文饒",
+            "字文饶"
+          ],
+          "claim": "本传直接记载李德裕字文饶"
+        }
+      ],
+      "summary": "唐代政治家、文学家，字文饶，武宗朝宰相，牛李党争中李党领袖。",
+      "start_markers": [
+        "李德裕字文饒",
+        "李德裕，字文饒"
+      ]
+    },
+    "關羽": {
+      "sources": [
+        {
+          "ws": "sanguozhi_036",
+          "heading": "關羽"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "雲長",
+          "type": "courtesy",
+          "patterns": [
+            "字雲長",
+            "字云长"
+          ],
+          "claim": "本传直接记载关羽字云长"
+        },
+        {
+          "name": "壯繆",
+          "type": "posthumous",
+          "patterns": [
+            "諡曰壯繆",
+            "谥曰壮缪",
+            "壯繆"
+          ],
+          "claim": "本传记载其谥号壮缪"
+        }
+      ],
+      "summary": "东汉末年蜀汉名将，字云长，与刘备、张飞情同兄弟，镇守荆州，后败走麦城被杀。",
+      "name_forms": [
+        "關羽",
+        "關公",
+        "雲長"
+      ],
+      "start_markers": [
+        "關羽字雲長",
+        "關羽，字雲長",
+        "羽字雲長"
+      ]
+    },
+    "周瑜": {
+      "sources": [
+        {
+          "ws": "sanguozhi_054",
+          "heading": "周瑜"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "公瑾",
+          "type": "courtesy",
+          "patterns": [
+            "字公瑾"
+          ],
+          "claim": "本传直接记载周瑜字公瑾"
+        }
+      ],
+      "summary": "东汉末年东吴名将，字公瑾，赤壁之战中与刘备联军大破曹操。",
+      "start_markers": [
+        "周瑜字公瑾",
+        "周瑜，字公瑾"
+      ]
+    },
+    "班固": {
+      "sources": [
+        {
+          "ws": "houhanshu_040",
+          "heading": "班固"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "孟堅",
+          "type": "courtesy",
+          "patterns": [
+            "字孟堅",
+            "字孟坚"
+          ],
+          "claim": "本传直接记载班固字孟坚"
+        }
+      ],
+      "summary": "东汉史学家、文学家，字孟坚，继父班彪撰成《汉书》，著《两都赋》等。",
+      "start_markers": [
+        "班固字孟堅",
+        "班固，字孟堅",
+        "固字孟堅",
+        "班固字孟堅"
+      ],
+      "name_forms": [
+        "固字孟堅",
+        "班孟堅"
+      ]
+    },
+    "張衡": {
+      "sources": [
+        {
+          "ws": "houhanshu_059",
+          "heading": "張衡"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "平子",
+          "type": "courtesy",
+          "patterns": [
+            "字平子"
+          ],
+          "claim": "本传直接记载张衡字平子"
+        }
+      ],
+      "summary": "东汉科学家、文学家，字平子，发明浑天仪、地动仪，著《二京赋》等。",
+      "start_markers": [
+        "張衡字平子",
+        "張衡，字平子"
+      ]
+    },
+    "司馬相如": {
+      "sources": [
+        {
+          "ws": "shiji_117",
+          "heading": "司馬相如"
+        }
+      ],
+      "aliases": [
+        {
+          "name": "長卿",
+          "type": "courtesy",
+          "patterns": [
+            "字長卿",
+            "字长卿"
+          ],
+          "claim": "本传直接记载司马相如字长卿"
+        }
+      ],
+      "summary": "西汉辞赋家，字长卿，代表作有《子虚赋》《上林赋》等。",
+      "start_markers": [
+        "司馬相如字長卿",
+        "司馬相如，字長卿"
+      ]
+    },
+    "曹雪芹": {
+      "sources": [],
+      "aliases": [],
+      "summary": "清代小说家，名霑，字梦阮，号雪芹，著有《红楼梦》。本阶段尚未取得可公开展示的完整本传原文，档案以基础身份与现代整理说明为主，并明确标注缺口。"
+    }
+  }
+}

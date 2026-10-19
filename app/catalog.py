@@ -295,6 +295,20 @@ def get_alias(db_path, alias_id):
             ORDER BY CASE usage_relation WHEN 'supports' THEN 0 WHEN 'refutes' THEN 1
                      WHEN 'mentions' THEN 2 ELSE 3 END, evidence_id
         """, (alias_id,)).fetchall()
+        reader_by_evidence = {}
+        try:
+            from app.classics import has_library, reader_link
+            if has_library(db_path):
+                for link in connection.execute(
+                    """SELECT l.evidence_id,l.link_id,l.chapter_id,c.work_id
+                       FROM classical_evidence_links l JOIN classical_chapters c USING(chapter_id)
+                       WHERE l.alias_id=? AND l.verification_status='verified'
+                         AND l.identity_match='confirmed'""", (alias_id,)):
+                    reader_by_evidence[link["evidence_id"]] = reader_link(
+                        link["work_id"], link["chapter_id"],
+                        person_id=row["person_id"], link_id=link["link_id"])
+        except Exception:
+            reader_by_evidence = {}
     alias = present_alias(row)
     alias["person"] = present_person(person)
     alias["evidences"] = []
@@ -308,6 +322,7 @@ def get_alias(db_path, alias_id):
         item.update(evidence_notes(item.pop("notes")))
         item['reading_context']=readable_text(item.get('context'))
         item['reading_remarks']=readable_text(item.get('remarks'))
+        item['reader_url']=reader_by_evidence.get(item['evidence_id'])
         presented=evidence_view(item,alias,alias['person'])
         if presented['presentation']['kind']=='classical_text':
             presented['passage']=passage

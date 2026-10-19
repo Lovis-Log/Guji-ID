@@ -1,0 +1,61 @@
+{
+  "provider": "Wikisource",
+  "license_id": "CC-BY-SA-4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "pages": {
+    "songshi_338": {
+      "key": "songshi_338",
+      "work": "宋史",
+      "volume": "卷338",
+      "hint": "蘇軾",
+      "title": "宋史/卷338",
+      "url": "https://zh.wikisource.org/wiki/%E5%AE%8B%E5%8F%B2%2F%E5%8D%B7338",
+      "raw_url": "https://zh.wikisource.org/w/index.php?title=%E5%AE%8B%E5%8F%B2%2F%E5%8D%B7338&action=raw",
+      "license_id": "CC-BY-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "retrieved_at": "2026-10-18T15:37:57+00:00",
+      "bytes": 29098,
+      "sha256": "99bf1bee9709cbfc2be3a5c377a7e492c66b963581bf357d66c93c27ba548981",
+      "oldid": "1458054",
+      "status": "ok",
+      "last_error": "",
+      "local_path": "data\\external\\wikisource\\songshi_338.wikitext"
+    },
+    "xintangshu_174": {
+      "key": "xintangshu_174",
+      "work": "新唐書",
+      "volume": "卷174",
+      "hint": "元稹",
+      "title": "新唐書/卷174",
+      "url": "https://zh.wikisource.org/wiki/%E6%96%B0%E5%94%90%E6%9B%B8%2F%E5%8D%B7174",
+      "raw_url": "https://zh.wikisource.org/w/index.php?title=%E6%96%B0%E5%94%90%E6%9B%B8%2F%E5%8D%B7174&action=raw",
+      "license_id": "CC-BY-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "retrieved_at": "2026-10-18T15:38:29+00:00",
+      "bytes": 33044,
+      "sha256": "df2b1bff0fa7e3702031c89a0031f531767b5b64864c28625f8140cf6bda6106",
+      "oldid": "2401897",
+      "status": "ok",
+      "last_error": "",
+      "local_path": "data\\external\\wikisource\\xintangshu_174.wikitext"
+    },
+    "xintangshu_196": {
+      "key": "xintangshu_196",
+      "work": "新唐書",
+      "volume": "卷196",
+      "hint": "賀知章",
+      "title": "新唐書/卷196",
+      "url": "https://zh.wikisource.org/wiki/%E6%96%B0%E5%94%90%E6%9B%B8%2F%E5%8D%B7196",
+      "raw_url": "https://zh.wikisource.org/w/index.php?title=%E6%96%B0%E5%94%90%E6%9B%B8%2F%E5%8D%B7196&action=raw",
+      "license_id": "CC-BY-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "retrieved_at": "2026-10-18T15:38:36+00:00",
+      "bytes": 29275,
+      "sha256": "1f29f510e48b52487f1ff14a23174a0fdb75c1dee1030ab64d6fd1c6ca35add3",
+      "oldid": "2605994",
+      "status": "ok",
+      "last_error": "",
+      "local_path": "data\\external\\wikisource\\xintangshu_196.wikitext"
+    }
+  }
+}

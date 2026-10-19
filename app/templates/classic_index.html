@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}古籍原文库 · GuJi ID{% endblock %}
+{% block body_class %}classics-page{% endblock %}
+{% block content %}
+<nav class="breadcrumbs" aria-label="当前位置"><a href="{{ url_for('home') }}">称呼检索</a><span aria-hidden="true">/</span><span aria-current="page">古籍原文库</span></nav>
+<header class="record-header classics-header">
+  <div><p class="eyebrow">古籍原文库</p><h1>循文入卷</h1><p class="record-subtitle">已保存的史传篇章、段落定位与人物证据</p></div>
+  <span class="verified-badge">来源与版本可追溯</span>
+</header>
+<section class="classics-intro">
+  <p>本页只列出已经实际保存正文的典籍版本。每条篇章均保留来源平台、数字化版本、许可和文本校验信息；未取得全文的文献不会在此冒充“完整篇章”。</p>
+</section>
+{% if works %}
+<ul class="work-grid">
+  {% for work in works %}
+  <li><a class="work-card" href="{{ url_for('classic_work', work_id=work.work_id|url_id) }}">
+    <span class="work-platform">{{ work.source_platform }}</span>
+    <strong>{{ work.title }}</strong>
+    <span class="work-edition">{{ work.digital_edition or '版本信息待补' }}</span>
+    <span class="work-stats">{{ work.chapter_count }} 篇 · 约 {{ work.char_count }} 字</span>
+    <span class="work-arrow" aria-hidden="true">进入目录 →</span>
+  </a></li>
+  {% endfor %}
+</ul>
+{% else %}
+<div class="empty-state"><h3>原文库尚未建立</h3><p>请先运行古籍采集与建库程序。</p></div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,514 @@
+{
+  "run_id": "STG7-20261018T154009Z",
+  "generated_at": "2026-10-18T15:40:30+00:00",
+  "missing_aliases": [
+    {
+      "type": "alias_pattern_not_found",
+      "name": "李白",
+      "alias": "青蓮居士",
+      "alias_type": "art",
+      "chapter_id": "C-WS-jiutangshu_190b"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "李白",
+      "alias": "青蓮居士",
+      "alias_type": "art",
+      "chapter_id": "C-WS-xintangshu_202"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "杜甫",
+      "alias": "少陵野老",
+      "alias_type": "art",
+      "chapter_id": "C-WS-jiutangshu_190b"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "杜甫",
+      "alias": "子美",
+      "alias_type": "courtesy",
+      "chapter_id": "C-WS-xintangshu_201"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "杜甫",
+      "alias": "少陵野老",
+      "alias_type": "art",
+      "chapter_id": "C-WS-xintangshu_201"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "杜甫",
+      "alias": "杜工部",
+      "alias_type": "other",
+      "chapter_id": "C-WS-xintangshu_201"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "蘇軾",
+      "alias": "子瞻",
+      "alias_type": "courtesy",
+      "chapter_id": "C-WS-songshi_338"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "蘇軾",
+      "alias": "文忠",
+      "alias_type": "posthumous",
+      "chapter_id": "C-WS-songshi_338"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "陶潛",
+      "alias": "元亮",
+      "alias_type": "courtesy",
+      "chapter_id": "C-WS-nanshi_075"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "陶潛",
+      "alias": "靖節",
+      "alias_type": "posthumous",
+      "chapter_id": "C-KR-KR2a0016-093-93001"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "司馬遷",
+      "alias": "子長",
+      "alias_type": "courtesy",
+      "chapter_id": "C-WS-hanshu_062"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "司馬遷",
+      "alias": "子長",
+      "alias_type": "courtesy",
+      "chapter_id": "C-WS-shiji_130"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "司馬遷",
+      "alias": "子長",
+      "alias_type": "courtesy",
+      "chapter_id": "C-KR-KR2a0007-062-62001"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "韓愈",
+      "alias": "文",
+      "alias_type": "posthumous",
+      "chapter_id": "C-WS-jiutangshu_160"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "韓愈",
+      "alias": "文",
+      "alias_type": "posthumous",
+      "chapter_id": "C-WS-xintangshu_176"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "韓愈",
+      "alias": "韓吏部",
+      "alias_type": "other",
+      "chapter_id": "C-WS-xintangshu_176"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "白居易",
+      "alias": "香山居士",
+      "alias_type": "art",
+      "chapter_id": "C-KR-KR2a0026-166-166001"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "李商隱",
+      "alias": "玉溪生",
+      "alias_type": "art",
+      "chapter_id": "C-WS-jiutangshu_190b"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "李商隱",
+      "alias": "樊南生",
+      "alias_type": "art",
+      "chapter_id": "C-WS-jiutangshu_190b"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "李商隱",
+      "alias": "玉溪生",
+      "alias_type": "art",
+      "chapter_id": "C-WS-xintangshu_203"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "李商隱",
+      "alias": "樊南生",
+      "alias_type": "art",
+      "chapter_id": "C-WS-xintangshu_203"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "杜牧",
+      "alias": "樊川",
+      "alias_type": "art",
+      "chapter_id": "C-WS-xintangshu_166"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "歐陽修",
+      "alias": "永叔",
+      "alias_type": "courtesy",
+      "chapter_id": "C-WS-songshi_319"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "王安石",
+      "alias": "介甫",
+      "alias_type": "courtesy",
+      "chapter_id": "C-WS-songshi_327"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "王安石",
+      "alias": "半山",
+      "alias_type": "art",
+      "chapter_id": "C-WS-songshi_327"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "王安石",
+      "alias": "文",
+      "alias_type": "posthumous",
+      "chapter_id": "C-WS-songshi_327"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "王安石",
+      "alias": "半山",
+      "alias_type": "art",
+      "chapter_id": "C-KR-KR2a0032-327-327001"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "司馬光",
+      "alias": "迂叟",
+      "alias_type": "art",
+      "chapter_id": "C-WS-songshi_336"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "司馬光",
+      "alias": "文正",
+      "alias_type": "posthumous",
+      "chapter_id": "C-WS-songshi_336"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "司馬光",
+      "alias": "迂叟",
+      "alias_type": "art",
+      "chapter_id": "C-KR-KR2a0032-336-336001"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "范仲淹",
+      "alias": "希文",
+      "alias_type": "courtesy",
+      "chapter_id": "C-WS-songshi_314"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "陸游",
+      "alias": "務觀",
+      "alias_type": "courtesy",
+      "chapter_id": "C-WS-songshi_395"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "陸游",
+      "alias": "放翁",
+      "alias_type": "art",
+      "chapter_id": "C-WS-songshi_395"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "岳飛",
+      "alias": "忠武",
+      "alias_type": "posthumous",
+      "chapter_id": "C-WS-songshi_365"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "岳飛",
+      "alias": "武穆",
+      "alias_type": "posthumous",
+      "chapter_id": "C-KR-KR2a0032-365-365001"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "岳飛",
+      "alias": "忠武",
+      "alias_type": "posthumous",
+      "chapter_id": "C-KR-KR2a0032-365-365001"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "朱熹",
+      "alias": "晦庵",
+      "alias_type": "art",
+      "chapter_id": "C-KR-KR2a0032-429-429001"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "孟浩然",
+      "alias": "浩然",
+      "alias_type": "courtesy",
+      "chapter_id": "C-WS-jiutangshu_190b"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "孟浩然",
+      "alias": "孟山人",
+      "alias_type": "art",
+      "chapter_id": "C-WS-jiutangshu_190b"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "孟浩然",
+      "alias": "孟山人",
+      "alias_type": "art",
+      "chapter_id": "C-WS-xintangshu_203"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "張九齡",
+      "alias": "文獻",
+      "alias_type": "posthumous",
+      "chapter_id": "C-WS-xintangshu_126"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "溫庭筠",
+      "alias": "飛卿",
+      "alias_type": "courtesy",
+      "chapter_id": "C-WS-xintangshu_203"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "李煜",
+      "alias": "重光",
+      "alias_type": "courtesy",
+      "chapter_id": "C-WS-songshi_478"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "李煜",
+      "alias": "從嘉",
+      "alias_type": "name",
+      "chapter_id": "C-WS-songshi_478"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "李煜",
+      "alias": "鍾隱",
+      "alias_type": "art",
+      "chapter_id": "C-WS-songshi_478"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "李煜",
+      "alias": "李後主",
+      "alias_type": "other",
+      "chapter_id": "C-WS-songshi_478"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "李煜",
+      "alias": "鍾隱",
+      "alias_type": "art",
+      "chapter_id": "C-WS-xinwudaishi_062"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "李煜",
+      "alias": "李後主",
+      "alias_type": "other",
+      "chapter_id": "C-WS-xinwudaishi_062"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "蘇洵",
+      "alias": "文",
+      "alias_type": "posthumous",
+      "chapter_id": "C-WS-songshi_443"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "蘇轍",
+      "alias": "文定",
+      "alias_type": "posthumous",
+      "chapter_id": "C-WS-songshi_339"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "曾鞏",
+      "alias": "文定",
+      "alias_type": "posthumous",
+      "chapter_id": "C-WS-songshi_319"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "黃庭堅",
+      "alias": "文節",
+      "alias_type": "posthumous",
+      "chapter_id": "C-WS-songshi_444"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "文天祥",
+      "alias": "宋瑞",
+      "alias_type": "courtesy",
+      "chapter_id": "C-WS-songshi_418"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "文天祥",
+      "alias": "文山",
+      "alias_type": "art",
+      "chapter_id": "C-WS-songshi_418"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "文天祥",
+      "alias": "忠烈",
+      "alias_type": "posthumous",
+      "chapter_id": "C-WS-songshi_418"
+    },
+    {
+      "type": "a_no_alias_evidence",
+      "name": "文天祥"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "狄仁傑",
+      "alias": "文惠",
+      "alias_type": "posthumous",
+      "chapter_id": "C-WS-jiutangshu_089"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "狄仁傑",
+      "alias": "文惠",
+      "alias_type": "posthumous",
+      "chapter_id": "C-WS-xintangshu_115"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "郭子儀",
+      "alias": "子儀",
+      "alias_type": "courtesy",
+      "chapter_id": "C-WS-jiutangshu_120"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "郭子儀",
+      "alias": "忠武",
+      "alias_type": "posthumous",
+      "chapter_id": "C-WS-jiutangshu_120"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "郭子儀",
+      "alias": "忠武",
+      "alias_type": "posthumous",
+      "chapter_id": "C-WS-xintangshu_137"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "顏真卿",
+      "alias": "文忠",
+      "alias_type": "posthumous",
+      "chapter_id": "C-WS-jiutangshu_128"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "房玄齡",
+      "alias": "喬",
+      "alias_type": "courtesy",
+      "chapter_id": "C-WS-jiutangshu_066"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "房玄齡",
+      "alias": "喬松",
+      "alias_type": "courtesy",
+      "chapter_id": "C-WS-jiutangshu_066"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "房玄齡",
+      "alias": "喬松",
+      "alias_type": "courtesy",
+      "chapter_id": "C-WS-xintangshu_096"
+    },
+    {
+      "type": "alias_pattern_not_found",
+      "name": "褚遂良",
+      "alias": "登善",
+      "alias_type": "courtesy",
+      "chapter_id": "C-WS-jiutangshu_080"
+    }
+  ],
+  "missing_sources": [
+    {
+      "type": "wikisource_missing",
+      "key": "hanshu_054",
+      "work": "漢書",
+      "volume": "卷54",
+      "reason": "漢書/卷054 第1次: curl exit 28: curl: (28) Connection timed out after 25016 milliseconds\r\n | 漢書/卷054 第2次: curl exit 28: curl: (28) Operation timed out after 25013 milliseconds with 0 bytes received\r\n | 漢書/卷054 第3次: curl exit 28: curl: (28) Connection timed out after 25009 milliseconds\r\n | 漢書/卷54 第1次: curl exit 28: curl: (28) Connection timed out after 25006 milliseconds\r\n | 漢書/卷54 第2次: HTTP 404 | 漢書/卷54 第3次: curl exit 28: curl: (28) Connection timed out after 25012 milliseconds\r\n"
+    },
+    {
+      "type": "wikisource_missing",
+      "key": "sanguozhi_001",
+      "work": "三國志",
+      "volume": "卷1",
+      "reason": "三國志/卷001 第1次: HTTP 404 | 三國志/卷001 第2次: HTTP 404 | 三國志/卷001 第3次: curl exit 28: curl: (28) Connection timed out after 25014 milliseconds\r\n | 三國志/卷1 第1次: HTTP 404 | 三國志/卷1 第2次: HTTP 404 | 三國志/卷1 第3次: curl exit 28: curl: (28) Connection timed out after 25015 milliseconds\r\n"
+    },
+    {
+      "type": "wikisource_missing",
+      "key": "songshu_093",
+      "work": "宋書",
+      "volume": "卷93",
+      "reason": "宋書/卷93 第1次: curl exit 28: curl: (28) Connection timed out after 25012 milliseconds\r\n | 宋書/卷93 第2次: curl exit 28: curl: (28) Connection timed out after 25013 milliseconds\r\n | 宋書/卷93 第3次: curl exit 28: curl: (28) Connection timed out after 25004 milliseconds\r\n | 宋書/卷九十三 第1次: HTTP 404 | 宋書/卷九十三 第2次: HTTP 404 | 宋書/卷九十三 第3次: curl exit 28: curl: (28) Connection timed out after 25007 milliseconds\r\n"
+    },
+    {
+      "type": "wikisource_missing",
+      "key": "jiutangshu_174",
+      "work": "舊唐書",
+      "volume": "卷174",
+      "reason": "舊唐書/卷174 第1次: curl exit 28: curl: (28) Connection timed out after 25010 milliseconds\r\n | 舊唐書/卷174 第2次: curl exit 28: curl: (28) Operation timed out after 25016 milliseconds with 10 bytes received\r\n | 舊唐書/卷174 第3次: curl exit 28: curl: (28) Operation timed out after 25005 milliseconds with 10 bytes received\r\n | 舊唐書/卷一百七十四 第1次: curl exit 28: curl: (28) Connection timed out after 25009 milliseconds\r\n | 舊唐書/卷一百七十四 第2次: HTTP 404 | 舊唐書/卷一百七十四 第3次: HTTP 404"
+    },
+    {
+      "type": "wikisource_missing",
+      "key": "songshi_429",
+      "work": "宋史",
+      "volume": "卷429",
+      "reason": "宋史/卷429 第1次: curl exit 28: curl: (28) Connection timed out after 25009 milliseconds\r\n | 宋史/卷429 第2次: curl exit 28: curl: (28) Connection timed out after 25002 milliseconds\r\n | 宋史/卷429 第3次: curl exit 28: curl: (28) Connection timed out after 25012 milliseconds\r\n | 宋史/卷四百二十九 第1次: curl exit 28: curl: (28) Connection timed out after 25015 milliseconds\r\n | 宋史/卷四百二十九 第2次: curl exit 28: curl: (28) Connection timed out after 25006 milliseconds\r\n | 宋史/卷四百二十九 第3次: HTTP 404"
+    },
+    {
+      "type": "wikisource_missing",
+      "key": "shiji_074",
+      "work": "史記",
+      "volume": "卷74",
+      "reason": "史記/卷074 第1次: curl exit 28: curl: (28) Operation timed out after 25010 milliseconds with 10 bytes received\r\n | 史記/卷074 第2次: curl exit 28: curl: (28) Connection timed out after 25013 milliseconds\r\n | 史記/卷074 第3次: curl exit 28: curl: (28) Operation timed out after 25004 milliseconds with 0 bytes received\r\n | 史記/卷74 第1次: curl exit 28: curl: (28) Connection timed out after 25010 milliseconds\r\n | 史記/卷74 第2次: HTTP 404 | 史記/卷74 第3次: curl exit 28: curl: (28) Connection timed out after 25001 milliseconds\r\n"
+    },
+    {
+      "type": "a_no_chapter",
+      "name": "曹雪芹"
+    }
+  ],
+  "conflicts": []
+}

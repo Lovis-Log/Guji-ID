@@ -16,17 +16,26 @@ from scripts.import_kanripo_paragraphs import checked_candidates
 DB = PROJECT_ROOT / 'data/guji.db'
 
 
-def _classical_rows():
+def _classical_rows(old_only=False):
     with connect_db(DB) as c:
         prepare(c)
         rows = c.execute(PUBLIC_CTE + '''SELECT e.*,a.person_id,a.alias_name,a.alias_type,
             p.canonical_name,p.dynasty FROM public_evidence e
             JOIN public_aliases a USING(alias_id) JOIN people p USING(person_id)''').fetchall()
-    return [dict(r) for r in rows if evidence_view(dict(r))['presentation']['kind'] == 'classical_text']
+    result = [dict(r) for r in rows if evidence_view(dict(r))['presentation']['kind'] == 'classical_text']
+    if old_only:
+        result = [r for r in result if not r['evidence_id'].startswith('E7-')]
+    return result
+
+
+def _assert_old_rows_preserved(previous, current, table, key):
+    for row in previous.execute('SELECT * FROM ' + table):
+        found = current.execute(f'SELECT * FROM {table} WHERE {key}=?', (row[key],)).fetchone()
+        assert found is not None and tuple(found) == tuple(row), (table, row[key])
 
 
 def test_every_public_ancient_evidence_has_a_longer_exact_highlighted_passage():
-    rows = _classical_rows()
+    rows = _classical_rows(old_only=True)
     assert len(rows) == 61
     assert len({r['person_id'] for r in rows}) == 54
     for row in rows:
@@ -65,8 +74,8 @@ def test_four_new_courtesy_sentences_are_byte_located_and_not_field_imports():
             assert c.execute('SELECT grade FROM relation_quality WHERE alias_id=?',
                              (case['alias_id'],)).fetchone()[0] == 'A'
         with connect_db(old['path']) as previous:
-            for table in ('people','aliases'):
-                assert [tuple(r) for r in previous.execute('SELECT * FROM '+table)] == [tuple(r) for r in c.execute('SELECT * FROM '+table)]
+            for table,key in (('people','person_id'),('aliases','alias_id')):
+                _assert_old_rows_preserved(previous,c,table,key)
             for table,key in (('sources','source_id'),('evidences','evidence_id')):
                 for row in previous.execute('SELECT * FROM '+table):
                     assert tuple(c.execute(f'SELECT * FROM {table} WHERE {key}=?',(row[key],)).fetchone()) == tuple(row)
@@ -77,7 +86,7 @@ def test_four_new_courtesy_sentences_are_byte_located_and_not_field_imports():
 def test_reading_pages_mark_related_sentence_and_keep_equal_names_separate():
     with TestClient(create_app(DB)) as client:
         for name in ('王維','曾鞏','韓琦','陳升之','李白','杜甫'):
-            row = next(r for r in _classical_rows() if r['canonical_name'] == name)
+            row = next(r for r in _classical_rows(old_only=True) if r['canonical_name'] == name)
             source = get_source(DB,row['source_id'],person_id=row['person_id'])
             passage = source['classical_quotes'][0]['passage']
             html = client.get('/sources/'+row['source_id'],params={'person_id':row['person_id']})
@@ -112,9 +121,8 @@ def test_pinned_kanripo_batch_has_35_distinct_headwords_and_keeps_old_rows():
     assert len(cases)==35 and len({r['person_id'] for r in cases})==35
     assert excluded['existing_ancient']==3
     with connect_db(DB) as current,connect_db(backup) as old:
-        for table in ('people','aliases'):
-            assert [tuple(r) for r in current.execute('SELECT * FROM '+table)]==[
-                tuple(r) for r in old.execute('SELECT * FROM '+table)]
+        for table,key in (('people','person_id'),('aliases','alias_id')):
+            _assert_old_rows_preserved(old,current,table,key)
         for table,key in (('sources','source_id'),('evidences','evidence_id')):
             for row in old.execute('SELECT * FROM '+table):
                 assert tuple(current.execute(f'SELECT * FROM {table} WHERE {key}=?',(row[key],)).fetchone())==tuple(row)
