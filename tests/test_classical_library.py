@@ -159,12 +159,16 @@ def test_reader_routes_person_modules_and_no_internal_json(tmp_path):
     for label in ("生平概述", "古籍原文与证据", "在篇章中定位", "文献来源索引"):
         assert label in person.text
     assert "测字" in person.text
+    assert "展开全部古籍证据" in person.text
+    assert "档案摘要" in person.text
 
     selected = client.get("/classics/W-TEST/C-TEST",
                           params={"person": "P-TEST", "evidence": "L-TEST"})
     assert selected.status_code == 200
     assert "is-selected" in selected.text
     assert "上下文模式" in selected.text
+    assert "本篇证据目录" in selected.text
+    assert "返回所选证据与解释" in selected.text
     assert "試人，字測字" in selected.text
 
 

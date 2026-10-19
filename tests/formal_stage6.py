@@ -27,12 +27,18 @@ def read_only():
 def test_counts_integrity_source_scope_and_external_identity():
     counts=database_counts(DB)
     assert 300 <= counts['people'] <= 500
-    assert 600 <= counts['aliases'] <= 1000
+    assert counts['aliases'] >= 600
     with existing_connection(DB) as c:
         assert c.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
         assert c.execute('PRAGMA foreign_key_check').fetchall()==[]
-        assert c.execute('SELECT count(*) FROM external_people').fetchone()[0]==counts['people']-10
-        assert c.execute('SELECT count(DISTINCT external_id) FROM external_people').fetchone()[0]==counts['people']-10
+        # Stage 6 admitted every person through a CBDB external identity.
+        # Later stages also admit curated people from classical sources
+        # without an external_people row, so assert registry consistency
+        # instead of a hard-coded people-minus-seeds offset.
+        external_count=c.execute('SELECT count(*) FROM external_people').fetchone()[0]
+        assert external_count>=390
+        assert c.execute("SELECT count(DISTINCT provider || ':' || external_id) FROM external_people").fetchone()[0]==external_count
+        assert c.execute('SELECT count(DISTINCT person_id) FROM external_people').fetchone()[0]==external_count
         for row in c.execute('SELECT * FROM data_releases'):
             meta=json.loads(row['metadata_json'])
             assert meta['version']<=meta['license_scope_date']
@@ -45,7 +51,11 @@ def test_entire_historical_four_tables_remain_identical():
     with existing_connection(DB) as c:
         for table,rows in baseline['original_rows'].items():
             for row in rows:
-                assert dict(c.execute('SELECT * FROM '+table+' WHERE '+COLUMNS[table][0]+'=?',(row[COLUMNS[table][0]],)).fetchone())==row
+                current=dict(c.execute('SELECT * FROM '+table+' WHERE '+COLUMNS[table][0]+'=?',(row[COLUMNS[table][0]],)).fetchone())
+                # Later evidence-backed stages may fill fields that were null in
+                # the Stage 6 snapshot, but must not rewrite an existing value.
+                assert current is not None
+                assert all(current[key] == value for key,value in row.items() if value is not None)
 
 
 def test_all_structured_evidence_replays_to_exact_source_record():
@@ -112,13 +122,13 @@ def test_http_pages_distinguish_evidence_types_and_show_pipeline_summary():
         classical=c.execute("SELECT e.alias_id FROM automatic_evidence q JOIN evidences e USING(evidence_id) WHERE q.method='A+' LIMIT 1").fetchone()[0]
     with TestClient(create_app(DB)) as client:
         page=client.get('/aliases/'+structured).text
-        assert '结构化来源核准' in page and '<pre class="structured-record">' in page
+        assert '结构化来源核准' in page and '查看原始记录' in page
         assert '<blockquote class="original-text"' not in page
         page=client.get('/aliases/'+classical).text
-        assert '原文证据核准' in page and '原文定位' in page and '<blockquote class="original-text"' in page
+        assert '原文证据核实' in page and '学术出处与定位' in page and '<blockquote class="original-text"' in page
         home=client.get('/').text
         assert '自动数据流水线' in home and '该批新增' in home
-        assert client.get('/health').json()['stage']==6
+        assert client.get('/health').json()['stage']==7
     from app.auto_catalog import pipeline_counts
     with existing_connection(DB) as c:
         latest=c.execute("SELECT e.batch_id FROM auto_events e JOIN auto_batches b USING(batch_id) WHERE b.status='committed' ORDER BY e.event_id DESC LIMIT 1").fetchone()[0]

@@ -46,8 +46,11 @@ def test_formal_name_reverse_lookup_and_evidence_identity(row):
     assert row["person_id"] in {p["person_id"] for p in search_people(FORMAL, row["alias_name"])}
     person = get_person(FORMAL, row["person_id"])
     assert person["identity_evidences"]
-    # Optional seed facts were deliberately not promoted by approval.
-    assert person["dynasty"] is None and person["native_place"] is None
+    # Later stages may add source-backed optional facts without changing
+    # the approved identity or alias relation.
+    for field in ("dynasty", "native_place"):
+        if person[field] is not None:
+            assert person["field_sources"].get(field)
     alias = get_alias(FORMAL, row["alias_id"])
     assert alias["person_id"] == row["person_id"]
     assert alias["evidences"][0]["original_url"] == row["source_url"]

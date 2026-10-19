@@ -2,23 +2,48 @@
 {% from '_source_card.html' import readable_facts, provenance_details with context %}
 {% block title %}{{ person.canonical_name }} · 人物规范档案 · GuJi ID{% endblock %}
 {% block content %}
-  {% set archive_person = person %}
-  {% set archive_on_person_page = true %}
-  {% include '_archive_display.html' %}
   {% set profile_fields = {'朝代':'dynasty','籍贯':'native_place','生年':'birth_year','卒年':'death_year'} %}
   {% set dynasty_fact = person.presentation.facts|selectattr('label','equalto','朝代')|first %}
   <nav class="breadcrumbs" aria-label="当前位置"><a href="{% if q %}{{ url_for('search').include_query_params(q=q) }}#results{% else %}{{ url_for('home') }}{% endif %}">返回称呼检索</a><span aria-hidden="true">/</span><span aria-current="page">人物规范档案</span></nav>
   <header class="record-header"><div><p class="eyebrow">人物规范档案</p><h1>{{ person.canonical_name }}</h1><p class="record-subtitle">{% if dynasty_fact %}{{ dynasty_fact.value }}{% endif %}{% if person.reading_lifespan %}{% if dynasty_fact %}<span class="subtitle-divider"> / </span>{% endif %}{{ person.reading_lifespan }}{% endif %}</p>{% if person.primary_aliases %}<p class="primary-aliases">{% for item in person.primary_aliases %}<span>{{ item.type_label }} {{ item.alias_name }}</span>{% endfor %}</p>{% endif %}</div><span class="verified-badge">{{ person.verification_label or '姓名身份已收录' }}</span></header>
-  <section class="profile-section" aria-labelledby="profile-title">
-    <h2 id="profile-title">身份信息</h2>
-    <dl class="profile-facts">
+  <section class="person-summary" aria-labelledby="profile-summary-title">
+    <div class="person-summary-copy">
+      <p class="eyebrow">档案摘要</p>
+      <h2 id="profile-summary-title">先辨身份，再循证入卷</h2>
+      {% if person.presentation.description %}<p>{{ person.presentation.description }}</p>{% else %}<p>当前只展示已有来源支持的身份字段与称呼；资料不足处保持待考。</p>{% endif %}
+      <p class="record-id">规范人物 ID {{ person.person_id }}{% if person.source_person_id %} · CBDB {{ person.source_person_id }}{% endif %}</p>
+    </div>
+    <dl class="profile-facts person-summary-facts">
     {% for fact in person.presentation.facts if fact.label in profile_fields %}
       <div data-field="{{ profile_fields[fact.label] }}"><dt>{{ fact.label }}</dt><dd>{{ fact.value }}</dd></div>
     {% endfor %}
     </dl>
+    <dl class="person-summary-counts">
+      <div><dt>已核对称呼</dt><dd>{{ person.aliases|length }}</dd></div>
+      <div><dt>古籍原文</dt><dd>{{ classical.counts.distinct_quotes if classical else 0 }}</dd></div>
+      <div><dt>涉及典籍</dt><dd>{{ classical.counts.works if classical else 0 }}</dd></div>
+    </dl>
+    <div class="person-summary-actions"><a href="#aliases-title">查看称谓</a>{% if classical and classical.links %}<a href="#classical-evidence">查阅原文证据</a>{% endif %}<a href="#archive-materials">查看数字题签与图像</a></div>
+  </section>
+  <nav class="record-section-nav" aria-label="档案章节">
+    <a href="#profile-summary-title">摘要</a>
+    <a href="#profile-title">身份</a>
+    <a href="#aliases-title">称谓</a>
+    {% if classical %}
+    <a href="#classical-overview">生平</a>
+    <a href="#classical-evidence">古籍原文</a>
+    {% if classical.timeline %}<a href="#classical-timeline">年表</a>{% endif %}
+    {% if classical.literary %}<a href="#classical-works">作品</a>{% endif %}
+    {% if classical.relations %}<a href="#classical-relations">关系</a>{% endif %}
+    {% if classical.disputes %}<a href="#classical-disputes">争议</a>{% endif %}
+    <a href="#classical-references">文献索引</a>
+    {% endif %}
+    <a href="#archive-materials">图像资料</a>
+  </nav>
+  <section class="profile-section" aria-labelledby="profile-title">
+    <div class="section-heading"><h2 id="profile-title">身份依据</h2><p>摘要字段均可回溯来源</p></div>
     {% if person.presentation.sources %}<div class="profile-source-summary"><span class="profile-source-label">资料来源</span><ul>{% for source in person.presentation.sources %}<li><a href="{{ url_for('source_detail', source_id=source.source_id|url_id).include_query_params(person_id=person.person_id) }}">{{ source.title }}</a>{% if source.version %}<span> · {{ source.version }}</span>{% endif %}{% if source.kind_label %}<small> · {{ source.kind_label }}</small>{% endif %}</li>{% endfor %}</ul></div>{% endif %}
     {% if person.presentation.missing_fields %}<details class="missing-fields"><summary>部分资料待补</summary><p>尚无来源可确认：{{ person.presentation.missing_fields|join('、') }}。这些字段暂无已核实信息。</p></details>{% endif %}
-    {% if person.presentation.description %}<div class="identity-description"><h3>人物身份简介</h3><p>{{ person.presentation.description }}</p></div>{% endif %}
     {% if person.field_sources %}<details class="field-provenance"><summary>查看身份信息的来源</summary>
       <p class="reading-note">各项资料分别据所列来源整理；约数和范围保留来源限定。</p>
       {% for field,facts in person.field_sources.items() %}{% for fact in facts if fact.presentation.visible %}
@@ -35,20 +60,6 @@
     {% include '_identity_evidence.html' %}
     <p class="record-id profile-record-id">档案编号 {{ person.person_id }}{% if person.source_person_id %} · CBDB 人物编号 {{ person.source_person_id }}{% endif %}</p>
   </section>
-  {% if classical %}
-  <nav class="record-section-nav" aria-label="档案章节">
-    <a href="#profile-title">身份</a>
-    <a href="#classical-overview">生平</a>
-    <a href="#aliases-title">称谓</a>
-    <a href="#classical-evidence">古籍原文</a>
-    {% if classical.timeline %}<a href="#classical-timeline">年表</a>{% endif %}
-    {% if classical.literary %}<a href="#classical-works">作品</a>{% endif %}
-    {% if classical.relations %}<a href="#classical-relations">关系</a>{% endif %}
-    {% if classical.disputes %}<a href="#classical-disputes">争议</a>{% endif %}
-    <a href="#classical-references">文献索引</a>
-  </nav>
-  {% include '_classical_person.html' %}
-  {% endif %}
   <section class="aliases-section" aria-labelledby="aliases-title">
     <div class="section-heading"><h2 id="aliases-title">已核对的别称</h2><p>{{ person.aliases|length }} 条有来源支持的称呼</p></div>
     {% if person.aliases %}
@@ -58,4 +69,13 @@
     {% else %}<div class="empty-state"><h3>暂无可公开展示的已核对别称</h3><p>该人物尚无同时满足已核对状态与直接支持证据要求的别称，暂无可展示的古籍证据。</p></div>{% endif %}
     <p class="reading-note">称呼按独立人物归档。同名人物不会合并；缺少已核对支持证据的别称不列入此表。</p>
   </section>
+  {% if classical %}{% include '_classical_person.html' %}{% endif %}
+  <details class="archive-disclosure" id="archive-materials">
+    <summary><span>数字题签与图像资料</span><small>查看 A 模式档案题签、真实书影状态与明确标注的 AI 拟古绘像</small></summary>
+    <div class="archive-disclosure-content">
+      {% set archive_person = person %}
+      {% set archive_on_person_page = true %}
+      {% include '_archive_display.html' %}
+    </div>
+  </details>
 {% endblock %}

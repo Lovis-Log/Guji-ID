@@ -21,6 +21,9 @@
   <div class="section-heading"><h2 id="classical-evidence-title">古籍原文与证据</h2><p>每条均可在保存篇章中定位</p></div>
   {% if classical.links %}
   <p class="reading-note">下列引文均取自本页所列版本，位置、段落与篇章正文逐字对应。称谓证据与生平片段分别标注，不把作品中的提及混作直接称谓证明。</p>
+  <details class="record-disclosure evidence-record-disclosure">
+  <summary><span>展开全部古籍证据</span><small>{{ classical.counts.links }} 条关联 · {{ classical.counts.distinct_quotes }} 处原文</small></summary>
+  <div class="record-disclosure-body">
   {% for work in classical.works %}
   <article class="classical-work-group">
     <header><h3>《{{ work.title }}》</h3><p>{{ work.dynasty }}{% if work.dynasty and work.author %} · {% endif %}{{ work.author }}<span class="subtitle-divider"> / </span>{{ work.edition }}</p></header>
@@ -37,6 +40,8 @@
     </ol>
   </article>
   {% endfor %}
+  </div>
+  </details>
   {% else %}
   <div class="empty-state"><h3>尚未取得可定位的古籍原文</h3><p>本阶段不为该人物补写原文，也不把结构化数据库记录当作古籍正文。缺口已列入数据报告，待取得合法来源后补充。</p></div>
   {% endif %}
@@ -45,6 +50,7 @@
 {% if classical.timeline %}
 <section class="classical-timeline-section" id="classical-timeline" aria-labelledby="classical-timeline-title">
   <div class="section-heading"><h2 id="classical-timeline-title">生平年表</h2><p>只列有来源依据的事件</p></div>
+  <details class="record-disclosure"><summary><span>展开生平年表</span><small>{{ classical.timeline|length }} 条事件</small></summary><div class="record-disclosure-body">
   <ol class="timeline-list">
     {% for event in classical.timeline %}
     <li>
@@ -56,12 +62,14 @@
     </li>
     {% endfor %}
   </ol>
+  </div></details>
 </section>
 {% endif %}
 
 {% if classical.literary %}
 <section class="classical-works-section" id="classical-works" aria-labelledby="classical-works-title">
   <div class="section-heading"><h2 id="classical-works-title">代表作品</h2><p>作品目录与可读状态</p></div>
+  <details class="record-disclosure"><summary><span>展开代表作品</span><small>{{ classical.literary|length }} 项目录</small></summary><div class="record-disclosure-body">
   <ul class="literary-list">
     {% for item in classical.literary %}
     <li><span class="literary-title">{{ item.title }}</span><span class="literary-genre">{{ item.genre or '文体待考' }}</span>
@@ -70,34 +78,40 @@
     </li>
     {% endfor %}
   </ul>
+  </div></details>
 </section>
 {% endif %}
 
 {% if classical.relations %}
 <section class="classical-relations-section" id="classical-relations" aria-labelledby="classical-relations-title">
   <div class="section-heading"><h2 id="classical-relations-title">人物关系</h2><p>有文献依据的交往与亲属关系</p></div>
+  <details class="record-disclosure"><summary><span>展开人物关系</span><small>{{ classical.relations|length }} 条关系</small></summary><div class="record-disclosure-body">
   <ul class="relation-list">
     {% for item in classical.relations %}
     <li>{% if item.related_person_id %}<a class="relation-name" href="{{ url_for('person_detail', person_id=item.related_person_id|url_id) }}">{{ item.related_name }}</a>{% else %}<strong>{{ item.related_name }}</strong>{% endif %}<span class="relation-type">{{ item.relation_type }}</span>{% if item.note %}<p>{{ item.note }}</p>{% endif %}</li>
     {% endfor %}
   </ul>
+  </div></details>
 </section>
 {% endif %}
 
 {% if classical.disputes %}
 <section class="classical-disputes-section" id="classical-disputes" aria-labelledby="classical-disputes-title">
   <div class="section-heading"><h2 id="classical-disputes-title">历史争议与不同记载</h2><p>保留异说，不强行统一</p></div>
+  <details class="record-disclosure"><summary><span>展开争议记录</span><small>{{ classical.disputes|length }} 条异说</small></summary><div class="record-disclosure-body">
   <div class="dispute-list">
     {% for item in classical.disputes %}
     <article><h3>{{ item.topic }}</h3><p>{{ item.account_a }}</p>{% if item.account_b %}<p>{{ item.account_b }}</p>{% endif %}{% if item.note %}<p class="reading-note">{{ item.note }}</p>{% endif %}</article>
     {% endfor %}
   </div>
+  </div></details>
 </section>
 {% endif %}
 
 <section class="classical-references-section" id="classical-references" aria-labelledby="classical-references-title">
   <div class="section-heading"><h2 id="classical-references-title">文献来源索引</h2><p>按书名、卷次和篇章组织</p></div>
   {% if classical.works %}
+  <details class="record-disclosure"><summary><span>展开文献来源索引</span><small>{{ classical.counts.works }} 种典籍版本</small></summary><div class="record-disclosure-body">
   <ul class="reference-list">
     {% for work in classical.works %}
     <li><strong>《{{ work.title }}》</strong><span class="reference-edition">{{ work.edition }}</span>
@@ -105,6 +119,7 @@
     </li>
     {% endfor %}
   </ul>
+  </div></details>
   {% else %}<p class="reading-note">暂无已保存的文献篇章。</p>{% endif %}
 </section>
 {% endif %}

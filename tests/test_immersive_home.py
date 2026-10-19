@@ -92,9 +92,20 @@ def test_person_page_uses_same_dynamic_slip_and_links_to_its_own_profile(immersi
     page = response.text
     assert "is-search-page" not in page
     assert 'class="archive-person-name">测试甲</strong>' in page
-    assert 'href="#profile-title">查看下方完整人物档案' in page
+    assert page.index('id="profile-summary-title"') < page.index("data-archive-display")
+    assert 'href="#profile-summary-title">返回人物摘要' in page
     assert 'href="/people/TEST-P-ONE">查看完整人物档案' not in page
     assert "李白" not in page
+
+
+def test_navigation_and_homonym_comparison_are_consistent(immersive_client):
+    home = immersive_client.get("/").text
+    for label in ("首页", "人物检索", "古籍原文库", "数据概况"):
+        assert label in home
+    page = immersive_client.get("/search", params={"q": "测试同名"}).text
+    assert "并列核对 2 位候选" in page
+    assert 'href="#candidate-1"' in page and 'href="#candidate-2"' in page
+    assert "TEST-P-TWO" in page and "TEST-P-THREE" in page
 
 
 def test_curated_examples_keep_requested_order_and_hide_unverified(tmp_path):

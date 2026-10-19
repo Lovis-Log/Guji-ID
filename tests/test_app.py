@@ -15,7 +15,7 @@ def test_startup_home_health_static_and_template_downloads(tmp_path):
         assert "尚未导入正式资料" in response.text
         assert 'role="search"' in response.text
         assert "暂无可公开检索的已核对人物" in response.text
-        assert client.get("/health").json() == {"status": "ok", "database": "ok", "stage": 6}
+        assert client.get("/health").json() == {"status": "ok", "database": "ok", "stage": 7}
         css = client.get("/static/styles.css")
         assert css.status_code == 200 and "text/css" in css.headers["content-type"]
         assert client.get("/static/app.js").status_code == 200

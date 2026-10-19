@@ -18,7 +18,8 @@
   <a class="skip-link" href="#main">跳转到正文</a>
   <header class="site-header">
     <a class="brand" href="{{ url_for('home') }}"><span class="seal" aria-hidden="true">籍</span><span>GuJi ID<small>古籍人物规范档</small></span></a>
-    <nav aria-label="主导航"><a href="{{ url_for('home') }}">称呼检索</a><a href="{{ url_for('classic_index') }}">古籍原文库</a><a href="{{ url_for('home') }}#data">数据概况</a><a href="{{ url_for('home') }}#import">导入模板</a></nav>
+    <button class="base-menu-toggle" type="button" aria-controls="base-main-nav" aria-expanded="false" aria-label="打开导航菜单"><span></span><span></span></button>
+    <nav id="base-main-nav" class="base-main-nav" aria-label="主导航"><a href="{{ url_for('home') }}">首页</a><a href="{{ url_for('home') }}#search-entry">人物检索</a><a href="{{ url_for('classic_index') }}">古籍原文库</a><a href="{{ url_for('home') }}#data">数据概况</a></nav>
   </header>
   <main id="main">{% block content %}{% endblock %}</main>
   <footer><span>GuJi ID ·《移动信息化》课程项目</span><span>人物检索与文献证据 · 仅展示已审核记录</span><p class="footer-disclaimer">本网站为个人非商业项目，网站内展示的部分数据来源于互联网公开信息爬取，仅作学习、个人展示用途，不用于任何商业盈利活动。</p></footer>

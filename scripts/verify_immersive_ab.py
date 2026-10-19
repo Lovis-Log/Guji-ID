@@ -105,6 +105,7 @@ def run_full(browser, base, out, label, width, height, failures, report):
     check(page.locator("#name-query").count() == 1, f"{label}: paper search form is missing", failures)
     check(not overflow(page), f"{label}: home has horizontal overflow", failures)
     check(page.locator("h1").first.inner_text().startswith("千载人名"), f"{label}: hero heading changed", failures)
+    check("古籍原文库" in page.locator("#main-nav").inner_text(), f"{label}: classics link missing from main navigation", failures)
     data["home"] = {"hero_search_absent": True, "bottom_search_present": True, "overflow": overflow(page)}
     screenshot(page, out, f"home-hero-{label}")
 
@@ -182,6 +183,10 @@ def run_full(browser, base, out, label, width, height, failures, report):
           f"{label}: fixed header covers results heading", failures)
     ids = page.locator(".candidate-card").evaluate_all("nodes => nodes.map(node => node.dataset.personId)")
     check(set(ids) == WANG_IDS, f"{label}: 王珪 homonyms not kept separate: {ids}", failures)
+    check(page.locator(".identity-comparison-list li").count() == 2,
+          f"{label}: homonym comparison board is missing candidates", failures)
+    check(page.locator("#candidate-1").count() == 1 and page.locator("#candidate-2").count() == 1,
+          f"{label}: homonym candidate anchors are missing", failures)
     check(page.locator("[data-archive-display]").get_attribute("data-person-id") == "",
           f"{label}: homonym search incorrectly selected one identity", failures)
     data["wang_gui"] = {"result_ids": ids, "archive_person_id": "", "result_top": round(heading_box["y"], 1)}
@@ -197,23 +202,32 @@ def run_full(browser, base, out, label, width, height, failures, report):
         page.locator(".candidate-card h3 a").first.click()
     page.wait_for_load_state("networkidle")
     check(page.url.startswith(base + "/people/P-CBDB-32540"), f"{label}: 李白 canonical URL mismatch: {page.url}", failures)
+    check(page.locator("#profile-summary-title").is_visible(), f"{label}: person summary is not the first visible record section", failures)
+    page.locator(".record-section-nav a[href='#classical-evidence']").click()
+    check(page.locator("#classical-evidence details.record-disclosure").first.evaluate("el => el.open"),
+          f"{label}: section navigation did not open the evidence disclosure", failures)
+    page.locator(".archive-disclosure > summary").click()
     check(page.locator("[data-archive-display]").get_attribute("data-person-id") == "P-CBDB-32540",
           f"{label}: 李白 archive id mismatch", failures)
     check(page.locator(".archive-person-name").inner_text() == "李白", f"{label}: 李白 title slip mismatch", failures)
     check(page.locator("[data-archive-panel='a']").is_visible(), f"{label}: A mode is not visible", failures)
-    check(page.locator("[data-archive-mode='b']").is_disabled(), f"{label}: B mode should be disabled without a verified scan", failures)
-    check("暂无可展示的真实书影" in page.locator("#archive-scan-status").inner_text(),
+    check(not page.locator("[data-archive-mode='b']").is_disabled(), f"{label}: B mode should be available for the bound AI figure", failures)
+    page.locator("[data-archive-mode='b']").click()
+    check(page.locator("[data-ai-figure]").count() == 1, f"{label}: bound 李白 AI figure is missing", failures)
+    check("暂无已核实的真实书影" in page.locator("#archive-scan-status").inner_text(),
           f"{label}: missing truthful no-scan status", failures)
+    check("AI生成·拟古演绎，非真实古籍书影" in archive_text(page),
+          f"{label}: AI figure disclosure is missing", failures)
     check(not overflow(page), f"{label}: 李白 person page has horizontal overflow", failures)
     data["li_bai"] = {
         "url": page.url,
         "person_id": page.locator("[data-archive-display]").get_attribute("data-person-id"),
         "slip_name": page.locator(".archive-person-name").inner_text(),
-        "b_disabled": page.locator("[data-archive-mode='b']").is_disabled(),
+        "b_enabled_for_figure": not page.locator("[data-archive-mode='b']").is_disabled(),
         "scan_status": page.locator("#archive-scan-status").inner_text(),
     }
     screenshot(page, out, f"person-li-bai-{label}")
-    page.locator("[data-archive-display]").screenshot(path=str(out / f"archive-li-bai-a-{label}.png"))
+    page.locator("[data-archive-display]").screenshot(path=str(out / f"archive-li-bai-b-{label}.png"))
 
     # 苏轼: no baked-in 李白 and no inherited scan.
     page.goto(base + "/search?q=%E8%8B%8F%E8%BD%BC#results", wait_until="networkidle")
@@ -222,18 +236,22 @@ def run_full(browser, base, out, label, width, height, failures, report):
     with page.expect_navigation():
         page.locator(".candidate-card h3 a").first.click()
     page.wait_for_load_state("networkidle")
+    page.locator(".archive-disclosure > summary").click()
     check(page.locator(".archive-person-name").inner_text() == "苏轼", f"{label}: 苏轼 title slip mismatch", failures)
     check("李白" not in archive_text(page), f"{label}: 李白 leaks into 苏轼 archive", failures)
-    check(page.locator("[data-archive-mode='b']").is_disabled(), f"{label}: 苏轼 B mode should be disabled", failures)
+    check(not page.locator("[data-archive-mode='b']").is_disabled(), f"{label}: 苏轼 B mode should be available for its bound AI figure", failures)
+    page.locator("[data-archive-mode='b']").click()
+    check(page.locator("[data-ai-figure]").count() == 1, f"{label}: bound 苏轼 AI figure is missing", failures)
     check(not overflow(page), f"{label}: 苏轼 person page has horizontal overflow", failures)
     data["su_shi"] = {"slip_name": page.locator(".archive-person-name").inner_text(),
                       "li_bai_in_archive": "李白" in archive_text(page),
-                      "b_disabled": page.locator("[data-archive-mode='b']").is_disabled()}
+                      "b_enabled_for_figure": not page.locator("[data-archive-mode='b']").is_disabled()}
     screenshot(page, out, f"person-su-shi-{label}")
     page.locator("[data-archive-display]").screenshot(path=str(out / f"archive-su-shi-a-{label}.png"))
 
     # A 4-character name must stay inside the title-slip column.
     page.goto(base + "/people/P-CBDB-65803", wait_until="networkidle")
+    page.locator(".archive-disclosure > summary").click()
     check(page.locator(".archive-person-name").inner_text() == "納蘭性德", f"{label}: long-name slip mismatch", failures)
     check_name_within_identity(page, label, failures)
     check(not overflow(page), f"{label}: long-name page has horizontal overflow", failures)
@@ -296,6 +314,7 @@ def run_layout_only(browser, base, out, label, width, height, failures, report):
     page.goto(base + "/", wait_until="networkidle")
     check(page.locator("#hero-search").count() == 0, f"{label}: cover still has a search input", failures)
     check(page.locator("#name-query").count() == 1, f"{label}: paper search form is missing", failures)
+    check("古籍原文库" in page.locator("#main-nav").inner_text(), f"{label}: classics link missing from main navigation", failures)
     check(not overflow(page), f"{label}: home has horizontal overflow", failures)
     data["home"] = {"hero_search_absent": True, "bottom_search_present": True, "overflow": overflow(page)}
     screenshot(page, out, f"home-hero-{label}")
@@ -311,12 +330,14 @@ def run_layout_only(browser, base, out, label, width, height, failures, report):
     screenshot(page, out, f"search-wang-gui-{label}")
 
     page.goto(base + "/people/P-0180cd77-04c3-471a-937a-cc8e77709e52", wait_until="networkidle")
+    page.locator(".archive-disclosure > summary").click()
     check(not overflow(page), f"{label}: 苏轼 page has horizontal overflow", failures)
     check(page.locator(".archive-person-name").inner_text() == "苏轼", f"{label}: 苏轼 slip mismatch", failures)
     data["su_shi"] = {"slip_name": page.locator(".archive-person-name").inner_text(), "overflow": overflow(page)}
     screenshot(page, out, f"person-su-shi-{label}")
 
     page.goto(base + "/people/P-CBDB-65803", wait_until="networkidle")
+    page.locator(".archive-disclosure > summary").click()
     check(not overflow(page), f"{label}: long-name page has horizontal overflow", failures)
     check_name_within_identity(page, label, failures)
     data["long_name"] = {"slip_name": page.locator(".archive-person-name").inner_text(), "overflow": overflow(page)}

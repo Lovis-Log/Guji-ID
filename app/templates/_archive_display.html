@@ -128,7 +128,7 @@
           <p class="archive-ai-footnote">AI 图像中的古文字与印章并非可核验史料，不写入古籍证据表，也不作为人物姓名、字号和原文的证明。</p>
         </div>
         {% endif %}
-        <div class="archive-footer-v2"><span>数字题签与装饰图为视觉示意；真实书影以来源与授权说明为准。</span>{% if archive_person and archive_on_person_page %}<a href="#profile-title">查看下方完整人物档案 →</a>{% elif archive_person %}{% set person_url = url_for('person_detail', person_id=archive_person.person_id|url_id) %}<a href="{{ person_url.include_query_params(q=q) if q else person_url }}">查看完整人物档案 →</a>{% endif %}</div>
+        <div class="archive-footer-v2"><span>数字题签与装饰图为视觉示意；真实书影以来源与授权说明为准。</span>{% if archive_person and archive_on_person_page %}<a href="#profile-summary-title">返回人物摘要 ↑</a>{% elif archive_person %}{% set person_url = url_for('person_detail', person_id=archive_person.person_id|url_id) %}<a href="{{ person_url.include_query_params(q=q) if q else person_url }}">查看完整人物档案 →</a>{% endif %}</div>
       </div>
       <div class="archive-decoration-v2" aria-hidden="true"><span>辨</span><span>人</span><span>考</span><span>据</span></div>
     </div>

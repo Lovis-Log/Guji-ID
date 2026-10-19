@@ -40,11 +40,29 @@
     <div class="empty-state"><h3>未找到已核对的匹配人物</h3><p>“{{ q }}”尚未匹配到可公开展示的记录。</p>{% if held_count %}<p>隔离区有 {{ held_count }} 条相关候选，身份或关系尚未确认，不作为事实展示。</p>{% else %}<p>可尝试姓名的一部分或其他称呼；当前来源尚未覆盖的资料将保持空缺。</p>{% endif %}</div>
     {% else %}
     <p class="result-count">“{{ q }}”匹配到 <strong>{{ results|length }}</strong> 位人物。</p>
-    {% if results|length > 1 %}<div class="ambiguity-notice" role="status"><strong>存在多个候选，不能确定</strong><p>同一称呼对应不同人物档案。请比较已核实的身份字段及下方各自的史料摘录与出处；未核实字段保留为空。</p></div>{% endif %}
+    {% if results|length > 1 %}
+    <div class="ambiguity-notice" role="status"><strong>存在多个候选，不能确定</strong><p>系统不会自动选择身份。同一称呼对应不同人物档案；请先按朝代、生卒与籍贯对照，再进入具体规范人物 ID。未核实字段保留为空。</p></div>
+    <section class="identity-comparison" aria-labelledby="comparison-title">
+      <div class="comparison-heading"><div><p class="eyebrow">同名消歧</p><h3 id="comparison-title">并列核对 {{ results|length }} 位候选</h3></div><p>点击候选可跳到其完整证据卡</p></div>
+      <ol class="identity-comparison-list">
+        {% for person in results %}
+        {% set dynasty = person.presentation.facts|selectattr('label','equalto','朝代')|first %}
+        {% set native_place = person.presentation.facts|selectattr('label','equalto','籍贯')|first %}
+        <li><a href="#candidate-{{ loop.index }}">
+          <span class="comparison-index">候选 {{ '%02d'|format(loop.index) }}</span>
+          <strong>{{ person.canonical_name }}</strong>
+          <span>{{ dynasty.value if dynasty else '朝代待考' }} · {{ person.presentation.lifespan }}</span>
+          <span>{{ native_place.value if native_place else '籍贯待考' }}</span>
+          <small>规范 ID {{ person.person_id }}</small>
+        </a></li>
+        {% endfor %}
+      </ol>
+    </section>
+    {% endif %}
     <div class="candidate-grid">
       {% for person in results %}
-      <article class="candidate-card" data-person-id="{{ person.person_id }}">
-        <div class="candidate-heading"><h3><a href="{{ url_for('person_detail', person_id=person.person_id|url_id).include_query_params(q=q) }}">{{ person.canonical_name }}</a></h3><span class="verified-badge">{{ person.verification_label or '人物已核对' }}</span></div>
+      <article class="candidate-card" id="candidate-{{ loop.index }}" data-person-id="{{ person.person_id }}" aria-labelledby="candidate-name-{{ loop.index }}">
+        <div class="candidate-heading"><div><span class="candidate-index">候选 {{ '%02d'|format(loop.index) }}</span><h3 id="candidate-name-{{ loop.index }}"><a href="{{ url_for('person_detail', person_id=person.person_id|url_id).include_query_params(q=q) }}">{{ person.canonical_name }}</a></h3></div><span class="verified-badge">{{ person.verification_label or '人物已核对' }}</span></div>
         <dl class="candidate-facts">{% for item in person.presentation.facts if item.label in ['朝代','籍贯'] %}<div><dt>{{ item.label }}</dt><dd>{{ item.value }}</dd></div>{% endfor %}{% if person.birth_year or person.death_year %}<div class="full-width"><dt>生卒年</dt><dd>{{ person.presentation.lifespan }}</dd></div>{% endif %}</dl>
         {% if person.presentation.description %}<p class="identity-copy">{{ person.presentation.description }}</p>{% endif %}
         {% if person.structured_aliases %}<p class="match-info">结构化来源中的称呼：{% for a in person.structured_aliases %}{{ {'courtesy':'字','art':'号','posthumous':'谥号','other':'其他称呼'}.get(a.alias_type,'称呼') }}“{{ a.alias_name }}”{% if not loop.last %} · {% endif %}{% endfor %}</p>{% endif %}

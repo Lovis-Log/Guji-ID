@@ -1,5 +1,48 @@
 "use strict";
 
+const baseMenuButton = document.querySelector(".base-menu-toggle");
+const baseMenu = document.getElementById("base-main-nav");
+
+if (baseMenuButton && baseMenu) {
+  const closeBaseMenu = () => {
+    baseMenu.classList.remove("open");
+    baseMenuButton.setAttribute("aria-expanded", "false");
+    baseMenuButton.setAttribute("aria-label", "打开导航菜单");
+  };
+  baseMenuButton.addEventListener("click", () => {
+    const open = baseMenuButton.getAttribute("aria-expanded") !== "true";
+    baseMenu.classList.toggle("open", open);
+    baseMenuButton.setAttribute("aria-expanded", String(open));
+    baseMenuButton.setAttribute("aria-label", open ? "关闭导航菜单" : "打开导航菜单");
+  });
+  baseMenu.querySelectorAll("a").forEach(link => link.addEventListener("click", closeBaseMenu));
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && baseMenu.classList.contains("open")) {
+      closeBaseMenu();
+      baseMenuButton.focus();
+    }
+  });
+}
+
+// Progressive disclosure must not hide the target of an in-page anchor.
+const openHashDisclosure = () => {
+  if (!window.location.hash || window.location.hash.length < 2) return;
+  let target;
+  try {
+    target = document.getElementById(decodeURIComponent(window.location.hash.slice(1)));
+  } catch {
+    return;
+  }
+  if (!target) return;
+  const disclosure = target.matches("details")
+    ? target
+    : target.closest("details") || target.querySelector("details.record-disclosure, details.archive-disclosure, details.evidence-disclosure");
+  if (disclosure && !disclosure.open) disclosure.open = true;
+};
+
+window.addEventListener("hashchange", openHashDisclosure);
+openHashDisclosure();
+
 const healthButton = document.getElementById("check-health");
 const healthStatus = document.getElementById("health-status");
 

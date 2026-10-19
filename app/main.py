@@ -173,7 +173,7 @@ def create_app(db_path: str | Path | None = None) -> FastAPI:
                 connection.execute(f"SELECT 1 FROM {table} LIMIT 1").fetchone()
             if connection.execute("PRAGMA foreign_keys").fetchone()[0] != 1:
                 raise sqlite3.OperationalError("foreign keys disabled")
-        return {"status": "ok", "database": "ok", "stage": 6}
+        return {"status": "ok", "database": "ok", "stage": 7}
 
     @application.get("/templates/{table}.csv", response_class=FileResponse)
     def download_template(table: str):

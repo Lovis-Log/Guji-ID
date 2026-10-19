@@ -1,6 +1,6 @@
 <header class="topbar{% if searched %} light-nav{% endif %}" id="topbar">
   <a class="brand" href="{% if searched %}{{ url_for('home') }}{% else %}#top{% endif %}" aria-label="GuJi ID 回到卷首"><span class="brand-seal" aria-hidden="true">籍</span><span class="brand-stack"><span class="brand-title">GuJi <i>ID</i></span><span class="brand-subtitle">古籍人物规范档案</span></span></a>
-  <nav class="site-nav" id="main-nav" aria-label="主导航"><a class="nav-link" href="{% if searched %}{{ url_for('home') }}{% else %}#top{% endif %}">卷首</a><a class="nav-link" href="{% if searched %}#results{% else %}#name-query{% endif %}">人物检索</a><a class="nav-link" href="#research">文献考据</a><a class="nav-link" href="#data">数据概况</a></nav>
+  <nav class="site-nav" id="main-nav" aria-label="主导航"><a class="nav-link" href="{% if searched %}{{ url_for('home') }}{% else %}#top{% endif %}">首页</a><a class="nav-link" href="{% if searched %}#results{% else %}#name-query{% endif %}">人物检索</a><a class="nav-link" href="{{ url_for('classic_index') }}">古籍原文库</a><a class="nav-link" href="#data">数据概况</a></nav>
   <button class="menu-toggle" id="menu-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="打开导航菜单"><span></span><span></span></button>
   <div class="header-side" aria-hidden="true"><span class="header-rule"></span><span>卷 · 壹</span></div>
 </header>

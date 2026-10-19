@@ -13,6 +13,20 @@
 </header>
 {% if chapter.completeness_note %}<p class="source-original-citation">{{ chapter.completeness_note }}</p>{% endif %}
 <div class="reader-layout">
+  {% if chapter.evidence %}
+  <details class="reader-mobile-index">
+    <summary><span>本篇证据目录</span><small>{{ chapter.evidence|length }} 条可定位证据</small></summary>
+    <ol class="reader-evidence-list">
+      {% for item in chapter.evidence %}
+      <li><a href="{{ item.reader_url }}"{% if item.link_id == selected %} class="is-current" aria-current="true"{% endif %}>
+        <span class="reader-evidence-person">{{ item.canonical_name }}</span>
+        <span class="reader-evidence-kind">{{ item.category_label }}</span>
+        <span class="reader-evidence-quote">{{ item.quote[:46] }}{% if item.quote|length > 46 %}…{% endif %}</span>
+      </a></li>
+      {% endfor %}
+    </ol>
+  </details>
+  {% endif %}
   <article class="reader-main">
     <div class="reader-mode-tabs" role="group" aria-label="阅读模式">
       <button type="button" class="reader-mode-button{% if selected %} is-active{% endif %}" data-reader-mode="evidence" aria-pressed="{{ 'true' if selected else 'false' }}">证据模式</button>
@@ -50,12 +64,13 @@
       </div>
       <p class="reading-note">上下文按已保存篇章的自然段落显示；前后各展开一段，避免割裂语义。</p>
       {% else %}
-      <div class="empty-state"><h3>尚未选择证据</h3><p>点击右侧证据条目后，此处显示该引文所在段落及相邻段落。</p></div>
+      <div class="empty-state"><h3>尚未选择证据</h3><p>点击证据目录中的条目后，此处显示该引文所在段落及相邻段落。</p></div>
       {% endif %}
     </section>
 
     <section class="reader-panel" data-reader-panel="chapter" hidden aria-labelledby="chapter-mode-title">
       <div class="section-heading"><h2 id="chapter-mode-title">篇章正文</h2><p>按已保存版本逐字显示，共 {{ chapter.char_count }} 字</p></div>
+      {% if selected %}<p class="reader-return"><button type="button" data-reader-return="evidence">返回所选证据与解释</button></p>{% endif %}
       <div class="classic-text" lang="zh-Hant">
         {% for segment in segments %}{% if segment.marked %}<mark class="classic-mark{% if segment.selected %} is-selected{% endif %}"{% if segment.selected %} id="ev-{{ selected }}"{% endif %} title="{% for item in segment.links %}{{ item.category_label }}{% if item.person_id %} · {{ item.canonical_name }}{% endif %}{% if not loop.last %}；{% endif %}{% endfor %}">{{ segment.text }}</mark>{% else %}<span class="classic-run">{{ segment.text }}</span>{% endif %}{% endfor %}
       </div>
@@ -69,7 +84,7 @@
   </article>
 
   <aside class="reader-aside" aria-label="篇章证据索引">
-    <section>
+    <section class="reader-evidence-aside">
       <h2>本篇证据</h2>
       {% if chapter.evidence %}
       <ol class="reader-evidence-list">

@@ -19,6 +19,12 @@
       if (button.dataset.readerMode === 'chapter') history.replaceState(null, '', url.pathname + url.search);
     });
   });
+  document.querySelectorAll('[data-reader-return]').forEach((button) => {
+    button.addEventListener('click', () => {
+      activate(button.dataset.readerReturn);
+      document.getElementById('evidence-mode-title')?.scrollIntoView({block: 'start'});
+    });
+  });
   if (window.location.hash.startsWith('#ev-')) {
     activate('evidence');
     const target = document.querySelector(window.location.hash);
