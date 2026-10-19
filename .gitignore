@@ -7,6 +7,7 @@ pytest-of-*/
 data/*.db
 data/*.db-*
 data/*.sqlite*
+!data/guji-public.db
 data/external/
 data/ingestion/
 .env

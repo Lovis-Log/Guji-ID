@@ -271,7 +271,7 @@ guji-id/
 └── README.md
 ```
 
-正式库 `data/guji.db` 已加入.gitignore，交接须带正式数据快照及来源许可/审计，不能只克隆源码便声称有正式数据。完整实测环境见 `requirements-stage6-lock.txt`；旧锁文件保留为历史参考。当前已完成第七阶段：正式库含 500 位人物，并接入可追溯的古籍原文库与人物深度档案；实际覆盖和缺口以本页第七阶段说明及 `docs/stage7_verification.md` 为准。RapidFuzz、组合筛选、自动历史身份裁决、知识图谱、RAG、OCR、聊天和账号系统仍未实现。
+正式库 `data/guji.db` 已加入.gitignore，交接须带正式数据快照及来源许可/审计，不能只克隆源码便声称有正式数据。可随代码部署的只读快照为 `data/guji-public.db`，其规模、SHA-256、路径清理与许可说明见 [公共数据制品](docs/dataset-release.md)；部署时设置 `GUJI_DB_PATH=data/guji-public.db`。完整实测环境见 `requirements-stage6-lock.txt`；旧锁文件保留为历史参考。当前已完成第七阶段：正式库含 500 位人物，并接入可追溯的古籍原文库与人物深度档案；实际覆盖和缺口以本页第七阶段说明及 `docs/stage7_verification.md` 为准。RapidFuzz、组合筛选、自动历史身份裁决、知识图谱、RAG、OCR、聊天和账号系统仍未实现。
 
 实现时参考了 [FastAPI 模板文档](https://fastapi.tiangolo.com/advanced/templates/)、[FastAPI 测试文档](https://fastapi.tiangolo.com/tutorial/testing/) 与 [Python sqlite3 文档](https://docs.python.org/3/library/sqlite3.html)。
 
